@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
     <title>東京 2026</title>
 
     <style>
@@ -25,6 +25,7 @@
             --text-muted: #546e7a;
             --border: #edf2f7;
             --radius: 16px;
+          
         }
 
         /* ========================================
@@ -79,7 +80,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 4px solid var(--primary);
+            border-bottom: 2px solid var(--p-blue);
             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
             scrollbar-width: none;
         }
@@ -109,11 +110,7 @@
            內容容器佈局
            ========================================
         */
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
+       .container { max-width: 900px; margin: 15px auto; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 
         .page {
             display: none;
@@ -197,34 +194,12 @@
            表格設計 (嚴格遵守欄位要求)
            ========================================
         */
-        .table-wrap {
-            width: 100%;
-            overflow-x: auto;
-            margin: 20px 0;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
+ table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.85em; }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 850px;
-        }
+        table th, table td { border: 1px solid #eee; padding: 10px; text-align: left; }
 
-        table th {
-            background-color: #f1f7fa;
-            color: var(--primary-dark);
-            padding: 15px;
-            text-align: left;
-            font-size: 0.95rem;
-            border-bottom: 2px solid var(--primary-light);
-        }
-
-        table td {
-            padding: 15px;
-            border-bottom: 1px solid var(--border);
-            vertical-align: middle;
-        }
+        table th { background-color: var(--s-blue); color: var(--d-blue); }
+      .tag { background: var(--s-blue); color: var(--d-blue); padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold; margin-right: 5px; }
 
         /* ========================================
            功能性按鈕與標籤
@@ -313,34 +288,7 @@
     background-color: var(--primary-dark);
     transform: translateY(-5px); /* 滑鼠移上去會微浮動 */
 }
-      /* 當螢幕小於 768px 時執行的樣式 */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;      /* 寬度從固定改為佔滿螢幕 */
-        padding: 10px;    /* 減少邊距 */
-    }
-    
-    h1 {
-        font-size: 1.5rem; /* 標題縮小一點，避免換行太亂 */
-    }
 
-    /* 如果你有兩欄佈局（例如左圖右文），在手機改為上下堆疊 */
-    .flex-container {
-        flex-direction: column;
-    }
-
-    /* 讓表格可以左右滑動，不會擠壓內容 */
-    .table-container {
-        overflow-x: auto;
-    }
-}
-
-      table {
-    display: block;
-    width: 100%;
-    overflow-x: auto; /* 讓表格在窄螢幕可以左右滑動，而不影響整體版面 */
-    white-space: nowrap; /* 防止內容過度換行 */
-}
     </style>
 </head>
 <body>
@@ -360,7 +308,7 @@
     <button onclick="showPage('finance')">💰 預算費用清單</button>
 </nav>
   
-<div id="prepare" class="page">
+<div id="prepare" class="container">
     <div class="card">
         <h2>🎒 出發前最後檢查</h2>
         <div class="table-wrap">
