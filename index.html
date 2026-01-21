@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>東京 2026 櫻花終極導覽 - 完整內容版</title>
+    <title>東京 2026</title>
 
     <style>
         /* ========================================
@@ -283,14 +283,43 @@
             color: var(--text-muted);
             font-size: 0.9rem;
         }
+      /* ========================================
+   返回頂部按鈕樣式
+   ========================================
+*/
+.back-to-top {
+    position: fixed;
+    bottom: 30px;      /* 距離底部距離 */
+    right: 20px;       /* 距離右邊距離 */
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary); /* 使用你原本定義的藍色 */
+    color: white;
+    border-radius: 50%;
+    display: none;     /* 初始設定隱藏，滾動後才顯示 */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 2000;     /* 確保在最上層 */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.back-to-top:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-5px); /* 滑鼠移上去會微浮動 */
+}
 
     </style>
 </head>
 <body>
 
 <header>
-    <h1>TOKYO SAKURA 2026</h1>
-    <p>3/18 - 3/23 東京櫻花經典導覽 (正式完整版)</p>
+    <h1>2026 TOKYO</h1>
+    <p>3/18-3/23</p>
 </header>
 
 <nav class="main-nav" id="mainNav">
@@ -302,7 +331,6 @@
     <button onclick="showPage('family')">👵 長輩照顧細節</button>
     <button onclick="showPage('finance')">💰 預算費用清單</button>
 </nav>
-  <a href="#" class="back-to-top">⬆️</a>
   
 <div id="prepare" class="page">
     <div class="card">
@@ -861,7 +889,24 @@
         navigator.clipboard.writeText(text);
         alert('已複製到剪貼簿：' + text);
     }
-</script>
+  // 控制返回頂部按鈕的顯示與隱藏
+window.onscroll = function() {
+    const btn = document.getElementById("backToTop");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        btn.style.display = "flex";
+    } else {
+        btn.style.display = "none";
+    }
+};
 
+// 平滑滾動回頂部
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // 平滑滾動效果
+    });
+}
+</script>
+<button class="back-to-top" id="backToTop" onclick="scrollToTop()">TOP</button>
 </body>
 </html>
