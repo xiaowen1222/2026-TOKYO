@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>東京 2026</title>
 
     <style>
@@ -312,7 +313,34 @@
     background-color: var(--primary-dark);
     transform: translateY(-5px); /* 滑鼠移上去會微浮動 */
 }
+      /* 當螢幕小於 768px 時執行的樣式 */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;      /* 寬度從固定改為佔滿螢幕 */
+        padding: 10px;    /* 減少邊距 */
+    }
+    
+    h1 {
+        font-size: 1.5rem; /* 標題縮小一點，避免換行太亂 */
+    }
 
+    /* 如果你有兩欄佈局（例如左圖右文），在手機改為上下堆疊 */
+    .flex-container {
+        flex-direction: column;
+    }
+
+    /* 讓表格可以左右滑動，不會擠壓內容 */
+    .table-container {
+        overflow-x: auto;
+    }
+}
+
+      table {
+    display: block;
+    width: 100%;
+    overflow-x: auto; /* 讓表格在窄螢幕可以左右滑動，而不影響整體版面 */
+    white-space: nowrap; /* 防止內容過度換行 */
+}
     </style>
 </head>
 <body>
