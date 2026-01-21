@@ -1,346 +1,781 @@
 <!DOCTYPE html>
-
 <html lang="zh-TW">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>東京 六天五夜</title>
+    <title>東京 2026 櫻花終極導覽 - 完整內容版</title>
 
     <style>
-
-        :root { 
-
-            --p-blue: #b3e5fc; /* 嫩藍色 */
-
-            --s-blue: #e1f5fe; /* 極淺藍 */
-
-            --d-blue: #0288d1; /* 稍深藍 */
-
-            --bg: #f8fbfe; 
-
-            --google-blue: #4285F4; 
-
+        /* ========================================
+           核心樣式定義區塊 (CSS Variables)
+           ========================================
+        */
+        :root {
+            --primary: #0288d1;
+            --primary-light: #e1f5fe;
+            --primary-dark: #01579b;
+            --accent: #ff4081;
+            --success: #2e7d32;
+            --warning: #f57f17;
+            --danger: #d32f2f;
+            --bg: #f8fbfe;
+            --white: #ffffff;
+            --text-main: #2c3e50;
+            --text-muted: #546e7a;
+            --border: #edf2f7;
+            --radius: 16px;
         }
 
-        body { font-family: "Noto Serif TC", serif; line-height: 1.6; background: var(--bg); color: #333; margin: 0; padding-bottom: 50px; }
+        /* ========================================
+           基礎排版重置
+           ========================================
+        */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        header { background: var(--p-blue); color: #01579b; text-align: center; padding: 25px 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        body {
+            font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
+            line-height: 1.8;
+            background-color: var(--bg);
+            color: var(--text-main);
+            padding-bottom: 80px;
+        }
 
-        nav.main-nav { display: flex; flex-wrap: wrap; justify-content: center; background: white; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--p-blue); }
+        /* ========================================
+           頁首 (Header)
+           ========================================
+        */
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
 
-        nav.main-nav button { background: none; border: none; padding: 12px 10px; cursor: pointer; font-weight: bold; color: var(--d-blue); font-size: 0.85em; }
+        header h1 {
+            font-size: 2.4rem;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
 
-        nav.main-nav button.active { background: var(--p-blue); color: #01579b; }
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
 
-        .container { max-width: 900px; margin: 15px auto; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        /* ========================================
+           主要導航列 (Sticky Navigation)
+           ========================================
+        */
+        nav.main-nav {
+            display: flex;
+            overflow-x: auto;
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            scrollbar-width: none;
+        }
 
-        .page { display: none; } .page.active { display: block; }
+        nav.main-nav::-webkit-scrollbar {
+            display: none;
+        }
 
-        h2 { border-bottom: 2px solid var(--p-blue); padding-bottom: 5px; color: var(--d-blue); font-size: 1.2em; }
+        nav.main-nav button {
+            background: none;
+            border: none;
+            padding: 18px 25px;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1rem;
+            white-space: nowrap;
+            transition: 0.3s;
+        }
 
-        .sub-nav { display: flex; gap: 6px; margin: 15px 0; flex-wrap: wrap; }
+        nav.main-nav button.active {
+            background-color: var(--primary);
+            color: white;
+        }
 
-        .sub-btn { background: var(--s-blue); border: 1px solid var(--p-blue); color: var(--d-blue); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 0.8em; font-weight: bold; }
+        /* ========================================
+           內容容器佈局
+           ========================================
+        */
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
 
-        .sub-btn.active { background: var(--d-blue); color: white; border-color: var(--d-blue); }
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
 
-        .item-content { display: none; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid var(--s-blue); margin-top: 10px; }
+        .page.active {
+            display: block;
+        }
 
-        .item-content.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.85em; }
+        /* ========================================
+           卡片元件 (Cards)
+           ========================================
+        */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 35px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            border-top: 8px solid var(--primary);
+        }
 
-        table th, table td { border: 1px solid #eee; padding: 10px; text-align: left; }
+        h2 {
+            color: var(--primary-dark);
+            margin-bottom: 25px;
+            border-left: 6px solid var(--primary);
+            padding-left: 15px;
+        }
 
-        table th { background-color: var(--s-blue); color: var(--d-blue); }
+        h3 {
+            color: var(--primary);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed var(--primary-light);
+            padding-bottom: 8px;
+        }
 
-        .tag { background: var(--s-blue); color: var(--d-blue); padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold; margin-right: 5px; }
+        /* ========================================
+           子天數切換鈕
+           ========================================
+        */
+        .sub-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
 
-        .info-section { margin-top: 12px; padding: 10px; background: #fafafa; border-radius: 5px; border-left: 3px solid var(--p-blue); }
+        .sub-btn {
+            background-color: var(--white);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-        .info-label { font-weight: bold; color: var(--d-blue); display: block; margin-bottom: 2px; font-size: 0.9em; }
+        .sub-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
 
-        .route-card { border: 1px solid #ddd; padding: 10px; margin-bottom: 8px; border-radius: 5px; display: flex; align-items: center; }
+        .item-content {
+            display: none;
+        }
 
-        .route-circle { width: 25px; height: 25px; border-radius: 50%; color: white; display: inline-block; text-align: center; line-height: 25px; margin-right: 10px; font-weight: bold; font-size: 0.8em; }
+        .item-content.active {
+            display: block;
+        }
+
+        /* ========================================
+           表格設計 (嚴格遵守欄位要求)
+           ========================================
+        */
+        .table-wrap {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 850px;
+        }
+
+        table th {
+            background-color: #f1f7fa;
+            color: var(--primary-dark);
+            padding: 15px;
+            text-align: left;
+            font-size: 0.95rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+        }
+
+        /* ========================================
+           功能性按鈕與標籤
+           ========================================
+        */
+        .nav-btn {
+            display: inline-block;
+            background-color: #4285F4;
+            color: white !important;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .nav-btn:hover {
+            background-color: #3367d6;
+        }
+
+        .status-tag {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .go { background-color: #e3f2fd; color: #1976d2; }
+        .back { background-color: #f3e5f5; color: #7b1fa2; }
+
+        .copy-box {
+            background-color: #fffde7;
+            border: 2px dashed #fbc02d;
+            padding: 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            margin: 10px 0;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        .info-box {
+            background-color: #f9fbfd;
+            border-left: 6px solid var(--primary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background-color: #f1f5f8;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
 
     </style>
-
 </head>
-
 <body>
 
-
-
 <header>
-
-    <h1>TOKYO 2026 🇯🇵🌸</h1>
-
-    <p>3/18 - 3/23 完整行程導航</p>
-
+    <h1>TOKYO SAKURA 2026</h1>
+    <p>3/18 - 3/23 東京櫻花經典導覽 (正式完整版)</p>
 </header>
 
-
-
 <nav class="main-nav" id="mainNav">
-
-    <button onclick="showPage('days')" class="active">每日行程</button>
-
-    <button onclick="showPage('metro')">地鐵路線</button>
-
-    <button onclick="showPage('finance')">費用統計</button>
-
-    <button onclick="showPage('safety')">緊急安全</button>
-
-    <button onclick="showPage('family')">旅行TIPS</button>
-
+    <button onclick="showPage('prepare')">🎒 行前準備</button>
+    <button onclick="showPage('days')" class="active">📅 每日行程表</button>
+    <button onclick="showPage('stay')">🏠 住宿與導航</button>
+    <button onclick="showPage('metro')">🚇 地鐵出口指南</button>
+    <button onclick="showPage('safety')">🚨 緊急安全醫療</button>
+    <button onclick="showPage('family')">👵 長輩照顧細節</button>
+    <button onclick="showPage('finance')">💰 預算費用清單</button>
 </nav>
-
-
-
+  <a href="#" class="back-to-top">⬆️</a>
+  
+<div id="prepare" class="page">
+    <div class="card">
+        <h2>🎒 出發前最後檢查</h2>
+        <div class="table-wrap">
+            <table>
+                <tr><th>項目</th><th>說明</th><th>狀態</th></tr>
+                <tr><td><b>Visit Japan Web</b></td><td>完成入境審查與海關申報 QR Code 截圖</td><td>⬜</td></tr>
+                <tr><td><b>網卡/WiFi</b></td><td>確認漫遊開啟或實體卡已放進包包</td><td>⬜</td></tr>
+                <tr><td><b>換匯/信用卡</b></td><td>準備少量日幣現金 (部分小店不收卡)</td><td>⬜</td></tr>
+                <tr><td><b>長輩常備藥</b></td><td>血壓藥、感冒藥、腸胃藥 (隨身攜帶)</td><td>⬜</td></tr>
+                <tr><td><b>Suica/Pasmo</b></td><td>iPhone 加值完成或實體卡確認</td><td>⬜</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+  
 <div class="container">
 
-    
-
     <div id="days" class="page active">
-
-        <h2>🗓️ 詳細行程表</h2>
-
         <div class="sub-nav">
-
-            <button class="sub-btn active" onclick="showSub('d1', this, 'days')">D1 阿美橫町</button>
-
-            <button class="sub-btn" onclick="showSub('d2', this, 'days')">D2 淺草/築地</button>
-
-            <button class="sub-btn" onclick="showSub('d3', this, 'days')">D3 明治/台場</button>
-
-            <button class="sub-btn" onclick="showSub('d4', this, 'days')">D4 鎌倉/逗子</button>
-
-            <button class="sub-btn" onclick="showSub('d5', this, 'days')">D5 高尾/川越</button>
-
-            <button class="sub-btn" onclick="showSub('d6', this, 'days')">D6 歸途</button>
-
+            <button class="sub-btn active" onclick="showSub('d1', this, 'days')">D1 (3/18)</button>
+            <button class="sub-btn" onclick="showSub('d2', this, 'days')">D2 (3/19)</button>
+            <button class="sub-btn" onclick="showSub('d3', this, 'days')">D3 (3/20)</button>
+            <button class="sub-btn" onclick="showSub('d4', this, 'days')">D4 (3/21)</button>
+            <button class="sub-btn" onclick="showSub('d5', this, 'days')">D5 (3/22)</button>
+            <button class="sub-btn" onclick="showSub('d6', this, 'days')">D6 (3/23)</button>
         </div>
-
-
 
         <div id="d1" class="item-content active">
-
-            <p><span class="tag">晴 | 6-12°C</span> 抵達東京</p>
-
-            <table>
-
-                <tr><th>時間</th><th>行程地標</th><th>交通</th><th>出口</th><th>預算(円)</th></tr>
-
-                <tr><td>17:42</td><td>成田→Airbnb</td><td>特急列車</td><td>A4出口</td><td>1,200</td></tr>
-
-                <tr><td>19:30</td><td>阿美橫町逛街</td><td>步行</td><td>末廣町A4</td><td>2,000</td></tr>
-
-            </table>
-
-            <div class="info-section"><span class="info-label">🍴 必吃美食</span>迴轉壽司、濃郁系拉麵、燒肉串。</div>
-
-            <div class="info-section"><span class="info-label">🛍️ 必買伴手禮</span>藥妝、3C電子產品、零食乾貨。</div>
-
-            <div class="info-section"><span class="info-label">✨ 必做體驗</span>感受下町夜晚購物氛圍。</div>
-
+            <div class="card">
+                <h2>Day 1：抵達與阿美橫町</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>時間</th>
+                                <th>景點項目</th>
+                                <th>交通動線關鍵</th>
+                                <th>備註</th>
+                                <th>導航</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>16:50</td>
+                                <td>成田機場 T3</td>
+                                <td>抵達與入境</td>
+                                <td>準備好 VJW QR Code</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>17:42</td>
+                                <td>成田機場站</td>
+                                <td>Access 特急往羽田方向</td>
+                                <td>不需轉乘直達藏前</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>18:45</td>
+                                <td>民宿入住</td>
+                                <td><span class="status-tag go">出發</span> 藏前站 A3 出口</td>
+                                <td>Yko Bldg. 卸下行李</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>19:30</td>
+                                <td>阿美橫町</td>
+                                <td>都營大江戶線至上野御徒町</td>
+                                <td>志村商店與藥妝採買</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>21:30</td>
+                                <td>返回民宿</td>
+                                <td><span class="status-tag back">回程</span> 大江戶線回藏前</td>
+                                <td>準備明天櫻花行程</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍民宿</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-
-
 
         <div id="d2" class="item-content">
-
-            <p><span class="tag">多雲 | 7-14°C</span> 經典地標</p>
-
-            <table>
-
-                <tr><th>時間</th><th>行程地標</th><th>交通</th><th>出口</th><th>預算(円)</th></tr>
-
-                <tr><td>09:00</td><td>淺草寺雷門</td><td>淺草線</td><td>1號</td><td>170</td></tr>
-
-                <tr><td>11:00</td><td>築地市場</td><td>日比谷線</td><td>4號</td><td>200</td></tr>
-
-                <tr><td>14:00</td><td>晴空塔</td><td>半藏門線</td><td>B3</td><td>2,300</td></tr>
-
-                <tr><td>18:00</td><td>澀谷</td><td>銀座線</td><td>地面出口</td><td>160</td></tr>
-
-            </table>
-
-            <div class="info-section"><span class="info-label">🍴 必吃美食</span>築地海鮮丼、人形燒、淺草大和屋、吉野家。</div>
-
-            <div class="info-section"><span class="info-label">🛍️ 必買伴手禮</span>晴空塔豹紋香蕉蛋糕、雷門御守。</div>
-
-            <div class="info-section"><span class="info-label">✨ 必做體驗</span>雷門合影、晴空塔俯瞰夜櫻。</div>
-
+            <div class="card">
+                <h2>Day 2：上野櫻花與經典淺草</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>時間</th>
+                                <th>景點項目</th>
+                                <th>交通動線關鍵</th>
+                                <th>備註</th>
+                                <th>導航</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>08:30</td>
+                                <td>民宿出發</td>
+                                <td><span class="status-tag go">出發</span> 步行至藏前站</td>
+                                <td>今日行程豐富，建議準時</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>09:00</td>
+                                <td><b>上野公園</b></td>
+                                <td>都營大江戶線轉上野</td>
+                                <td>櫻花隧道與不忍池</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>11:30</td>
+                                <td>淺草雷門</td>
+                                <td>銀座線直達淺草</td>
+                                <td>仲見世通吃銅鑼燒</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>14:30</td>
+                                <td>晴空塔</td>
+                                <td>東武鐵道或步行</td>
+                                <td>購物與景觀台展望</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>19:00</td>
+                                <td>返回民宿</td>
+                                <td><span class="status-tag back">回程</span> 淺草線回藏前</td>
+                                <td>晚餐建議：淺草蕎麥麵</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍民宿</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-
-
 
         <div id="d3" class="item-content">
-
-            <p><span class="tag">晴 | 8-15°C</span> 流行與科技</p>
-
-            <table>
-
-                <tr><th>時間</th><th>行程地標</th><th>交通</th><th>出口</th><th>預算(円)</th></tr>
-
-                <tr><td>08:30</td><td>明治神宮</td><td>千代田線</td><td>原宿3號</td><td>190</td></tr>
-
-                <tr><td>11:00</td><td>表參道商圈</td><td>步行</td><td>-</td><td>1,500</td></tr>
-
-                <tr><td>14:30</td><td>水陸巴士</td><td>百合海鷗號</td><td>台場維納斯</td><td>3,500</td></tr>
-
-            </table>
-
-            <div class="info-section"><span class="info-label">🍴 必吃美食</span>竹下通可麗餅、台場拉麵橫丁。</div>
-
-            <div class="info-section"><span class="info-label">🛍️ 必買伴手禮</span>設計師服飾、台場限定寶可夢。</div>
-
-            <div class="info-section"><span class="info-label">✨ 必做體驗</span>搭乘水陸巴士看彩虹大橋、女神像拍夕陽。</div>
-
+            <div class="card">
+                <h2>Day 3：新宿櫻花與台場夜色</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>時間</th>
+                                <th>景點項目</th>
+                                <th>交通動線關鍵</th>
+                                <th>備註</th>
+                                <th>導航</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>09:00</td>
+                                <td>民宿出發</td>
+                                <td><span class="status-tag go">出發</span> 大江戶線直達</td>
+                                <td>新宿方向班次</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>09:40</td>
+                                <td><b>新宿御苑</b></td>
+                                <td>新宿御苑前站下車</td>
+                                <td>櫻花野餐，需先預約</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>14:00</td>
+                                <td>台場海濱</td>
+                                <td>大江戶線轉百合海鷗線</td>
+                                <td>自由女神像拍照</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>15:30</td>
+                                <td>水陸巴士 KABA</td>
+                                <td>台場維納斯堡旁</td>
+                                <td>刺激的水面衝刺體驗</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>19:00</td>
+                                <td>返回民宿</td>
+                                <td><span class="status-tag back">回程</span> 轉接回藏前</td>
+                                <td>大江戶線較快</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍民宿</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
+<div id="d4" class="item-content">
+            <div class="card">
+                <h2>Day 4：招福貓、櫻花河與湘南之旅</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>時間</th>
+                                <th>景點項目</th>
+                                <th>交通動線關鍵</th>
+                                <th>備註</th>
+                                <th>導航</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>07:30</td>
+                                <td>民宿出發</td>
+                                <td><span class="status-tag go">出發</span> 提早出發避人潮</td>
+                                <td>今日行程較遠</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>08:15</td>
+                                <td><b>豪德寺</b></td>
+                                <td>新宿轉小田急電鐵</td>
+                                <td>上千隻招福貓奇觀</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>10:30</td>
+                                <td><b>千鳥之淵</b></td>
+                                <td>地鐵九段下站</td>
+                                <td>護城河櫻花極致美景</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>13:30</td>
+                                <td><b>鎌倉大佛</b></td>
+                                <td>JR 橫須賀線直達</td>
+                                <td>江之電體驗</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>17:30</td>
+                                <td><b>逗子海岸</b>夕陽</td><td>JR 逗子站</td><td>看富士山與海面餘暉</td><td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>20:00</td>
+                                <td>返回民宿</td>
+                                <td><span class="status-tag back">回程</span> JR 橫須賀線回</td>
+                                <td>回程時間約 1 小時</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍民宿</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
+                <div class="info-box" style="background-color: #e3f2fd; border-left-color: #2196f3;">
+                    <b>💡 湘南省力密技：</b><br>
+                    從新宿搭乘 <b>JR 湘南新宿線</b> 時，請務必找「大船/小田原」方向，並盡量選靠右側座位，進入鎌倉區域後可遠眺海岸線。
+                </div>
 
-        <div id="d4" class="item-content">
+                <div class="table-wrap">
+                    <h3 style="border:none; margin-top:0;">📍 站點必看與休息建議</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>站名</th>
+                                <th>必看重點</th>
+                                <th>步行計畫</th>
+                                <th>長輩休息點</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><b>九段下</b></td>
+                                <td>千鳥之淵櫻花隧道</td>
+                                <td>2號出口出站即達。</td>
+                                <td>北之丸公園內長椅</td>
+                            </tr>
+                            <tr>
+                                <td><b>豪德寺</b></td>
+                                <td>招福貓發源地</td>
+                                <td>沿商店街平坦路面步行。</td>
+                                <td>寺內休憩所</td>
+                            </tr>
+                            <tr>
+                                <td><b>長谷站</b></td>
+                                <td>鎌倉大佛 (高德院)</td>
+                                <td>出站步行 7 分鐘，路徑直覺。</td>
+                                <td>寺外甘味處(紅豆湯)</td>
+                            </tr>
+                            <tr>
+                                <td><b>鎌倉高校前</b></td>
+                                <td>灌籃高手平交道</td>
+                                <td>拍完照即回月台。</td>
+                                <td>江之電月台長椅</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-            <p><span class="tag">晴 | 10-16°C</span> 海邊古都</p>
-
-            <table>
-
-                <tr><th>時間</th><th>行程地標</th><th>交通</th><th>出口</th><th>預算(円)</th></tr>
-
-                <tr><td>08:00</td><td>北鎌倉圓覺寺</td><td>JR橫須賀線</td><td>-</td><td>890</td></tr>
-
-                <tr><td>14:00</td><td>鎌倉大佛</td><td>江之電</td><td>長谷站</td><td>150</td></tr>
-
-                <tr><td>17:30</td><td>逗子海岸夕陽</td><td>JR/步行</td><td>逗子葉山</td><td>200</td></tr>
-
-            </table>
-
-            <div class="info-section"><span class="info-label">🍴 必吃美食</span>生魩仔魚丼、鎌倉蕎麥麵。</div>
-
-            <div class="info-section"><span class="info-label">🛍️ 必買伴手禮</span>豐島屋鳩餅、長谷寺錢龜。</div>
-
-            <div class="info-section"><span class="info-label">✨ 必做體驗</span>搭江之電沿海穿梭、逗子沙灘看夕陽富士。</div>
-
+                <h3>📅 D4 詳細交通銜接時間參考</h3>
+                <ul style="list-style-type: none; padding-left: 10px; font-size: 0.95rem;">
+                    <li style="margin-bottom: 10px;">🕒 <b>08:30</b> 藏前 → 新宿 (大江戶線，約 30 分)</li>
+                    <li style="margin-bottom: 10px;">🕒 <b>09:15</b> 新宿 → 豪德寺 (小田急線，各站停車)</li>
+                    <li style="margin-bottom: 10px;">🕒 <b>11:00</b> 豪德寺 → 九段下 (地鐵轉乘，約 25 分)</li>
+                    <li style="margin-bottom: 10px;">🕒 <b>13:00</b> 東京/品川 → 鎌倉 (JR 橫須賀線，最快 50 分)</li>
+                </ul>
+                </div>
         </div>
-
-
+      
 
         <div id="d5" class="item-content">
-
-            <p><span class="tag">多雲 | 5-12°C</span> 櫻花與老街</p>
-
-            <table>
-
-                <tr><th>時間</th><th>行程地標</th><th>交通</th><th>出口</th><th>預算(円)</th></tr>
-
-                <tr><td>07:00</td><td>高尾山賞櫻</td><td>京王線</td><td>高尾山口</td><td>2,500</td></tr>
-
-                <tr><td>13:30</td><td>川越時之鐘</td><td>JR/東武線</td><td>川越站</td><td>1,500</td></tr>
-
-            </table>
-
-            <div class="info-section"><span class="info-label">🍴 必吃美食</span>川越鰻魚飯、地瓜霜淇淋。</div>
-
-            <div class="info-section"><span class="info-label">🛍️ 必買伴手禮</span>川越地瓜乾、冰川神社姻緣石。</div>
-
-            <div class="info-section"><span class="info-label">✨ 必做體驗</span>搭乘高尾山纜車、漫步川越老街。</div>
-
+            <div class="card">
+                <h2>Day 5：高尾山自然與川越老街</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>時間</th>
+                                <th>景點項目</th>
+                                <th>交通動線關鍵</th>
+                                <th>備註</th>
+                                <th>導航</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>07:00</td>
+                                <td>民宿出發</td>
+                                <td><span class="status-tag go">出發</span> 京王線方向</td>
+                                <td>週日登山人潮多</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>08:30</td>
+                                <td>高尾山</td>
+                                <td>京王線至高尾山口</td>
+                                <td>搭乘最陡登山纜車</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>14:00</td>
+                                <td>川越老街</td>
+                                <td>JR 埼京線直通川越</td>
+                                <td>一番街時之鐘</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                            <tr>
+                                <td>19:00</td>
+                                <td>返回民宿</td>
+                                <td><span class="status-tag back">回程</span> 東武鐵道回池袋轉</td>
+                                <td>最後一晚採購時間</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍民宿</a></td>
+                            </tr>
+                          
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-
-
 
         <div id="d6" class="item-content">
-
-            <p><span class="tag">晴 | 8-15°C</span> 回程採買</p>
-
-            <table>
-
-                <tr><th>時間</th><th>行程地標</th><th>交通</th><th>出口</th><th>預算(円)</th></tr>
-
-                <tr><td>09:30</td><td>晴空塔商城</td><td>步行</td><td>B3出口</td><td>3,000</td></tr>
-
-                <tr><td>12:00</td><td>成田機場</td><td>N'EX特急</td><td>-</td><td>3,000</td></tr>
-
-            </table>
-
-            <div class="info-section"><span class="info-label">🍴 必吃美食</span>機場現炸薯條、拉麵。</div>
-
-            <div class="info-section"><span class="info-label">🛍️ 必買伴手禮</span>Royce、白色戀人、文明堂蜂蜜蛋糕。</div>
-
-            <div class="info-section"><span class="info-label">✨ 必做體驗</span>免稅店最後衝刺採買。</div>
-
+            <div class="card">
+                <h2>Day 6：最後補貨與賦歸</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>時間</th>
+                                <th>景點項目</th>
+                                <th>交通動線關鍵</th>
+                                <th>備註</th>
+                                <th>導航</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>09:00</td>
+                                <td>民宿退房</td>
+                                <td><span class="status-tag go">出發</span> 行李寄存車站</td>
+                                <td>感謝房東招待</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>10:00</td>
+                                <td>上野/晴空塔</td>
+                                <td>地鐵短途</td>
+                                <td>伴手禮與零食補齊</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>12:30</td>
+                                <td>成田機場 Access</td>
+                                <td>京成 Access 特急</td>
+                                <td>前往 T3 櫃台報到</td>
+                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-
     </div>
 
-
+    <div id="stay" class="page">
+        <div class="card">
+            <h2>🏠 住宿地點：Yko Bldg.</h2>
+            <div class="info-box">
+                <b>地址：</b>〒111-0054 東京都台東区鳥越1丁目5-2
+                <p style="margin-top: 10px;">
+                    <a href="https://www.google.com/maps" class="nav-btn" style="padding: 15px;">啟動 Google Maps 一鍵導航</a>
+                </p>
+            </div>
+            <h3>🔑 通訊密碼</h3>
+            <div class="copy-box" onclick="copyText('Guest')">WiFi 名稱：Guest</div>
+            <div class="copy-box" onclick="copyText('Souken20251')">WiFi 密碼：Souken20251</div>
+          <div class="card">
+    <h2>🍴 藏前・淺草精選美食 (長輩友善)</h2>
+    <div class="table-wrap">
+        <table>
+            <tr>
+                <th>類別</th>
+                <th>店名</th>
+                <th>推薦理由</th>
+                <th>步行距離</th>
+            </tr>
+            <tr>
+                <td><b>百年鰻魚</b></td>
+                <td>前川 (Maekawa)</td>
+                <td>隅田川第一排景觀，鰻魚入口即化，適合第一晚慶祝。</td>
+                <td>步行 8 min</td>
+            </tr>
+            <tr>
+                <td><b>溫暖蕎麥</b></td>
+                <td>並木藪蕎麥</td>
+                <td>淺草三大蕎麥麵之首，口感清爽，長輩胃部無負擔。</td>
+                <td>地鐵 1 站</td>
+            </tr>
+            <tr>
+                <td><b>職人咖啡</b></td>
+                <td>Coffee Wrights</td>
+                <td>藏前是東京咖啡激戰區，這間環境安靜，推薦甜甜圈。</td>
+                <td>步行 4 min</td>
+            </tr>
+            <tr>
+                <td><b>炸豬排</b></td>
+                <td>すぎ田 (Sugita)</td>
+                <td>米其林推薦，開放式廚房乾淨衛生，豬排嫩度極高。</td>
+                <td>步行 6 min</td>
+            </tr>
+        </table>
+    </div>
+</div>
+        </div>
+    </div>
 
     <div id="metro" class="page">
-
-        <h2>🚇 本次行程地鐵路線</h2>
-
-        
-
-        <div class="route-card"><span class="route-circle" style="background:#ff9500;">A</span>都營淺草線：押上、淺草、東銀座</div>
-
-        <div class="route-card"><span class="route-circle" style="background:#9b59b6;">Z</span>半藏門線：押上、表參道、澀谷</div>
-
-        <div class="route-card"><span class="route-circle" style="background:#009944;">G</span>銀座線：淺草、上野、銀座、澀谷</div>
-
-        <div class="route-card"><span class="route-circle" style="background:#b0b0b0;">JR</span>橫須賀線：往鎌倉</div>
-
-    </div>
-
-
-
-    <div id="finance" class="page">
-
-        <h2>💰 費用概覽 (1 JPY ≈ 0.22 TWD)</h2>
-
-        <table>
-
-            <tr><th>天數</th><th>預估費用 (円)</th><th>折合台幣 (NTD)</th></tr>
-
-            <tr><td>D1</td><td>3,200</td><td>$704</td></tr>
-
-            <tr><td>D2</td><td>2,830</td><td>$623</td></tr>
-
-            <tr><td>D3</td><td>5,190</td><td>$1,142</td></tr>
-
-            <tr><td>D4</td><td>1,540</td><td>$339</td></tr>
-
-            <tr><td>D5</td><td>4,000</td><td>$880</td></tr>
-
-            <tr><td>D6</td><td>6,000</td><td>$1,320</td></tr>
-
-            <tr style="font-weight:bold; color:var(--d-blue);"><td>總計</td><td>22,760</td><td>$5,008</td></tr>
-
-        </table>
-
-        <div class="info-section">
-
-            <span class="info-label">💡 省錢Tips</span>
-
-            1. Suica儲值 4,000円 最划算。<br>
-
-            2. Airbnb 多人分攤大幅省錢。
-
+        <div class="card">
+            <h2>🚇 重要車站出口指南</h2>
+            <table>
+                <tr><th>目的地</th><th>關鍵車站</th><th>建議出口</th></tr>
+                <tr><td>民宿</td><td>藏前站</td><td>A3 出口 (附電梯)</td></tr>
+                <tr><td>阿美橫町</td><td>末廣町站</td><td>A4 出口</td></tr>
+                <tr><td>淺草寺</td><td>淺草站</td><td>1 號出口</td></tr>
+                <tr><td>晴空塔</td><td>押上站</td><td>B3 出口</td></tr>
+                <tr><td>千鳥之淵</td><td>九段下站</td><td>2 號出口</td></tr>
+            </table>
         </div>
-
     </div>
-
-
 
     <div id="safety" class="page">
-
-        <h2>🚨 緊急聯絡與安全表格</h2>
+        <div class="card">
+            <h2 style="color: var(--danger);">🚨 緊急應急</h2>
 
         <table>
 
@@ -359,63 +794,74 @@
             <tr><td>Airbnb 客服</td><td>APP 內聯繫</td><td>住房問題聯繫</td></tr>
 
         </table>
-
+            <h3>🏥 友善醫院</h3>
+            <p>聖路加國際醫院 (築地)：03-3541-5151</p>
+            <h3>📄 護照遺失</h3>
+            <p>前往台北駐日經濟文化代表處 (白金台站)。</p>
+        </div>
     </div>
-
-
 
     <div id="family" class="page">
-
-        <h2>👵 旅行溫馨提示</h2>
-
-        <div class="info-section"><span class="info-label">保護膝蓋</span>高尾山搭纜車，鎌倉坐江之電。</div>
-
-        <div class="info-section"><span class="info-label">行李寄放</span>善用地鐵站 Coin Locker (600-1,000円)。</div>
-
-        <div class="info-section"><span class="info-label">必裝 APP</span>Google Maps、Y!乘換案內、Suica、Google翻譯。</div>
-
+        <div class="card">
+            
+               <div class="info-box">
+    <b>🌡️ 穿衣戰略：洋蔥式穿法</b><br>
+    3月底雖然有櫻花，但風大時很冷。建議：<br>
+    1. 內層：發熱衣/排汗衫<br>
+    2. 中層：刷毛連帽衫或輕便毛衣<br>
+    3. 外層：<b>防風防潑水外套</b> (非常重要，室內暖氣強，需方便脫下)<br>
+    4. 配件：圍巾 (保護氣管，長輩必備)
+</div>
+                  <div class="info-box">      
+                <li>晚上回民宿使用「休足時間」貼布。</li>
+                <li>江之電行程請讓長輩坐在海側窗邊。</li>
+            </div>
+            </ul>
+        </div>
     </div>
 
-
+    <div id="finance" class="page">
+        <div class="card">
+            <h2>💰 預算總計 (每人份)</h2>
+            <table>
+                <tr><td>交通總計</td><td>15,000円</td></tr>
+                <tr><td>餐飲/門票</td><td>45,000円</td></tr>
+                <tr style="font-weight: bold; color: var(--success);"><td>總估計</td><td>60,000円 (不含購物)</td></tr>
+            </table>
+        </div>
+    </div>
 
 </div>
 
-
+<footer>
+    <p>© 2026 Tokyo Sakura Journey - 行程手冊 V6.0</p>
+</footer>
 
 <script>
-
+    // 主分頁控制
     function showPage(pageId) {
-
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-
         document.querySelectorAll('#mainNav button').forEach(b => b.classList.remove('active'));
-
         document.getElementById(pageId).classList.add('active');
-
         event.currentTarget.classList.add('active');
-
         window.scrollTo(0, 0);
-
     }
 
+    // 子分頁控制
     function showSub(subId, btn, parentId) {
-
         const parent = document.getElementById(parentId);
-
-        parent.querySelectorAll('.item-content').forEach(l => l.classList.remove('active'));
-
+        parent.querySelectorAll('.item-content').forEach(c => c.classList.remove('active'));
         parent.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
-
         document.getElementById(subId).classList.add('active');
-
         btn.classList.add('active');
-
     }
 
+    // 文字複製
+    function copyText(text) {
+        navigator.clipboard.writeText(text);
+        alert('已複製到剪貼簿：' + text);
+    }
 </script>
 
-
-
 </body>
-
 </html>
