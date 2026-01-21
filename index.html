@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>東京 六天五夜</title>
+
+    <style>
+
+        :root { 
+
+            --p-blue: #b3e5fc; /* 嫩藍色 */
+
+            --s-blue: #e1f5fe; /* 極淺藍 */
+
+            --d-blue: #0288d1; /* 稍深藍 */
+
+            --bg: #f8fbfe; 
+
+            --google-blue: #4285F4; 
+
+        }
+
+        body { font-family: "Noto Serif TC", serif; line-height: 1.6; background: var(--bg); color: #333; margin: 0; padding-bottom: 50px; }
+
+        header { background: var(--p-blue); color: #01579b; text-align: center; padding: 25px 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+
+        nav.main-nav { display: flex; flex-wrap: wrap; justify-content: center; background: white; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--p-blue); }
+
+        nav.main-nav button { background: none; border: none; padding: 12px 10px; cursor: pointer; font-weight: bold; color: var(--d-blue); font-size: 0.85em; }
+
+        nav.main-nav button.active { background: var(--p-blue); color: #01579b; }
+
+        .container { max-width: 900px; margin: 15px auto; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+
+        .page { display: none; } .page.active { display: block; }
+
+        h2 { border-bottom: 2px solid var(--p-blue); padding-bottom: 5px; color: var(--d-blue); font-size: 1.2em; }
+
+        .sub-nav { display: flex; gap: 6px; margin: 15px 0; flex-wrap: wrap; }
+
+        .sub-btn { background: var(--s-blue); border: 1px solid var(--p-blue); color: var(--d-blue); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 0.8em; font-weight: bold; }
+
+        .sub-btn.active { background: var(--d-blue); color: white; border-color: var(--d-blue); }
+
+        .item-content { display: none; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid var(--s-blue); margin-top: 10px; }
+
+        .item-content.active { display: block; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.85em; }
+
+        table th, table td { border: 1px solid #eee; padding: 10px; text-align: left; }
+
+        table th { background-color: var(--s-blue); color: var(--d-blue); }
+
+        .tag { background: var(--s-blue); color: var(--d-blue); padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold; margin-right: 5px; }
+
+        .info-section { margin-top: 12px; padding: 10px; background: #fafafa; border-radius: 5px; border-left: 3px solid var(--p-blue); }
+
+        .info-label { font-weight: bold; color: var(--d-blue); display: block; margin-bottom: 2px; font-size: 0.9em; }
+
+        .route-card { border: 1px solid #ddd; padding: 10px; margin-bottom: 8px; border-radius: 5px; display: flex; align-items: center; }
+
+        .route-circle { width: 25px; height: 25px; border-radius: 50%; color: white; display: inline-block; text-align: center; line-height: 25px; margin-right: 10px; font-weight: bold; font-size: 0.8em; }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+<header>
+
+    <h1>TOKYO 2026 🇯🇵🌸</h1>
+
+    <p>3/18 - 3/23 完整行程導航</p>
+
+</header>
+
+
+
+<nav class="main-nav" id="mainNav">
+
+    <button onclick="showPage('days')" class="active">每日行程</button>
+
+    <button onclick="showPage('metro')">地鐵路線</button>
+
+    <button onclick="showPage('finance')">費用統計</button>
+
+    <button onclick="showPage('safety')">緊急安全</button>
+
+    <button onclick="showPage('family')">旅行TIPS</button>
+
+</nav>
+
+
+
+<div class="container">
+
+    
+
+    <div id="days" class="page active">
+
+        <h2>🗓️ 詳細行程表</h2>
+
+        <div class="sub-nav">
+
+            <button class="sub-btn active" onclick="showSub('d1', this, 'days')">D1 阿美橫町</button>
+
+            <button class="sub-btn" onclick="showSub('d2', this, 'days')">D2 淺草/築地</button>
+
+            <button class="sub-btn" onclick="showSub('d3', this, 'days')">D3 明治/台場</button>
+
+            <button class="sub-btn" onclick="showSub('d4', this, 'days')">D4 鎌倉/逗子</button>
+
+            <button class="sub-btn" onclick="showSub('d5', this, 'days')">D5 高尾/川越</button>
+
+            <button class="sub-btn" onclick="showSub('d6', this, 'days')">D6 歸途</button>
+
+        </div>
+
+
+
+        <div id="d1" class="item-content active">
+
+            <p><span class="tag">晴 | 6-12°C</span> 抵達東京</p>
+
+            <table>
+
+                <tr><th>時間</th><th>行程地標</th><th>交通</th><th>出口</th><th>預算(円)</th></tr>
+
+                <tr><td>17:42</td><td>成田→Airbnb</td><td>特急列車</td><td>A4出口</td><td>1,200</td></tr>
+
+                <tr><td>19:30</td><td>阿美橫町逛街</td><td>步行</td><td>末廣町A4</td><td>2,000</td></tr>
+
+            </table>
+
+            <div class="info-section"><span class="info-label">🍴 必吃美食</span>迴轉壽司、濃郁系拉麵、燒肉串。</div>
+
+            <div class="info-section"><span class="info-label">🛍️ 必買伴手禮</span>藥妝、3C電子產品、零食乾貨。</div>
+
+            <div class="info-section"><span class="info-label">✨ 必做體驗</span>感受下町夜晚購物氛圍。</div>
+
+        </div>
+
+
+
+        <div id="d2" class="item-content">
+
+            <p><span class="tag">多雲 | 7-14°C</span> 經典地標</p>
+
+            <table>
+
+                <tr><th>時間</th><th>行程地標</th><th>交通</th><th>出口</th><th>預算(円)</th></tr>
+
+                <tr><td>09:00</td><td>淺草寺雷門</td><td>淺草線</td><td>1號</td><td>170</td></tr>
+
+                <tr><td>11:00</td><td>築地市場</td><td>日比谷線</td><td>4號</td><td>200</td></tr>
+
+                <tr><td>14:00</td><td>晴空塔</td><td>半藏門線</td><td>B3</td><td>2,300</td></tr>
+
+                <tr><td>18:00</td><td>澀谷</td><td>銀座線</td><td>地面出口</td><td>160</td></tr>
+
+            </table>
+
+            <div class="info-section"><span class="info-label">🍴 必吃美食</span>築地海鮮丼、人形燒、淺草大和屋、吉野家。</div>
+
+            <div class="info-section"><span class="info-label">🛍️ 必買伴手禮</span>晴空塔豹紋香蕉蛋糕、雷門御守。</div>
+
+            <div class="info-section"><span class="info-label">✨ 必做體驗</span>雷門合影、晴空塔俯瞰夜櫻。</div>
+
+        </div>
+
+
+
+        <div id="d3" class="item-content">
+
+            <p><span class="tag">晴 | 8-15°C</span> 流行與科技</p>
+
+            <table>
+
+                <tr><th>時間</th><th>行程地標</th><th>交通</th><th>出口</th><th>預算(円)</th></tr>
+
+                <tr><td>08:30</td><td>明治神宮</td><td>千代田線</td><td>原宿3號</td><td>190</td></tr>
+
+                <tr><td>11:00</td><td>表參道商圈</td><td>步行</td><td>-</td><td>1,500</td></tr>
+
+                <tr><td>14:30</td><td>水陸巴士</td><td>百合海鷗號</td><td>台場維納斯</td><td>3,500</td></tr>
+
+            </table>
+
+            <div class="info-section"><span class="info-label">🍴 必吃美食</span>竹下通可麗餅、台場拉麵橫丁。</div>
+
+            <div class="info-section"><span class="info-label">🛍️ 必買伴手禮</span>設計師服飾、台場限定寶可夢。</div>
+
+            <div class="info-section"><span class="info-label">✨ 必做體驗</span>搭乘水陸巴士看彩虹大橋、女神像拍夕陽。</div>
+
+        </div>
+
+
+
+        <div id="d4" class="item-content">
+
+            <p><span class="tag">晴 | 10-16°C</span> 海邊古都</p>
+
+            <table>
+
+                <tr><th>時間</th><th>行程地標</th><th>交通</th><th>出口</th><th>預算(円)</th></tr>
+
+                <tr><td>08:00</td><td>北鎌倉圓覺寺</td><td>JR橫須賀線</td><td>-</td><td>890</td></tr>
+
+                <tr><td>14:00</td><td>鎌倉大佛</td><td>江之電</td><td>長谷站</td><td>150</td></tr>
+
+                <tr><td>17:30</td><td>逗子海岸夕陽</td><td>JR/步行</td><td>逗子葉山</td><td>200</td></tr>
+
+            </table>
+
+            <div class="info-section"><span class="info-label">🍴 必吃美食</span>生魩仔魚丼、鎌倉蕎麥麵。</div>
+
+            <div class="info-section"><span class="info-label">🛍️ 必買伴手禮</span>豐島屋鳩餅、長谷寺錢龜。</div>
+
+            <div class="info-section"><span class="info-label">✨ 必做體驗</span>搭江之電沿海穿梭、逗子沙灘看夕陽富士。</div>
+
+        </div>
+
+
+
+        <div id="d5" class="item-content">
+
+            <p><span class="tag">多雲 | 5-12°C</span> 櫻花與老街</p>
+
+            <table>
+
+                <tr><th>時間</th><th>行程地標</th><th>交通</th><th>出口</th><th>預算(円)</th></tr>
+
+                <tr><td>07:00</td><td>高尾山賞櫻</td><td>京王線</td><td>高尾山口</td><td>2,500</td></tr>
+
+                <tr><td>13:30</td><td>川越時之鐘</td><td>JR/東武線</td><td>川越站</td><td>1,500</td></tr>
+
+            </table>
+
+            <div class="info-section"><span class="info-label">🍴 必吃美食</span>川越鰻魚飯、地瓜霜淇淋。</div>
+
+            <div class="info-section"><span class="info-label">🛍️ 必買伴手禮</span>川越地瓜乾、冰川神社姻緣石。</div>
+
+            <div class="info-section"><span class="info-label">✨ 必做體驗</span>搭乘高尾山纜車、漫步川越老街。</div>
+
+        </div>
+
+
+
+        <div id="d6" class="item-content">
+
+            <p><span class="tag">晴 | 8-15°C</span> 回程採買</p>
+
+            <table>
+
+                <tr><th>時間</th><th>行程地標</th><th>交通</th><th>出口</th><th>預算(円)</th></tr>
+
+                <tr><td>09:30</td><td>晴空塔商城</td><td>步行</td><td>B3出口</td><td>3,000</td></tr>
+
+                <tr><td>12:00</td><td>成田機場</td><td>N'EX特急</td><td>-</td><td>3,000</td></tr>
+
+            </table>
+
+            <div class="info-section"><span class="info-label">🍴 必吃美食</span>機場現炸薯條、拉麵。</div>
+
+            <div class="info-section"><span class="info-label">🛍️ 必買伴手禮</span>Royce、白色戀人、文明堂蜂蜜蛋糕。</div>
+
+            <div class="info-section"><span class="info-label">✨ 必做體驗</span>免稅店最後衝刺採買。</div>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="metro" class="page">
+
+        <h2>🚇 本次行程地鐵路線</h2>
+
+        
+
+        <div class="route-card"><span class="route-circle" style="background:#ff9500;">A</span>都營淺草線：押上、淺草、東銀座</div>
+
+        <div class="route-card"><span class="route-circle" style="background:#9b59b6;">Z</span>半藏門線：押上、表參道、澀谷</div>
+
+        <div class="route-card"><span class="route-circle" style="background:#009944;">G</span>銀座線：淺草、上野、銀座、澀谷</div>
+
+        <div class="route-card"><span class="route-circle" style="background:#b0b0b0;">JR</span>橫須賀線：往鎌倉</div>
+
+    </div>
+
+
+
+    <div id="finance" class="page">
+
+        <h2>💰 費用概覽 (1 JPY ≈ 0.22 TWD)</h2>
+
+        <table>
+
+            <tr><th>天數</th><th>預估費用 (円)</th><th>折合台幣 (NTD)</th></tr>
+
+            <tr><td>D1</td><td>3,200</td><td>$704</td></tr>
+
+            <tr><td>D2</td><td>2,830</td><td>$623</td></tr>
+
+            <tr><td>D3</td><td>5,190</td><td>$1,142</td></tr>
+
+            <tr><td>D4</td><td>1,540</td><td>$339</td></tr>
+
+            <tr><td>D5</td><td>4,000</td><td>$880</td></tr>
+
+            <tr><td>D6</td><td>6,000</td><td>$1,320</td></tr>
+
+            <tr style="font-weight:bold; color:var(--d-blue);"><td>總計</td><td>22,760</td><td>$5,008</td></tr>
+
+        </table>
+
+        <div class="info-section">
+
+            <span class="info-label">💡 省錢Tips</span>
+
+            1. Suica儲值 4,000円 最划算。<br>
+
+            2. Airbnb 多人分攤大幅省錢。
+
+        </div>
+
+    </div>
+
+
+
+    <div id="safety" class="page">
+
+        <h2>🚨 緊急聯絡與安全表格</h2>
+
+        <table>
+
+            <tr><th>單位</th><th>聯絡電話</th><th>備註</th></tr>
+
+            <tr><td>駐日代表處</td><td>03-3280-7911</td><td>24小時緊急救助</td></tr>
+
+            <tr><td>外交部領務局</td><td>+886-800-085-095</td><td>海外急難專線</td></tr>
+
+            <tr><td>警察局</td><td>110</td><td>報案 / 交通事故</td></tr>
+
+            <tr><td>救急車 / 消防</td><td>119</td><td>火災 / 醫療救護</td></tr>
+
+            <tr><td>失物招領</td><td>03-3814-4151</td><td>警察廳失物查詢</td></tr>
+
+            <tr><td>Airbnb 客服</td><td>APP 內聯繫</td><td>住房問題聯繫</td></tr>
+
+        </table>
+
+    </div>
+
+
+
+    <div id="family" class="page">
+
+        <h2>👵 旅行溫馨提示</h2>
+
+        <div class="info-section"><span class="info-label">保護膝蓋</span>高尾山搭纜車，鎌倉坐江之電。</div>
+
+        <div class="info-section"><span class="info-label">行李寄放</span>善用地鐵站 Coin Locker (600-1,000円)。</div>
+
+        <div class="info-section"><span class="info-label">必裝 APP</span>Google Maps、Y!乘換案內、Suica、Google翻譯。</div>
+
+    </div>
+
+
+
+</div>
+
+
+
+<script>
+
+    function showPage(pageId) {
+
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+        document.querySelectorAll('#mainNav button').forEach(b => b.classList.remove('active'));
+
+        document.getElementById(pageId).classList.add('active');
+
+        event.currentTarget.classList.add('active');
+
+        window.scrollTo(0, 0);
+
+    }
+
+    function showSub(subId, btn, parentId) {
+
+        const parent = document.getElementById(parentId);
+
+        parent.querySelectorAll('.item-content').forEach(l => l.classList.remove('active'));
+
+        parent.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
+
+        document.getElementById(subId).classList.add('active');
+
+        btn.classList.add('active');
+
+    }
+
+</script>
+
+
+
+</body>
+
+</html>
