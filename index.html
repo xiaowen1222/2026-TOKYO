@@ -11,20 +11,22 @@
            核心樣式定義區塊 (CSS Variables)
            ========================================
         */
-        :root {
-            --primary: #0288d1;
-            --primary-light: #e1f5fe;
-            --primary-dark: #01579b;
-            --accent: #ff4081;
-            --success: #2e7d32;
-            --warning: #f57f17;
-            --danger: #d32f2f;
-            --bg: #f8fbfe;
-            --white: #ffffff;
-            --text-main: #2c3e50;
-            --text-muted: #546e7a;
-            --border: #edf2f7;
-            --radius: 16px;
+        :root {                      /* 代表整個文件根節點，一般用來放「全域」CSS 變數 */
+        --primary: #ACD6FF;      /* 主色：通常是品牌色或主要按鈕背景色（藍色系） */
+        --primary-light: #D2E9FF;/* 主色的淺色版本：可用在背景、hover、標籤底色等 */
+        --primary-dark: #66B3FF; /* 主色的深色版本：可用在滑過、active 狀態、標題等 */
+        --accent: #ff4081;       /* 強調色 / 點綴色（粉紅色系），用來做重點按鈕、連結或標記 */
+        --success: #2e7d32;      /* 成功狀態色（綠色）：例如表單送出成功、狀態標籤 Success */
+        --warning: #f57f17;      /* 警告狀態色（橘黃）：例如提醒、即將到期、Warning 標籤 */
+        --danger: #d32f2f;       /* 錯誤 / 危險色（紅）：例如錯誤訊息、刪除按鈕、Danger 標籤 */
+        --bg: #f8fbfe;           /* 預設背景色：比純白稍微偏淡藍，可讓畫面更柔和 */
+        --white: #ffffff;        /* 純白色：常用在卡片背景、按鈕文字、面板等 */
+        --text-main: #2c3e50;    /* 主要文字顏色：深藍灰，比全黑好閱讀、較不刺眼 */
+        --text-muted: #546e7a;   /* 次要文字顏色：用在說明文字、註腳、輕度提示 */
+        --border: #edf2f7;       /* 邊框顏色：淡灰藍，用在卡片、輸入框的邊線 */
+        --radius: 16px;          /* 統一圓角大小：可用在卡片、按鈕，保持視覺一致 */
+       }
+
           
         }
 
@@ -32,262 +34,334 @@
            基礎排版重置
            ========================================
         */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        /* 全域樣式重置：確保所有元素行為一致，避免瀏覽器預設差異 */
+* {
+    box-sizing: border-box;    /* 盒模型改用 border-box，讓 padding+border 不影響寬度計算 */
+    margin: 0;                /* 清空所有元素的預設外邊距 */
+    padding: 0;               /* 清空所有元素的預設內邊距 */
+}
 
-        body {
-            font-family: "Noto Serif TC", "Microsoft JhengHei", serif;
-            line-height: 1.8;
-            background-color: var(--bg);
-            color: var(--text-main);
-            padding-bottom: 80px;
-        }
+/* Body 基礎樣式：設定全站文字與背景 */
+body {
+    font-family: "SimSun", "宋體", "Noto Serif TC", "Microsoft JhengHei", serif;
+    /* 解釋：SimSun=標準宋體（Windows內建） → 宋體（中文名稱） → Noto Serif TC（Google 思源宋體，跨平台） → 微軟正黑 → 預設serif */
+    line-height: 1.8;             /* 行高 1.8 倍：讓中文閱讀更舒適（比 1.5 略寬鬆） */
+    background-color: var(--bg);  /* 背景色：使用前面定義的淡藍背景 */
+    color: var(--text-main);      /* 主要文字色：深藍灰色 */
+    padding-bottom: 80px;         /* 底部留白 80px：通常是給固定底部的導航列或 footer 預留空間 */
+}
+
 
         /* ========================================
            頁首 (Header)
            ========================================
-        */
-        header {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+        /* 頁首區域：主要導覽與標題區，通常是訪客第一眼看到的區域 */
+header {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));  /* 135度漸層：深藍→藍色，很有現代感 */
+    color: white;                         /* 文字全白，與藍背景對比清晰 */
+    text-align: center;                   /* 置中對齊，適合標題展示 */
+    padding: 60px 20px;                   /* 上下60px、左右20px內邊距，桌面/手機皆適配 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);  /* 底層陰影：增加層次感，像浮在內容上方 */
+}
 
-        header h1 {
-            font-size: 2.4rem;
-            letter-spacing: 4px;
-            margin-bottom: 10px;
-        }
+header h1 {                               /* 頁首主標題 */
+    font-size: 2.4rem;                    /* 大小約38px（桌面），響應式會自動調整 */
+    letter-spacing: 4px;                  /* 字間距4px，拉開距離更有質感 */
+    margin-bottom: 10px;                  /* 標題底下留白10px */
+}
 
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
+header p {                                /* 頁首副標題/說明文字 */
+    font-size: 1.1rem;                    /* 約17px，比一般文字略大 */
+    opacity: 0.9;                         /* 透明度90%，稍微淡化，凸顯 h1 主角地位 */
+}
 
         /* ========================================
            主要導航列 (Sticky Navigation)
            ========================================
-        */
-        nav.main-nav {
-            display: flex;
-            overflow-x: auto;
-            background-color: var(--white);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--p-blue);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            scrollbar-width: none;
-        }
+        /* 主導航列：置頂滾動菜單，支援手機滑動 */
+nav.main-nav {
+    display: flex;                    /* 水平排列導航按鈕 */
+    overflow-x: auto;                 /* 水平滾動：手機螢幕小的時候可以左右滑 */
+    background-color: var(--white);   /* 白色背景 */
+    position: sticky;                 /* 黏性定位：滾動時停在頂部 */
+    top: 0;                           /* 貼頂 0px */
+    z-index: 1000;                    /* 層級很高，不會被其他元素蓋住 */
+    border-bottom: 2px solid var(--p-blue);  /* 底部藍色邊線（注意：var(--p-blue) 可能要改成 var(--primary)） */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* 微陰影，增加層次 */
+    scrollbar-width: none;            /* Firefox：隱藏滾動條 */
+}
 
-        nav.main-nav::-webkit-scrollbar {
-            display: none;
-        }
+nav.main-nav::-webkit-scrollbar { /* Chrome/Safari：隱藏滾動條 */
+    display: none;
+}
 
-        nav.main-nav button {
-            background: none;
-            border: none;
-            padding: 18px 25px;
-            cursor: pointer;
-            font-weight: 700;
-            color: var(--primary-dark);
-            font-size: 1rem;
-            white-space: nowrap;
-            transition: 0.3s;
-        }
+nav.main-nav button {             /* 每個導航按鈕 */
+    background: none;             /* 無背景 */
+    border: none;                 /* 無邊框 */
+    padding: 18px 25px;           /* 內邊距：高18px寬25px */
+    cursor: pointer;              /* 滑鼠小手 */
+    font-weight: 700;             /* 加粗 */
+    color: var(--primary-dark);   /* 深藍色文字 */
+    font-size: 1rem;              /* 16px */
+    white-space: nowrap;          /* 文字不換行 */
+    transition: 0.3s;             /* 0.3秒過渡動畫 */
+}
 
-        nav.main-nav button.active {
-            background-color: var(--primary);
-            color: white;
-        }
+nav.main-nav button.active {      /* 當前選中狀態 */
+    background-color: var(--primary);  /* 藍色背景 */
+    color: white;                 /* 白色文字 */
+}
+
 
         /* ========================================
            內容容器佈局
            ========================================
         */
-       .container { max-width: 900px; margin: 15px auto; background: white; padding: 15px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+       /* 主要內容容器：限制最大寬度，置中顯示 */
+.container {
+    max-width: 900px;              /* 最大寬度900px，適合桌面閱讀（約75%螢幕寬度） */
+    margin: 15px auto;             /* 上下15px、左右自動置中 */
+    background: white;             /* 白色背景，與淡藍 body 背景形成對比 */
+    padding: 15px;                 /* 內邊距15px，內容不貼邊 */
+    border-radius: 12px;           /* 圓角12px，配合 var(--radius: 16px) 風格 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);  /* 超淡陰影，微浮雕效果 */
+}
 
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-        }
+/* 頁面內容區塊：用於 SPA（單頁切換） */
+.page {
+    display: none;                 /* 預設隱藏所有頁面 */
+    animation: fadeIn 0.5s ease-in-out;  /* 顯示時觸發淡入動畫 */
+}
 
-        .page.active {
-            display: block;
-        }
+.page.active {                     /* 當前活躍頁面 */
+    display: block;                /* 只顯示.active 的頁面 */
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+/* 淡入動畫定義：0.5秒漸現 + 向上滑入 */
+@keyframes fadeIn {
+    from { 
+        opacity: 0;                /* 開始時完全透明 */
+        transform: translateY(10px); /* 從下方10px滑入 */
+    }
+    to { 
+        opacity: 1;                /* 結束時完全不透明 */
+        transform: translateY(0);  /* 回到原位 */
+    }
+}
 
         /* ========================================
            卡片元件 (Cards)
            ========================================
-        */
-        .card {
-            background: var(--white);
-            border-radius: var(--radius);
-            padding: 30px;
-            margin-bottom: 35px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-            border: 1px solid var(--border);
-            border-top: 8px solid var(--primary);
-        }
+        /* 內容卡片：用來包裝每個功能區塊（如登入表單、文章區等） */
+.card {
+    background: var(--white);             /* 純白背景 */
+    border-radius: var(--radius);         /* 使用全域圓角變數（16px） */
+    padding: 30px;                        /* 內邊距30px，內容有呼吸空間 */
+    margin-bottom: 35px;                  /* 卡片間垂直間距 */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);  /* 柔和陰影，微浮動效果 */
+    border: 1px solid var(--border);      /* 淡邊框，定義卡片邊界 */
+    border-top: 8px solid var(--primary); /* 頂部藍色標記條，視覺識別度高 */
+}
 
-        h2 {
-            color: var(--primary-dark);
-            margin-bottom: 25px;
-            border-left: 6px solid var(--primary);
-            padding-left: 15px;
-        }
+h2 {  /* 二級標題：區塊主標題 */
+    color: var(--primary-dark);           /* 深藍色，權威感 */
+    margin-bottom: 25px;                  /* 下方留白 */
+    border-left: 6px solid var(--primary); /* 左側藍色標記線 */
+    padding-left: 15px;                   /* 標記線旁留白 */
+}
 
-        h3 {
-            color: var(--primary);
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 1px dashed var(--primary-light);
-            padding-bottom: 8px;
-        }
+h3 {  /* 三級標題：小區塊標題 */
+    color: var(--primary);                /* 藍色 */
+    margin-top: 30px;                     /* 上方間距 */
+    margin-bottom: 15px;                  /* 下方間距 */
+    border-bottom: 1px dashed var(--primary-light); /* 底部淺藍虛線 */
+    padding-bottom: 8px;                  /* 虛線下方留白 */
+}
+
 
         /* ========================================
            子天數切換鈕
            ========================================
-        */
-        .sub-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
+        /* 子天數切換鈕：水平排列的小型切換按鈕 */
+.sub-nav {
+    display: flex;           /* 水平排列 */
+    flex-wrap: wrap;         /* 螢幕小就自動換行 */
+    gap: 10px;               /* 按鈕間距10px（現代CSS，取代margin） */
+    margin-bottom: 25px;     /* 底下留白 */
+}
 
-        .sub-btn {
-            background-color: var(--white);
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+.sub-btn {                 /* 子天數切換鈕：圓潤標籤風格 */
+    background-color: var(--white);    /* 白色底 */
+    border: 2px solid var(--primary);  /* 藍色邊框 */
+    color: var(--primary);             /* 藍色文字 */
+    padding: 10px 20px;                /* 內邊距 */
+    border-radius: 30px;               /* 大圓角，像藥丸按鈕 */
+    font-weight: bold;                 /* 加粗 */
+    cursor: pointer;                   /* 小手 */
+    transition: 0.3s;                  /* 平滑過渡 */
+}
 
-        .sub-btn.active {
-            background-color: var(--primary);
-            color: white;
-        }
+.sub-btn.active {          /* 選中狀態 */
+    background-color: var(--primary);  /* 藍底 */
+    color: white;                      /* 白字 */
+}
 
-        .item-content {
-            display: none;
-        }
+.item-content {            /* 切換內容區塊 */
+    display: none;         /* 預設隱藏 */
+}
 
-        .item-content.active {
-            display: block;
-        }
+.item-content.active {     /* 當前顯示內容 */
+    display: block;        /* 只顯示.active的內容 */
+}
+
 
         /* ========================================
            表格設計 (嚴格遵守欄位要求)
            ========================================
-        */
- table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.85em; }
+       /* 資料表格：100%寬度，無間距邊框 */
+table { 
+    width: 100%;                   /* 填滿容器寬度 */
+    border-collapse: collapse;     /* 邊框合併，無雙線 */
+    margin-top: 12px;              /* 上方間距 */
+    font-size: 0.85em;             /* 85%尺寸，緊湊顯示 */
+}
 
-        table th, table td { border: 1px solid #eee; padding: 10px; text-align: left; }
+table th, table td {               /* 表頭與儲存格 */
+    border: 1px solid #eee;        /* 淺灰邊框 */
+    padding: 10px;                 /* 內邊距 */
+    text-align: left;              /* 左對齊 */
+}
 
-        table th { background-color: var(--s-blue); color: var(--d-blue); }
-      .tag { background: var(--s-blue); color: var(--d-blue); padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold; margin-right: 5px; }
+table th {                         /* 表頭特別樣式 */
+    background-color: var(--primary-light);  /* 淺藍背景（修正：原s-blue） */
+    color: var(--primary-dark);    /* 深藍文字（修正：原d-blue） */
+}
+
+/* 狀態標籤：用於分類、狀態顯示 */
+.tag { 
+    background: var(--primary-light);    /* 淺藍底（修正：原s-blue） */
+    color: var(--primary-dark);          /* 深藍字（修正：原d-blue） */
+    padding: 2px 8px;                    /* 小內邊距 */
+    border-radius: 4px;                  /* 小圓角 */
+    font-size: 0.8em;                    /* 超小字 */
+    font-weight: bold;                   /* 加粗 */
+    margin-right: 5px;                   /* 右間距 */
+    display: inline-block;               /* 避免inline空白問題 */
+}
 
         /* ========================================
            功能性按鈕與標籤
            ========================================
-        */
-        .nav-btn {
-            display: inline-block;
-            background-color: #4285F4;
-            color: white !important;
-            text-decoration: none;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            transition: 0.2s;
-        }
+        /* 通用導航按鈕：Google藍風格 */
+.nav-btn {
+    display: inline-block;             /* 像按鈕一樣有固定尺寸 */
+    background-color: #4285F4;         /* Google藍 */
+    color: white !important;           /* 強制白字（!important覆蓋繼承） */
+    text-decoration: none;             /* 無底線 */
+    padding: 8px 12px;                 /* 小內邊距 */
+    border-radius: 8px;                /* 中圓角 */
+    font-size: 0.85rem;                /* 小字 */
+    font-weight: bold;                 /* 加粗 */
+    transition: 0.2s;                  /* 快速hover動畫 */
+}
 
-        .nav-btn:hover {
-            background-color: #3367d6;
-        }
+.nav-btn:hover {
+    background-color: #3367d6;         /* hover深藍 */
+}
 
-        .status-tag {
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-right: 5px;
-        }
+/* 狀態標籤基礎樣式 */
+.status-tag {
+    padding: 4px 10px;                 /* 小內邊距 */
+    border-radius: 6px;                /* 小圓角 */
+    font-size: 0.8rem;                 /* 超小字 */
+    font-weight: bold;                 /* 加粗 */
+    margin-right: 5px;                 /* 右間距 */
+}
 
-        .go { background-color: #e3f2fd; color: #1976d2; }
-        .back { background-color: #f3e5f5; color: #7b1fa2; }
+.go {                              /* 綠色「前進」標籤 */
+    background-color: #e3f2fd; color: #1976d2; 
+}
 
-        .copy-box {
-            background-color: #fffde7;
-            border: 2px dashed #fbc02d;
-            padding: 15px;
-            border-radius: 12px;
-            cursor: pointer;
-            text-align: center;
-            margin: 10px 0;
-            font-family: monospace;
-            font-weight: bold;
-        }
+.back {                            /* 紫色「返回」標籤 */
+    background-color: #f3e5f5; color: #7b1fa2; 
+}
 
-        .info-box {
-            background-color: #f9fbfd;
-            border-left: 6px solid var(--primary);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 12px 12px 0;
-        }
+/* 一鍵複製文字框：黃色虛線風格 */
+.copy-box {
+    background-color: #fffde7;         /* 淺黃背景 */
+    border: 2px dashed #fbc02d;        /* 
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            background-color: #f1f5f8;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
       /* ========================================
    返回頂部按鈕樣式
    ========================================
-*/
+/* 返回頂部按鈕：滾動長頁時方便返回 */
 .back-to-top {
-    position: fixed;
-    bottom: 30px;      /* 距離底部距離 */
-    right: 20px;       /* 距離右邊距離 */
-    width: 50px;
-    height: 50px;
-    background-color: var(--primary); /* 使用你原本定義的藍色 */
-    color: white;
-    border-radius: 50%;
-    display: none;     /* 初始設定隱藏，滾動後才顯示 */
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-size: 24px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    z-index: 2000;     /* 確保在最上層 */
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
+    position: fixed;                   /* 固定定位，跟隨滾動 */
+    bottom: 30px;                      /* 距離底部30px */
+    right: 20px;                       /* 距離右側20px */
+    width: 50px; height: 50px;         /* 正圓形50x50px */
+    background-color: var(--primary);  /* 主藍色背景 */
+    color: white;                      /* 白字（通常放箭頭↑符號） */
+    border-radius: 50%;                /* 完全圓形 */
+    display: none;                     /* 初始隱藏，JS滾動時顯示 */
+    align-items: center;               /* 垂直置中 */
+    justify-content: center;           /* 水平置中 */
+    text-decoration: none;             /* 無底線 */
+    font-size: 24px;                   /* 大圖示 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);  /* 明顯陰影 */
+    z-index: 2000;                     /* 高層級，不被蓋住 */
+    transition: all 0.3s ease;         /* 所有變化0.3秒動畫 */
+    cursor: pointer;                   /* 小手 */
+    border: none;                      /* 無邊框 */
 }
 
 .back-to-top:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-5px); /* 滑鼠移上去會微浮動 */
+    background-color: var(--primary-dark);  /* hover深藍 */
+    transform: translateY(-5px);       /* 向上浮動5px，很有互動感 */
 }
+  /* 可勾選清單樣式 */
+.checkbox-item {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-item input {
+    display: none;  /* 隱藏原生checkbox */
+}
+
+.checkmark {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--primary-light);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.2s;
+    background: white;
+}
+
+.checkbox-item input:checked + .checkmark {
+    background: var(--success);  /* 綠色 */
+    border-color: var(--success);
+    color: white;
+}
+
+.checkbox-item input:checked + .checkmark::after {
+    content: "✅";  /* 勾勾 */
+    font-size: 16px;
+}
+
+#progress {
+    font-weight: bold;
+    color: var(--primary);
+    margin-left: 15px;
+    font-size: 1.1rem;
+}
+
 
     </style>
 </head>
@@ -308,89 +382,101 @@
     <button onclick="showPage('finance')">💰 預算費用清單</button>
 </nav>
   
-<div id="prepare" class="page">
-    <div class="card">
-        <h2>🎒 出發前最後檢查</h2>
-        <div class="table-wrap">
-            <table>
-                <tr><th>項目</th><th>說明</th><th>狀態</th></tr>
-                <tr><td><b>Visit Japan Web</b></td><td>完成入境審查與海關申報 QR Code 截圖</td><td>⬜</td></tr>
-                <tr><td><b>網卡/WiFi</b></td><td>確認漫遊開啟或實體卡已放進包包</td><td>⬜</td></tr>
-                <tr><td><b>換匯/信用卡</b></td><td>準備少量日幣現金 (部分小店不收卡)</td><td>⬜</td></tr>
-                <tr><td><b>長輩常備藥</b></td><td>血壓藥、感冒藥、腸胃藥 (隨身攜帶)</td><td>⬜</td></tr>
-                <tr><td><b>Suica/Pasmo</b></td><td>iPhone 加值完成或實體卡確認</td><td>⬜</td></tr>
-            </table>
-        </div>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本6日行程規劃</title>
+    <style>
+        /* 貼上前面所有 CSS (:root 到 .back-to-top) */
+        /* 新增表格包裝與響應式 */
+        .table-wrap { overflow-x: auto; margin: 20px 0; }
+        table thead th { background: var(--primary-light) !important; }
+        @media (max-width: 768px) { .sub-nav button { font-size: 0.9rem; padding: 8px 16px; } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 準備清單頁 -->
+        <div id="prepare" class="page">
+            <div class="card">
+                <h2>🎒 出發前最後檢查</h2>
+              <!-- 準備清單表格 - 可勾選版本 -->
+<div class="table-wrap">
+    <table id="checklist">
+        <tr><th>項目</th><th>說明</th><th>狀態</th></tr>
+        <tr>
+            <td><b>Visit Japan Web</b></td>
+            <td>完成入境審查與海關申報 QR Code 截圖</td>
+            <td><label class="checkbox-item"><input type="checkbox"><span class="checkmark">⬜</span></label></td>
+        </tr>
+        <tr>
+            <td><b>網卡/WiFi</b></td>
+            <td>確認漫遊開啟或實體卡已放進包包</td>
+            <td><label class="checkbox-item"><input type="checkbox"><span class="checkmark">⬜</span></label></td>
+        </tr>
+        <tr>
+            <td><b>換匯/信用卡</b></td>
+            <td>準備少量日幣現金 (部分小店不收卡)</td>
+            <td><label class="checkbox-item"><input type="checkbox"><span class="checkmark">⬜</span></label></td>
+        </tr>
+      <tr>
+            <td><b>常備藥</b></td>
+            <td>血壓藥、感冒藥、腸胃藥 (隨身攜帶)</td>
+            <td><label class="checkbox-item"><input type="checkbox"><span class="checkmark">⬜</span></label></td>
+        </tr>
+      <tr>
+            <td><b>Suica/Pasmo</b></td>
+            <td>iPhone 加值完成或實體卡確認</td>
+            <td><label class="checkbox-item"><input type="checkbox"><span class="checkmark">⬜</span></label></td>
+        </tr>
+    </table>
+    <div style="text-align:center; margin-top:15px;">
+        <button class="nav-btn" onclick="checkAll()">全選/全不選</button>
+        <button class="nav-btn" onclick="resetChecklist()">重置</button>
+        <span id="progress">0/5 完成</span>
     </div>
 </div>
-  
-<div class="container">
 
-    <div id="days" class="page active">
-        <div class="sub-nav">
-            <button class="sub-btn active" onclick="showSub('d1', this, 'days')">D1 (3/18)</button>
-            <button class="sub-btn" onclick="showSub('d2', this, 'days')">D2 (3/19)</button>
-            <button class="sub-btn" onclick="showSub('d3', this, 'days')">D3 (3/20)</button>
-            <button class="sub-btn" onclick="showSub('d4', this, 'days')">D4 (3/21)</button>
-            <button class="sub-btn" onclick="showSub('d5', this, 'days')">D5 (3/22)</button>
-            <button class="sub-btn" onclick="showSub('d6', this, 'days')">D6 (3/23)</button>
-        </div>
-
-        <div id="d1" class="item-content active">
-            <div class="card">
-                <h2>Day 1：抵達與阿美橫町</h2>
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>時間</th>
-                                <th>景點項目</th>
-                                <th>交通動線關鍵</th>
-                                <th>備註</th>
-                                <th>導航</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>16:50</td>
-                                <td>成田機場 T3</td>
-                                <td>抵達與入境</td>
-                                <td>準備好 VJW QR Code</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>17:42</td>
-                                <td>成田機場站</td>
-                                <td>Access 特急往羽田方向</td>
-                                <td>不需轉乘直達藏前</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
-                            </tr>
-                            <tr>
-                                <td>18:45</td>
-                                <td>民宿入住</td>
-                                <td><span class="status-tag go">出發</span> 藏前站 A3 出口</td>
-                                <td>Yko Bldg. 卸下行李</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
-                            </tr>
-                            <tr>
-                                <td>19:30</td>
-                                <td>阿美橫町</td>
-                                <td>都營大江戶線至上野御徒町</td>
-                                <td>志村商店與藥妝採買</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
-                            </tr>
-                            <tr>
-                                <td>21:30</td>
-                                <td>返回民宿</td>
-                                <td><span class="status-tag back">回程</span> 大江戶線回藏前</td>
-                                <td>準備明天櫻花行程</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍民宿</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                
+                <div class="info-box">
                 </div>
             </div>
         </div>
+
+        <!-- 每日行程頁 -->
+        <div id="days" class="page active">
+            <div class="sub-nav">
+                <button class="sub-btn active" onclick="showSub('d1', this)">D1 (3/18)</button>
+                <button class="sub-btn" onclick="showSub('d2', this)">D2 (3/19)</button>
+                <button class="sub-btn" onclick="showSub('d3', this)">D3 (3/20)</button>
+                <button class="sub-btn" onclick="showSub('d4', this)">D4 (3/21)</button>
+                <button class="sub-btn" onclick="showSub('d5', this)">D5 (3/22)</button>
+                <button class="sub-btn" onclick="showSub('d6', this)">D6 (3/23)</button>
+            </div>
+
+            <!-- D1 內容 -->
+            <div id="d1" class="item-content active">
+                <div class="card">
+                    <h2>Day 1：抵達與阿美橫町</h2>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>時間</th><th>景點項目</th><th>交通動線關鍵</th><th>備註</th><th>導航</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>16:50</td><td>成田機場 T3</td><td>抵達與入境</td><td>準備好 VJW QR Code</td><td>-</td></tr>
+                                <tr><td>17:42</td><td>成田機場站</td><td>Access 特急往羽田方向</td><td>不需轉乘直達藏前</td><td><a href="https://www.google.com/maps" class="nav-btn" target="_blank">📍</a></td></tr>
+                                <tr><td>18:45</td><td>民宿入住</td><td><span class="status-tag go">出發</span> 藏前站 A3 出口</td><td>Yko Bldg. 卸下行李</td><td><a href="https://www.google.com/maps" class="nav-btn" target="_blank">🏠</a></td></tr>
+                                <tr><td>19:30</td><td>阿美橫町</td><td>都營大江戶線至上野御徒町</td><td>志村商店與藥妝採買</td><td><a href="https://www.google.com/maps" class="nav-btn" target="_blank">🛍️</a></td></tr>
+                                <tr><td>21:30</td><td>返回民宿</td><td><span class="status-tag back">回程</span> 大江戶線回藏前</td><td>準備明天櫻花行程</td><td><a href="https://www.google.com/maps" class="nav-btn" target="_blank">🏠</a></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
         <div id="d2" class="item-content">
             <div class="card">
@@ -882,7 +968,45 @@ function scrollToTop() {
         behavior: 'smooth' // 平滑滾動效果
     });
 }
+  // 清單勾選功能
+function updateChecklist() {
+    const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+    const checked = document.querySelectorAll('#checklist input:checked').length;
+    const total = checkboxes.length;
+    document.getElementById('progress').textContent = `${checked}/${total} 完成`;
+    
+    // 全勾完成特效
+    if (checked === total) {
+        const card = document.querySelector('#prepare .card');
+        card.style.borderTop = '8px solid var(--success)';
+        card.style.boxShadow = '0 8px 25px rgba(46,125,50,0.2)';
+    }
+}
+
+function checkAll() {
+    const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+    const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+    checkboxes.forEach(cb => cb.checked = !allChecked);
+    updateChecklist();
+}
+
+function resetChecklist() {
+    document.querySelectorAll('#checklist input[type="checkbox"]').forEach(cb => cb.checked = false);
+    updateChecklist();
+    const card = document.querySelector('#prepare .card');
+    card.style.borderTop = '8px solid var(--primary)';
+    card.style.boxShadow = '0 6px 20px rgba(0,0,0,0.05)';
+}
+
+// 監聽勾選變化
+document.addEventListener('change', function(e) {
+    if (e.target.matches('#checklist input[type="checkbox"]')) {
+        updateChecklist();
+    }
+});
+
 </script>
+  
 <button class="back-to-top" id="backToTop" onclick="scrollToTop()">TOP</button>
 </body>
 </html>
