@@ -434,10 +434,11 @@ table th {                         /* 表頭特別樣式 */
         </tr>
     </table>
     <div style="text-align:center; margin-top:15px;">
-        <button class="nav-btn" onclick="checkAll()">全選/全不選</button>
-        <button class="nav-btn" onclick="resetChecklist()">重置</button>
-        <span id="progress">0/5 完成</span>
-    </div>
+    <button class="flat-btn" onclick="checkAll()">全選/全不選</button>
+    <button class="flat-btn" onclick="resetChecklist()">重置</button>
+    <span id="progress">0/5 完成</span>
+</div>
+
 </div>
 
                 
@@ -968,14 +969,13 @@ function scrollToTop() {
         behavior: 'smooth' // 平滑滾動效果
     });
 }
-  // 清單勾選功能
+  // 清單勾選功能（修正版）
 function updateChecklist() {
     const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
     const checked = document.querySelectorAll('#checklist input:checked').length;
     const total = checkboxes.length;
     document.getElementById('progress').textContent = `${checked}/${total} 完成`;
     
-    // 全勾完成特效
     if (checked === total) {
         const card = document.querySelector('#prepare .card');
         card.style.borderTop = '8px solid var(--success)';
@@ -998,12 +998,58 @@ function resetChecklist() {
     card.style.boxShadow = '0 6px 20px rgba(0,0,0,0.05)';
 }
 
-// 監聽勾選變化
+// ✅ 修正：只監聽 checkbox 變化，不影響其他點擊
 document.addEventListener('change', function(e) {
     if (e.target.matches('#checklist input[type="checkbox"]')) {
         updateChecklist();
     }
 });
+
+// SPA 頁面切換
+function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.main-nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+}
+
+// 子導航切換（加強版）
+function showSub(id, btnEl) {
+    // 移除所有 item-content 的 active
+    document.querySelectorAll('.item-content').forEach(c => c.classList.remove('active'));
+    // 移除所有 sub-btn 的 active  
+    document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
+    // 顯示指定內容 + 激活按鈕
+    document.getElementById(id).classList.add('active');
+    btnEl.classList.add('active');
+}
+
+// 返回頂部
+window.onscroll = () => {
+    document.querySelector('.back-to-top').style.display = window.scrollY > 300 ? 'flex' : 'none';
+};
+
+// 頁面載入完成後恢復勾選狀態
+window.addEventListener('load', () => {
+    const saved = localStorage.getItem('checklist');
+    if (saved) {
+        JSON.parse(saved).forEach((checked, i) => {
+            const cb = document.querySelectorAll('#checklist input')[i];
+            if (cb) cb.checked = checked;
+        });
+        updateChecklist();
+    }
+});
+
+// 儲存勾選狀態
+document.addEventListener('change', (e) => {
+    if (e.target.matches('#checklist input[type="checkbox"]')) {
+        const states = Array.from(document.querySelectorAll('#checklist input')).map(cb => cb.checked);
+        localStorage.setItem('checklist', JSON.stringify(states));
+        updateChecklist();
+    }
+});
+
 
 </script>
   
