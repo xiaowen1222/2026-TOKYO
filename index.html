@@ -550,26 +550,38 @@ th, td {
     <div class="filter-tags" style="margin-bottom: 20px;">
         <button class="filter-btn active" data-filter="all" onclick="filterShops('all')">全部</button>
         <button class="filter-btn" data-filter="snack" onclick="filterShops('snack')">街頭小吃</button>
-        <button class="filter-btn" data-filter="souvenir" onclick="filterShops('souvenir')">必買</button>
+        <button class="filter-btn" data-filter="souvenir" onclick="filterShops('souvenir')">超市必買</button>
         <button class="filter-btn" data-filter="gyutan" onclick="filterShops('gyutan')">牛舌</button>
         <button class="filter-btn" data-filter="yakiniku" onclick="filterShops('yakiniku')">燒肉</button>
+      <button class="filter-btn" data-filter="dessert" onclick="filterShops('dessert')">甜點</button>
     </div>
-    <div class="table-wrap">
+     <div class="table-wrap">
         <table id="ame-table">
-            <thead>
-                <tr>
-                    <th>店名</th><th>類型</th><th>推薦品</th><th>價位</th><th>距離</th><th>地圖</th>
-                </tr>
-            </thead>
+            <thead><tr><th>店名</th><th>類型</th><th>必點</th><th>價位</th><th>位置</th><th>地圖</th></tr></thead>
             <tbody>
-                <tr data-tags="snack"><td>肉の大山</td><td><span class="tag snack">小吃</span></td><td>和牛炸肉餅</td><td>¥500-800</td><td>8分</td><td><button class="nav-btn" onclick="navTo('肉の大山 上野')">🗺️</button></td></tr>
-                <tr data-tags="snack"><td>みなとや</td><td><span class="tag snack">小吃</span></td><td>章魚燒丼</td><td>¥500-1000</td><td>7分</td><td><button class="nav-btn" onclick="navTo('みなとや 阿美橫')">🗺️</button></td></tr>
-                <tr data-tags="souvenir"><td>二木菓子</td><td><span class="tag souvenir">必買</span></td><td>糖果巧克力</td><td>¥300-1000</td><td>5分</td><td><button class="nav-btn" onclick="navTo('二木菓子 上野')">🗺️</button></td></tr>
-                <tr data-tags="souvenir"><td>志村商店</td><td><span class="tag souvenir">必買</span></td><td>大福抹茶</td><td>¥200-500</td><td>4分</td><td><button class="nav-btn" onclick="navTo('志村商店 阿美橫')">🗺️</button></td></tr>
-                <tr data-tags="gyutan"><td>ねぎし</td><td><span class="tag gyutan">牛舌</span></td><td>厚切牛舌</td><td>¥1500-2000</td><td>10分</td><td><button class="nav-btn" onclick="navTo('ねぎし 上野駅前店')">🗺️</button></td></tr>
-                <tr data-tags="yakiniku"><td>一心たん助</td><td><span class="tag yakiniku">燒肉</span></td><td>20mm牛舌</td><td>¥6000起</td><td>9分</td><td><button class="nav-btn" onclick="navTo('一心たん助 上野御徒町')">🗺️</button></td></tr>
-                <!-- 可繼續新增其他店家 -->
-            </tbody>
+    <tr data-tags="snack"><td>肉の大山</td><td>小吃</td><td>和牛炸肉餅串</td><td>¥500</td><td>阿美橫中心</td><td><button class="nav-btn" onclick="navTo('上野肉の大山')">🍖</button></td></tr>
+    <tr data-tags="snack"><td>みなとや章魚燒</td><td>小吃</td><td>章魚燒丼</td><td>¥600</td><td>御徒町側</td><td><button class="nav-btn" onclick="navTo('上野みなとや章魚燒')">🐙</button></td></tr>
+    <tr data-tags="snack"><td>三浦屋</td><td>小吃</td><td>炸蝦天丼</td><td>¥700</td><td>魚肉街</td><td><button class="nav-btn" onclick="navTo('上野三浦屋')">🍤</button></td></tr>
+    <tr data-tags="snack"><td>大統領</td><td>小吃</td><td>牛雜串燒</td><td>¥400</td><td>上野側</td><td><button class="nav-btn" onclick="navTo('上野大統領')">🥩</button></td></tr>
+    <tr data-tags="snack"><td>かんだ屋</td><td>小吃</td><td>炸豬排串</td><td>¥450</td><td>中心街</td><td><button class="nav-btn" onclick="navTo('上野かんだ屋')">🍗</button></td></tr>
+    <tr data-tags="souvenir"><td>松坂屋地下超市</td><td>超市</td><td>壽司便當/生鮮</td><td>¥500-1500</td><td>御徒町</td><td><button class="nav-btn" onclick="navTo('上野松坂屋地下超市')">🛒</button></td></tr>
+    <tr data-tags="souvenir"><td>成城石井</td><td>超市</td><td>進口起司/甜點</td><td>¥300-800</td><td>阿美橫邊</td><td><button class="nav-btn" onclick="navTo('上野成城石井')">🧀</button></td></tr>
+    <tr data-tags="souvenir"><td>ドン・キホーテ上野</td><td>超市</td><td>零食化妝品</td><td>¥100-1000</td><td>上野站前</td><td><button class="nav-btn" onclick="navTo('上野唐吉訶德')">🎁</button></td></tr>
+    <tr data-tags="souvenir"><td>千趣屋</td><td>超市</td><td>藥妝零食</td><td>¥200-500</td><td>中心</td><td><button class="nav-btn" onclick="navTo('上野千趣屋')">💊</button></td></tr>
+    <tr data-tags="souvenir"><td>二木菓子</td><td>超市</td><td>糖果巧克力</td><td>¥300</td><td>甜品街</td><td><button class="nav-btn" onclick="navTo('上野二木菓子')">🍬</button></td></tr>
+
+    <tr data-tags="gyutan"><td>ねぎし上野</td><td>牛舌</td><td>厚切牛舌套餐</td><td>¥1800</td><td>上野站前</td><td><button class="nav-btn" onclick="navTo('上野ねぎし')">🐮</button></td></tr>
+    <tr data-tags="gyutan"><td>利久牛舌</td><td>牛舌</td><td>牛舌定食</td><td>¥1500</td><td>御徒町</td><td><button class="nav-btn" onclick="navTo('上野利久牛舌')">🥩</button></td></tr>
+    <tr data-tags="gyutan"><td>喜助牛舌</td><td>牛舌</td><td>牛舌燒烤串</td><td>¥2000</td><td>阿美中心</td><td><button class="nav-btn" onclick="navTo('上野喜助牛舌')">🔥</button></td></tr>
+
+    <tr data-tags="yakiniku"><td>一心たん助</td><td>燒肉</td><td>20mm超厚牛舌</td><td>¥6000/人</td><td>御徒町</td><td><button class="nav-btn" onclick="navTo('上野一心たん助')">🥇</button></td></tr>
+    <tr data-tags="yakiniku"><td>松阪牛燒肉M</td><td>燒肉</td><td>松阪和牛</td><td>¥5000</td><td>上野</td><td><button class="nav-btn" onclick="navTo('上野松阪牛燒肉M')">🍖</button></td></tr>
+    <tr data-tags="yakiniku"><td>燒肉今半</td><td>燒肉</td><td>A5和牛</td><td>¥4000</td><td>中心街</td><td><button class="nav-btn" onclick="navTo('上野燒肉今半')">🥩</button></td></tr>
+
+    <tr data-tags="dessert snack"><td>志村大福</td><td>甜點</td><td>超大生大福</td><td>¥250</td><td>阿美橫</td><td><button class="nav-btn" onclick="navTo('上野志村大福')">🍡</button></td></tr>
+    <tr data-tags="dessert"><td>銀座天真堂</td><td>甜點</td><td>東京奶油大福</td><td>¥400</td><td>御徒町</td><td><button class="nav-btn" onclick="navTo('上野銀座天真堂')">🥛</button></td></tr>
+    <tr data-tags="dessert souvenir"><td>文明堂</td><td>甜點</td><td>カステラ蛋糕</td><td>¥500</td><td>上野</td><td><button class="nav-btn" onclick="navTo('上野文明堂')">🍰</button></td></tr>
+</tbody>
         </table>
     </div>
 </div>
@@ -618,41 +630,36 @@ th, td {
         <table id="d2-shops-table">
             <thead><tr><th>店名</th><th>類型</th><th>必點</th><th>價位</th><th>位置</th><th>地圖</th></tr></thead>
             <tbody>
-                <!-- 🔥 芝公園 (新增3店) -->
-                <tr data-tags="芝公園 必買"><td>東京鐵塔GUARDIAN</td><td>必買</td><td>櫻花御守</td><td>¥800</td><td>鐵塔1F</td><td><button class="nav-btn" onclick="navTo('東京鐵塔 GUARDIAN')">🗼</button></td></tr>
-                <tr data-tags="芝公園 小吃"><td>芝公園櫻花屋台</td><td>小吃</td><td>天婦羅串</td><td>¥600</td><td>公園內</td><td><button class="nav-btn" onclick="navTo('芝公園屋台')">🍤</button></td></tr>
-                <tr data-tags="芝公園 必買"><td>增上寺御朱印</td><td>必買</td><td>櫻花限定御朱印</td><td>¥500</td><td>增上寺</td><td><button class="nav-btn" onclick="navTo('增上寺御朱印')">📜</button></td></tr>
+    <tr data-tags="芝公園 必買"><td>東京鐵塔GUARDIAN</td><td>必買</td><td>櫻花御守</td><td>¥800</td><td>鐵塔1F</td><td><button class="nav-btn" onclick="navTo('芝公園東京鐵塔 GUARDIAN')">🗼</button></td></tr>
+    <tr data-tags="芝公園 小吃"><td>芝公園櫻花屋台</td><td>小吃</td><td>天婦羅串</td><td>¥600</td><td>公園內</td><td><button class="nav-btn" onclick="navTo('芝公園櫻花屋台')">🍤</button></td></tr>
+    <tr data-tags="芝公園 必買"><td>增上寺御朱印</td><td>必買</td><td>櫻花限定御朱印</td><td>¥500</td><td>增上寺</td><td><button class="nav-btn" onclick="navTo('芝公園增上寺御朱印')">📜</button></td></tr>
 
-                <!-- 🔥 淺草全12店 -->
-                <tr data-tags="淺草 小吃"><td>淺草梅園</td><td>小吃</td><td>銅鑼燒</td><td>¥180</td><td>仲見世入口</td><td><button class="nav-btn">🍡</button></td></tr>
-                <tr data-tags="淺草 小吃"><td>舟和</td><td>小吃</td><td>芋羊羹</td><td>¥1,200</td><td>仲見世中段</td><td><button class="nav-btn">🍮</button></td></tr>
-                <tr data-tags="淺草 小吃"><td>淺草今半</td><td>小吃</td><td>牛肉包子</td><td>¥350</td><td>雷門旁</td><td><button class="nav-btn">🥟</button></td></tr>
-                <tr data-tags="淺草 小吃"><td>老銀座天婦羅</td><td>小吃</td><td>天婦羅そば</td><td>¥900</td><td>步行3分</td><td><button class="nav-btn">🍲</button></td></tr>
-                <tr data-tags="淺草 小吃"><td>三代目八木</td><td>小吃</td><td>炸蝦</td><td>¥600</td><td>仲見世內</td><td><button class="nav-btn">🦐</button></td></tr>
-                <tr data-tags="淺草 小吃"><td>淺草ぽてと屋</td><td>小吃</td><td>起司馬鈴薯</td><td>¥400</td><td>雷門前</td><td><button class="nav-btn">🥔</button></td></tr>
-                <tr data-tags="淺草 必買"><td>淺草九重</td><td>必買</td><td>雷門最中</td><td>¥1,080</td><td>雷門對面</td><td><button class="nav-btn">📦</button></td></tr>
-                <tr data-tags="淺草 必買"><td>浅草堂飴</td><td>必買</td><td>飴玉</td><td>¥540</td><td>仲見世中段</td><td><button class="nav-btn">🍬</button></td></tr>
-                <tr data-tags="淺草 必買"><td>中屋</td><td>必買</td><td>銘菓箱</td><td>¥2,000</td><td>本堂前</td><td><button class="nav-btn">🍱</button></td></tr>
-                <tr data-tags="淺草 必買"><td>松谷堂</td><td>必買</td><td>きびだんご</td><td>¥350</td><td>仲見世尾端</td><td><button class="nav-btn">🍡</button></td></tr>
-                <tr data-tags="淺草 正餐"><td>神谷バー</td><td>正餐</td><td>電氣ブール</td><td>¥1,500</td><td>步行7分</td><td><button class="nav-btn">🍸</button></td></tr>
-                <tr data-tags="淺草 正餐"><td>淺草むぎとろ</td><td>正餐</td><td>山芋蕎麥</td><td>¥1,800</td><td>步行4分</td><td><button class="nav-btn">🍜</button></td></tr>
+    <tr data-tags="淺草 小吃"><td>淺草梅園</td><td>小吃</td><td>銅鑼燒</td><td>¥180</td><td>仲見世入口</td><td><button class="nav-btn" onclick="navTo('淺草梅園')">🍡</button></td></tr>
+    <tr data-tags="淺草 小吃"><td>舟和</td><td>小吃</td><td>芋羊羹</td><td>¥1,200</td><td>仲見世中段</td><td><button class="nav-btn" onclick="navTo('淺草舟和')">🍮</button></td></tr>
+    <tr data-tags="淺草 小吃"><td>淺草今半</td><td>小吃</td><td>牛肉包子</td><td>¥350</td><td>雷門旁</td><td><button class="nav-btn" onclick="navTo('淺草今半')">🥟</button></td></tr>
+    <tr data-tags="淺草 小吃"><td>老銀座天婦羅</td><td>小吃</td><td>天婦羅そば</td><td>¥900</td><td>步行3分</td><td><button class="nav-btn" onclick="navTo('淺草老銀座天婦羅')">🍲</button></td></tr>
+    <tr data-tags="淺草 小吃"><td>三代目八木</td><td>小吃</td><td>炸蝦</td><td>¥600</td><td>仲見世內</td><td><button class="nav-btn" onclick="navTo('淺草三代目八木')">🦐</button></td></tr>
+    <tr data-tags="淺草 小吃"><td>淺草ぽてと屋</td><td>小吃</td><td>起司馬鈴薯</td><td>¥400</td><td>雷門前</td><td><button class="nav-btn" onclick="navTo('淺草ぽてと屋')">🥔</button></td></tr>
+    <tr data-tags="淺草 必買"><td>淺草九重</td><td>必買</td><td>雷門最中</td><td>¥1,080</td><td>雷門對面</td><td><button class="nav-btn" onclick="navTo('淺草九重')">📦</button></td></tr>
+    <tr data-tags="淺草 必買"><td>浅草堂飴</td><td>必買</td><td>飴玉</td><td>¥540</td><td>仲見世中段</td><td><button class="nav-btn" onclick="navTo('淺草堂飴')">🍬</button></td></tr>
+    <tr data-tags="淺草 必買"><td>中屋</td><td>必買</td><td>銘菓箱</td><td>¥2,000</td><td>本堂前</td><td><button class="nav-btn" onclick="navTo('淺草中屋')">🍱</button></td></tr>
+    <tr data-tags="淺草 必買"><td>松谷堂</td><td>必買</td><td>吉備糰子</td><td>¥350</td><td>仲見世尾端</td><td><button class="nav-btn" onclick="navTo('淺草きびだんご あづま')">🍡</button></td></tr>
+    <tr data-tags="淺草 正餐"><td>神谷バー</td><td>正餐</td><td>電氣ブール</td><td>¥1,500</td><td>步行7分</td><td><button class="nav-btn" onclick="navTo('淺草神谷バー')">🍸</button></td></tr>
+    <tr data-tags="淺草 正餐"><td>淺草むぎとろ</td><td>正餐</td><td>山芋蕎麥</td><td>¥1,800</td><td>步行4分</td><td><button class="nav-btn" onclick="navTo('淺草むぎとろ')">🍜</button></td></tr>
 
-                <!-- 🔥 隅田3店 -->
-                <tr data-tags="隅田 小吃"><td>隅田川屋台村</td><td>小吃</td><td>烤串關東煮</td><td>¥800</td><td>晴空塔南</td><td><button class="nav-btn">🍖</button></td></tr>
-                <tr data-tags="隅田 小吃"><td>すみだ屋</td><td>小吃</td><td>鰻魚飯</td><td>¥1,800</td><td>永代橋</td><td><button class="nav-btn">🐟</button></td></tr>
-                <tr data-tags="隅田 必買"><td>晴空塔抹茶</td><td>必買</td><td>SOLAMACHI櫻花抹茶</td><td>¥650</td><td>晴空塔1F</td><td><button class="nav-btn">🍵</button></td></tr>
+    <tr data-tags="隅田 小吃"><td>隅田川屋台村</td><td>小吃</td><td>烤串關東煮</td><td>¥800</td><td>晴空塔南</td><td><button class="nav-btn" onclick="navTo('隅田川屋台村')">🍖</button></td></tr>
+    <tr data-tags="隅田 小吃"><td>すみだ屋</td><td>小吃</td><td>鰻魚飯</td><td>¥1,800</td><td>永代橋</td><td><button class="nav-btn" onclick="navTo('隅田すみだ屋')">🐟</button></td></tr>
+    <tr data-tags="隅田 必買"><td>晴空塔抹茶</td><td>必買</td><td>SOLAMACHI櫻花抹茶</td><td>¥650</td><td>晴空塔1F</td><td><button class="nav-btn" onclick="navTo('東京晴空塔 SOLAMACHI 抹茶')">🍵</button></td></tr>
 
-                <!-- 🔥 澀谷6店 -->
-                <tr data-tags="澀谷 小吃"><td>一蘭澀谷道玄坂</td><td>小吃</td><td>辣味拉麵</td><td>¥1,090</td><td>スクランブル</td><td><button class="nav-btn">🍜</button></td></tr>
-                <tr data-tags="澀谷 燒肉"><td>牛角澀谷東急</td><td>燒肉</td><td>カルビ食べ放題</td><td>¥3,480</td><td>東急廣場</td><td><button class="nav-btn">🥩</button></td></tr>
-                <tr data-tags="澀谷 小吃"><td>世界の山ちゃん</td><td>小吃</td><td>手羽先</td><td>¥900</td><td>道玄坂</td><td><button class="nav-btn">🍗</button></td></tr>
-                <tr data-tags="澀谷 必買"><td>Pokemon渋谷PARCO</td><td>必買</td><td>櫻花ピカチュウ</td><td>¥1,980</td><td>PARCO 6F</td><td><button class="nav-btn">⚡</button></td></tr>
-                <tr data-tags="澀谷 必買"><td>澀谷KitKat</td><td>必買</td><td>夜櫻限定</td><td>¥650</td><td>澀谷站</td><td><button class="nav-btn">🍫</button></td></tr>
-                <tr data-tags="澀谷 必買"><td>東急プラザ原宿</td><td>必買</td><td>甜點包</td><td>¥1,200</td><td>スクランブル旁</td><td><button class="nav-btn">🎀</button></td></tr>
+    <tr data-tags="澀谷 小吃"><td>一蘭澀谷道玄坂</td><td>小吃</td><td>辣味拉麵</td><td>¥1,090</td><td>スクランブル</td><td><button class="nav-btn" onclick="navTo('澀谷一蘭拉麵')">🍜</button></td></tr>
+    <tr data-tags="澀谷 燒肉"><td>牛角澀谷東急</td><td>燒肉</td><td>カルビ食べ放題</td><td>¥3,480</td><td>東急廣場</td><td><button class="nav-btn" onclick="navTo('澀谷牛角燒肉')">🥩</button></td></tr>
+    <tr data-tags="澀谷 小吃"><td>世界の山ちゃん</td><td>小吃</td><td>手羽先</td><td>¥900</td><td>道玄坂</td><td><button class="nav-btn" onclick="navTo('澀谷世界的山將')">🍗</button></td></tr>
+    <tr data-tags="澀谷 必買"><td>Pokemon渋谷PARCO</td><td>必買</td><td>櫻花ピカチュウ</td><td>¥1,980</td><td>PARCO 6F</td><td><button class="nav-btn" onclick="navTo('澀谷寶可夢中心 PARCO')">⚡</button></td></tr>
+    <tr data-tags="澀谷 必買"><td>澀谷KitKat</td><td>必買</td><td>夜櫻限定</td><td>¥650</td><td>澀谷站</td><td><button class="nav-btn" onclick="navTo('澀谷站 KitKat')">🍫</button></td></tr>
+    <tr data-tags="澀谷 必買"><td>東急プラザ原宿</td><td>必買</td><td>甜點包</td><td>¥1,200</td><td>スクランブル旁</td><td><button class="nav-btn" onclick="navTo('東急廣場原宿')">🎀</button></td></tr>
 
-                <!-- 🔥 千鳥之淵 -->
-                <tr data-tags="千鳥 小吃"><td>千鳥之淵屋台</td><td>小吃</td><td>櫻花團子</td><td>¥500</td><td>櫻花船旁</td><td><button class="nav-btn">🍡</button></td></tr>
-            </tbody>
+    <tr data-tags="千鳥 小吃"><td>千鳥之淵屋台</td><td>小吃</td><td>櫻花團子</td><td>¥500</td><td>櫻花船旁</td><td><button class="nav-btn" onclick="navTo('千鳥之淵屋台')">🍡</button></td></tr>
+</tbody>
         </table>
     </div>
 </div>
@@ -699,33 +706,28 @@ th, td {
                 <table id="d3-shops-table">
                     <thead><tr><th>店名</th><th>類型</th><th>必點</th><th>價位</th><th>位置</th><th>地圖</th></tr></thead>
                     <tbody>
-                        <!-- 🔥 明治神宮 5店 -->
-                        <tr data-tags="明治神宮 必買"><td>明治神宮御守所</td><td>必買</td><td>櫻花幸運御守</td><td>¥500</td><td>參道盡頭</td><td><button class="nav-btn" onclick="navTo('明治神宮御守')">📿</button></td></tr>
-                        <tr data-tags="明治神宮 小吃"><td>神宮通り和菓子</td><td>小吃</td><td>櫻餅</td><td>¥400</td><td>原宿口</td><td><button class="nav-btn" onclick="navTo('神宮和菓子')">🍡</button></td></tr>
-                        <tr data-tags="明治神宮 必買"><td>明治記念館茶屋</td><td>必買</td><td>神宮限定抹茶</td><td>¥800</td><td>本殿旁</td><td><button class="nav-btn" onclick="navTo('明治記念館')">🍵</button></td></tr>
+    <tr data-tags="明治神宮 必買"><td>明治神宮御守所</td><td>必買</td><td>櫻花幸運御守</td><td>¥500</td><td>參道盡頭</td><td><button class="nav-btn" onclick="navTo('明治神宮 御守所')">📿</button></td></tr>
+    <tr data-tags="明治神宮 小吃"><td>神宮通り和菓子</td><td>小吃</td><td>櫻餅</td><td>¥400</td><td>原宿口</td><td><button class="nav-btn" onclick="navTo('明治神宮 神宮通り和菓子')">🍡</button></td></tr>
+    <tr data-tags="明治神宮 必買"><td>明治記念館茶屋</td><td>必買</td><td>神宮限定抹茶</td><td>¥800</td><td>本殿旁</td><td><button class="nav-btn" onclick="navTo('明治記念館 菓寮')">🍵</button></td></tr>
 
-                        <!-- 🔥 表參道 6店 -->
-                        <tr data-tags="表參道 咖啡"><td>表參道珈琲</td><td>咖啡</td><td>極厚鬆餅</td><td>¥1,200</td><td>ヒルズ1F</td><td><button class="nav-btn" onclick="navTo('表參道珈琲')">☕</button></td></tr>
-                        <tr data-tags="表參道 必買"><td>LOFT表參道</td><td>必買</td><td>櫻花文具套組</td><td>¥1,500</td><td>B2F</td><td><button class="nav-btn" onclick="navTo('LOFT表參道')">📖</button></td></tr>
-                        <tr data-tags="表參道 小吃"><td>Decants Omotesando</td><td>小吃</td><td>櫻花馬卡龍</td><td>¥900</td><td>表參道大道</td><td><button class="nav-btn" onclick="navTo('Decants')">🍬</button></td></tr>
+    <tr data-tags="表參道 咖啡"><td>表參道珈琲</td><td>咖啡</td><td>極厚鬆餅</td><td>¥1,200</td><td>ヒルズ1F</td><td><button class="nav-btn" onclick="navTo('表參道 Hills Omotesando Koffee')">☕</button></td></tr>
+    <tr data-tags="表參道 必買"><td>LOFT表參道</td><td>必買</td><td>櫻花文具套組</td><td>¥1,500</td><td>B2F</td><td><button class="nav-btn" onclick="navTo('表參道 LOFT')">📖</button></td></tr>
+    <tr data-tags="表參道 小吃"><td>Decadence Omotesando</td><td>小吃</td><td>櫻花馬卡龍</td><td>¥900</td><td>表參道大道</td><td><button class="nav-btn" onclick="navTo('Decadence du Chocolat 表參道')">🍬</button></td></tr>
 
-                        <!-- 🔥 原宿竹下通 7店 -->
-                        <tr data-tags="原宿 小吃"><td>Marion Crepes</td><td>小吃</td><td>草莓奶油餅</td><td>¥600</td><td>竹下通入口</td><td><button class="nav-btn" onclick="navTo('Marion Crepes')">🎂</button></td></tr>
-                        <tr data-tags="原宿 小吃"><td>Santa Monica Crepe</td><td>小吃</td><td>巧克力香蕉</td><td>¥700</td><td>竹下中段</td><td><button class="nav-btn" onclick="navTo('Santa Monica')">🍌</button></td></tr>
-                        <tr data-tags="原宿 必買"><td>Kiddy Land原宿</td><td>必買</td><td>櫻花Hello Kitty</td><td>¥2,000</td><td>竹下通旁</td><td><button class="nav-btn" onclick="navTo('Kiddy Land')">🐱</button></td></tr>
-                        <tr data-tags="原宿 小吃"><td>竹下通たこ焼き</td><td>小吃</td><td>櫻花限定醬汁</td><td>¥500</td><td>竹下通</td><td><button class="nav-btn" onclick="navTo('竹下たこ焼き')">🐙</button></td></tr>
+    <tr data-tags="原宿 小吃"><td>Marion Crepes</td><td>小吃</td><td>草莓奶油餅</td><td>¥600</td><td>竹下通入口</td><td><button class="nav-btn" onclick="navTo('原宿 Marion Crepes')">🎂</button></td></tr>
+    <tr data-tags="原宿 小吃"><td>Santa Monica Crepe</td><td>小吃</td><td>巧克力香蕉</td><td>¥700</td><td>竹下中段</td><td><button class="nav-btn" onclick="navTo('原宿 Santa Monica Crepe')">🍌</button></td></tr>
+    <tr data-tags="原宿 必買"><td>Kiddy Land原宿</td><td>必買</td><td>櫻花Hello Kitty</td><td>¥2,000</td><td>竹下通旁</td><td><button class="nav-btn" onclick="navTo('Kiddy Land 原宿店')">🐱</button></td></tr>
+    <tr data-tags="原宿 小吃"><td>竹下通たこ焼き</td><td>小吃</td><td>櫻花限定醬汁</td><td>¥500</td><td>竹下通</td><td><button class="nav-btn" onclick="navTo('原宿竹下通 築地銀だこ')">🐙</button></td></tr>
 
-                        <!-- 🔥 新宿御苑 3店 -->
-                        <tr data-tags="新宿御苑 小吃"><td>御苑茶屋</td><td>小吃</td><td>櫻花糰子</td><td>¥400</td><td>日本庭園</td><td><button class="nav-btn" onclick="navTo('御苑茶屋')">🍡</button></td></tr>
-                        <tr data-tags="新宿御苑 必買"><td>御苑紀念品店</td><td>必買</td><td>御苑限定扇子</td><td>¥1,200</td><td>出口</td><td><button class="nav-btn" onclick="navTo('御苑紀念品')">🪭</button></td></tr>
+    <tr data-tags="新宿御苑 小吃"><td>御苑茶屋</td><td>小吃</td><td>櫻花糰子</td><td>¥400</td><td>日本庭園</td><td><button class="nav-btn" onclick="navTo('新宿御苑 樂羽亭')">🍡</button></td></tr>
+    <tr data-tags="新宿御苑 必買"><td>御苑紀念品店</td><td>必買</td><td>御苑限定扇子</td><td>¥1,200</td><td>出口</td><td><button class="nav-btn" onclick="navTo('新宿御苑 Museum Shop')">🪭</button></td></tr>
 
-                        <!-- 🔥 台場水陸巴士 12店 -->
-                        <tr data-tags="台場 正餐"><td>DiverCity拉麵街</td><td>正餐</td><td>東京8大拉麵</td><td>¥1,200</td><td>鋼彈旁</td><td><button class="nav-btn" onclick="navTo('DiverCity拉麵')">🍜</button></td></tr>
-                        <tr data-tags="台場 必買"><td>Gundam Base台場</td><td>必買</td><td>鋼彈櫻花限定</td><td>¥3,000</td><td>DiverCity 1F</td><td><button class="nav-btn" onclick="navTo('Gundam Base')">🤖</button></td></tr>
-                        <tr data-tags="台場 小吃"><td>Joypolis冰淇淋</td><td>小吃</td><td>彩虹大橋限定</td><td>¥500</td><td>遊樂園</td><td><button class="nav-btn" onclick="navTo('Joypolis')">🍨</button></td></tr>
-                        <tr data-tags="台場 必買"><td>台場Atre甜點</td><td>必買</td><td>海景限定蛋糕</td><td>¥800</td><td>Atre 2F</td><td><button class="nav-btn" onclick="navTo('台場Atre')">🍰</button></td></tr>
-                        <tr data-tags="台場 小吃"><td>東京自由女神前屋台</td><td>小吃</td><td>海鮮串燒</td><td>¥700</td><td>海濱公園</td><td><button class="nav-btn" onclick="navTo('女神前屋台')">🍢</button></td></tr>
-                    </tbody>
+    <tr data-tags="台場 正餐"><td>DiverCity拉麵街</td><td>正餐</td><td>東京8大拉麵</td><td>¥1,200</td><td>鋼彈旁</td><td><button class="nav-btn" onclick="navTo('台場 DiverCity Tokyo Plaza 拉麵國技館')">🍜</button></td></tr>
+    <tr data-tags="台場 必買"><td>Gundam Base台場</td><td>必買</td><td>鋼彈櫻花限定</td><td>¥3,000</td><td>DiverCity 1F</td><td><button class="nav-btn" onclick="navTo('The Gundam Base Tokyo')">🤖</button></td></tr>
+    <tr data-tags="台場 小吃"><td>Joypolis冰淇淋</td><td>小吃</td><td>彩虹大橋限定</td><td>¥500</td><td>遊樂園</td><td><button class="nav-btn" onclick="navTo('東京 Joypolis')">🍨</button></td></tr>
+    <tr data-tags="台場 必買"><td>台場Atre甜點</td><td>必買</td><td>海景限定蛋糕</td><td>¥800</td><td>Atre 2F</td><td><button class="nav-btn" onclick="navTo('台場 Atre Shop')">🍰</button></td></tr>
+    <tr data-tags="台場 小吃"><td>東京自由女神前屋台</td><td>小吃</td><td>海鮮串燒</td><td>¥700</td><td>海濱公園</td><td><button class="nav-btn" onclick="navTo('台場 自由女神像')">🍢</button></td></tr>
+</tbody>
                 </table>
             </div>
         </div>
