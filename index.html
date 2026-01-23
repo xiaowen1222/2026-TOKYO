@@ -422,6 +422,13 @@ th, td {
     text-overflow: ellipsis; 
     white-space: nowrap; 
 }
+/* 頁面切換核心 */
+.item-content { 
+    display: none; 
+}
+.item-content.active { 
+    display: block !important; 
+}
 
     </style>
 </head>
@@ -572,44 +579,152 @@ th, td {
                 </div>
             </div>
 
-        <!-- D2 內容（完全跟D1格式一致） -->
+<!-- 🔥 D2完整更新版（芝公園替代上野） -->
 <div id="d2" class="item-content">
     <div class="card">
-        <h2>Day 2：上野櫻花與經典淺草</h2>
-        <div class="table-wrap">
+        <h2>🌸 Day 2：芝公園鐵塔 → 淺草 → 隅田 → 千鳥之淵 → 澀谷</h2>
+        
+<div class="table-wrap">
             <table>
-                <thead>
-                    <tr><th>時間</th><th>景點項目</th><th>交通動線關鍵</th><th>備註</th><th>導航</th></tr>
-                </thead>
+                <thead><tr><th>時間</th><th>景點</th><th>交通</th><th>備註</th><th>導航</th></tr></thead>
                 <tbody>
-                    <tr><td>08:30</td><td>民宿出發</td><td><span class="status-tag go">出發</span> 步行至藏前站</td><td>今日行程豐富，建議準時</td><td>-</td></tr>
-                    <tr><td>09:00</td><td>上野公園</td><td>都營大江戶線至上野站 (¥220, 12分)</td><td>🌸櫻花隧道、不忍池划船 ¥700</td><td><a href="https://maps.app.goo.gl/ueno-park" class="nav-btn" target="_blank">🌸</a></td></tr>
-                    <tr><td></td><td>吉野家上野店</td><td>公園步行5分</td><td>早餐牛丼 ¥500，必吃！</td><td><a href="https://maps.app.goo.gl/gino-uenoten" class="nav-btn" target="_blank">🍚</a></td></tr>
-                    <tr><td>11:30</td><td>淺草雷門</td><td>銀座線上野→淺草 (¥170, 5分), A2出口</td><td>仲見世通銅鑼燒 ¥180x3</td><td><a href="https://maps.app.goo.gl/asakusa-raimon" class="nav-btn" target="_blank">⛩️</a></td></tr>
-                    <tr><td></td><td>淺草寺本堂</td><td>仲見世通步行5分</td><td>求籤¥100、御守¥500</td><td><a href="https://maps.app.goo.gl/sensoji-mainhall" class="nav-btn" target="_blank">🏛️</a></td></tr>
-                    <tr><td>14:30</td><td>晴空塔</td><td>東武線淺草→押上 (¥210, 3分), B3出口</td><td>展望台¥2,100 SOLAMACHI購物</td><td><a href="https://maps.app.goo.gl/skytree" class="nav-btn" target="_blank">🌆</a></td></tr>
-                    <tr><td></td><td>隅田公園</td><td>晴空塔步行5分</td><td>夕陽櫻花河畔，免費必去！</td><td><a href="https://maps.app.goo.gl/sumidagawa-park" class="nav-btn" target="_blank">🌅</a></td></tr>
-                    <tr><td>19:00</td><td>返回民宿</td><td><span class="status-tag back">回程</span> 淺草線押上→藏前 (¥220, 15分)</td><td>晚餐：藏前咖哩 ¥1,200<br><strong>今日總花費：¥5,500</strong></td><td><a href="https://maps.app.goo.gl/zjrw4MGNPvEXQRxAA" class="nav-btn" target="_blank">🏠</a></td></tr>
+                    <tr><td>08:30</td><td>民宿出發</td><td>大江戶線→赤羽橋（¥200，8分）</td><td>7-11早餐¥300</td><td>-</td></tr>
+                    <tr style="background: var(--highlight);"><td>09:00</td><td><b>芝公園東京鐵塔</b></td><td>赤羽橋A1步行3分</td><td>🌸鐵塔+櫻花，增上寺御守¥500</td><td><a href="https://maps.app.goo.gl/ziban-tower" class="nav-btn">🗼</a></td></tr>
+                    <tr><td>10:30</td><td><b>淺草雷門</b></td><td>銀座線（¥170，10分）A2</td><td>銅鑼燒¥180、九重最中¥1,080</td><td><a href="https://maps.app.goo.gl/asakusa" class="nav-btn">⛩️</a></td></tr>
+                    <tr><td>13:30</td><td><b>隅田公園</b></td><td>押上步行8分</td><td>🌸隅田川、屋台¥800</td><td><a href="https://maps.app.goo.gl/sumida" class="nav-btn">🌅</a></td></tr>
+                    <tr style="background: var(--primary-light);"><td>14:30</td><td><b>千鳥之淵櫻花船</b></td><td>押上→飯田橋B4（¥310）</td><td>🌸水上櫻花隧道¥1,000</td><td><a href="https://maps.app.goo.gl/chidori" class="nav-btn">🚣</a></td></tr>
+                    <tr><td>17:00</td><td><b>澀谷スクランブル</b></td><td>飯田橋→澀谷Hachiko（¥220）</td><td>八公像、一蘭晚餐¥1,000</td><td><a href="https://maps.app.goo.gl/shibuya" class="nav-btn">🚦</a></td></tr>
+                    <tr style="background: #ffebee;"><td>17:30</td><td><b>★澀谷Sky展望台★</b></td><td>スクランブル步行2分</td><td>🌆**360°夜櫻+十字路口** ¥2,500<br><b>Klook預約日落時段</b></td><td><a href="https://maps.app.goo.gl/shibuya-sky" class="nav-btn">🌃</a></td></tr>
+                    <tr><td>19:00</td><td>澀谷PARCO</td><td>Sky電梯直達B2F</td><td>Pokemon櫻花版¥1,980、KitKat¥650</td><td><a href="https://maps.app.goo.gl/parco" class="nav-btn">🛒</a></td></tr>
+                    <tr><td>21:00</td><td>返回民宿</td><td>澀谷→藏前（¥440，35分）</td><td><b>今日總花費：¥10,100/人</b></td><td><a href="https://maps.app.goo.gl/home" class="nav-btn">🏠</a></td></tr>
                 </tbody>
             </table>
         </div>
+
+        <!-- 🔥 D2店家區全版（25店恢復） -->
+<div class="shop-section">
+    <h3>🍡 D2必吃必買（芝公園+淺草+隅田+千鳥+澀谷 <b>25店</b>）</h3>
+    <div class="filter-tags">
+        <button class="filter-btn active" onclick="filterD2Shops('全部')">全部(25)</button>
+        <button class="filter-btn" onclick="filterD2Shops('芝公園')">芝公園(3)</button>
+        <button class="filter-btn" onclick="filterD2Shops('淺草')">淺草(12)</button>
+        <button class="filter-btn" onclick="filterD2Shops('小吃')">小吃(14)</button>
+        <button class="filter-btn" onclick="filterD2Shops('必買')">必買(8)</button>
+        <button class="filter-btn" onclick="filterD2Shops('隅田')">隅田(3)</button>
+        <button class="filter-btn" onclick="filterD2Shops('澀谷')">澀谷(6)</button>
+    </div>
+    
+    <div class="table-wrap">
+        <table id="d2-shops-table">
+            <thead><tr><th>店名</th><th>類型</th><th>必點</th><th>價位</th><th>位置</th><th>地圖</th></tr></thead>
+            <tbody>
+                <!-- 🔥 芝公園 (新增3店) -->
+                <tr data-tags="芝公園 必買"><td>東京鐵塔GUARDIAN</td><td>必買</td><td>櫻花御守</td><td>¥800</td><td>鐵塔1F</td><td><button class="nav-btn" onclick="navTo('東京鐵塔 GUARDIAN')">🗼</button></td></tr>
+                <tr data-tags="芝公園 小吃"><td>芝公園櫻花屋台</td><td>小吃</td><td>天婦羅串</td><td>¥600</td><td>公園內</td><td><button class="nav-btn" onclick="navTo('芝公園屋台')">🍤</button></td></tr>
+                <tr data-tags="芝公園 必買"><td>增上寺御朱印</td><td>必買</td><td>櫻花限定御朱印</td><td>¥500</td><td>增上寺</td><td><button class="nav-btn" onclick="navTo('增上寺御朱印')">📜</button></td></tr>
+
+                <!-- 🔥 淺草全12店 -->
+                <tr data-tags="淺草 小吃"><td>淺草梅園</td><td>小吃</td><td>銅鑼燒</td><td>¥180</td><td>仲見世入口</td><td><button class="nav-btn">🍡</button></td></tr>
+                <tr data-tags="淺草 小吃"><td>舟和</td><td>小吃</td><td>芋羊羹</td><td>¥1,200</td><td>仲見世中段</td><td><button class="nav-btn">🍮</button></td></tr>
+                <tr data-tags="淺草 小吃"><td>淺草今半</td><td>小吃</td><td>牛肉包子</td><td>¥350</td><td>雷門旁</td><td><button class="nav-btn">🥟</button></td></tr>
+                <tr data-tags="淺草 小吃"><td>老銀座天婦羅</td><td>小吃</td><td>天婦羅そば</td><td>¥900</td><td>步行3分</td><td><button class="nav-btn">🍲</button></td></tr>
+                <tr data-tags="淺草 小吃"><td>三代目八木</td><td>小吃</td><td>炸蝦</td><td>¥600</td><td>仲見世內</td><td><button class="nav-btn">🦐</button></td></tr>
+                <tr data-tags="淺草 小吃"><td>淺草ぽてと屋</td><td>小吃</td><td>起司馬鈴薯</td><td>¥400</td><td>雷門前</td><td><button class="nav-btn">🥔</button></td></tr>
+                <tr data-tags="淺草 必買"><td>淺草九重</td><td>必買</td><td>雷門最中</td><td>¥1,080</td><td>雷門對面</td><td><button class="nav-btn">📦</button></td></tr>
+                <tr data-tags="淺草 必買"><td>浅草堂飴</td><td>必買</td><td>飴玉</td><td>¥540</td><td>仲見世中段</td><td><button class="nav-btn">🍬</button></td></tr>
+                <tr data-tags="淺草 必買"><td>中屋</td><td>必買</td><td>銘菓箱</td><td>¥2,000</td><td>本堂前</td><td><button class="nav-btn">🍱</button></td></tr>
+                <tr data-tags="淺草 必買"><td>松谷堂</td><td>必買</td><td>きびだんご</td><td>¥350</td><td>仲見世尾端</td><td><button class="nav-btn">🍡</button></td></tr>
+                <tr data-tags="淺草 正餐"><td>神谷バー</td><td>正餐</td><td>電氣ブール</td><td>¥1,500</td><td>步行7分</td><td><button class="nav-btn">🍸</button></td></tr>
+                <tr data-tags="淺草 正餐"><td>淺草むぎとろ</td><td>正餐</td><td>山芋蕎麥</td><td>¥1,800</td><td>步行4分</td><td><button class="nav-btn">🍜</button></td></tr>
+
+                <!-- 🔥 隅田3店 -->
+                <tr data-tags="隅田 小吃"><td>隅田川屋台村</td><td>小吃</td><td>烤串關東煮</td><td>¥800</td><td>晴空塔南</td><td><button class="nav-btn">🍖</button></td></tr>
+                <tr data-tags="隅田 小吃"><td>すみだ屋</td><td>小吃</td><td>鰻魚飯</td><td>¥1,800</td><td>永代橋</td><td><button class="nav-btn">🐟</button></td></tr>
+                <tr data-tags="隅田 必買"><td>晴空塔抹茶</td><td>必買</td><td>SOLAMACHI櫻花抹茶</td><td>¥650</td><td>晴空塔1F</td><td><button class="nav-btn">🍵</button></td></tr>
+
+                <!-- 🔥 澀谷6店 -->
+                <tr data-tags="澀谷 小吃"><td>一蘭澀谷道玄坂</td><td>小吃</td><td>辣味拉麵</td><td>¥1,090</td><td>スクランブル</td><td><button class="nav-btn">🍜</button></td></tr>
+                <tr data-tags="澀谷 燒肉"><td>牛角澀谷東急</td><td>燒肉</td><td>カルビ食べ放題</td><td>¥3,480</td><td>東急廣場</td><td><button class="nav-btn">🥩</button></td></tr>
+                <tr data-tags="澀谷 小吃"><td>世界の山ちゃん</td><td>小吃</td><td>手羽先</td><td>¥900</td><td>道玄坂</td><td><button class="nav-btn">🍗</button></td></tr>
+                <tr data-tags="澀谷 必買"><td>Pokemon渋谷PARCO</td><td>必買</td><td>櫻花ピカチュウ</td><td>¥1,980</td><td>PARCO 6F</td><td><button class="nav-btn">⚡</button></td></tr>
+                <tr data-tags="澀谷 必買"><td>澀谷KitKat</td><td>必買</td><td>夜櫻限定</td><td>¥650</td><td>澀谷站</td><td><button class="nav-btn">🍫</button></td></tr>
+                <tr data-tags="澀谷 必買"><td>東急プラザ原宿</td><td>必買</td><td>甜點包</td><td>¥1,200</td><td>スクランブル旁</td><td><button class="nav-btn">🎀</button></td></tr>
+
+                <!-- 🔥 千鳥之淵 -->
+                <tr data-tags="千鳥 小吃"><td>千鳥之淵屋台</td><td>小吃</td><td>櫻花團子</td><td>¥500</td><td>櫻花船旁</td><td><button class="nav-btn">🍡</button></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+    </div>
+</div>
+    </div>
+</div>
+       <!-- 🔥 D3完整版：明治神宮 → 表參道 → 新宿御苑 → 水陸巴士台場 -->
+<div id="d3" class="item-content"> 
+    <div class="card">
+        <h2>🌸 Day 3：明治神宮 → 表參道 → 新宿御苑 → <b>水陸巴士台場夜航</b></h2>
         
-        <!-- 同D1格式：淺草專屬推薦表 -->
+        <!-- 時刻表 -->
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>時間</th><th>景點</th><th>交通</th><th>備註</th><th>導航</th></tr></thead>
+                <tbody>
+                    <tr><td>08:30</td><td>民宿出發</td><td>大江戶線→代々木（¥280）</td><td>7-11早餐¥300</td><td>-</td></tr>
+                    <tr style="background: var(--highlight);"><td>09:30</td><td><b>明治神宮</b></td><td>原宿口步行5分</td><td>🌸千本櫻參道、御守¥500</td><td><a href="https://goo.gl/maps/meiji" class="nav-btn">⛩️</a></td></tr>
+                    <tr><td>11:00</td><td><b>表參道ヒルズ</b></td><td>步行10分</td><td>珈琲¥700、LOFT文具¥1,500</td><td><a href="https://goo.gl/maps/omotesando" class="nav-btn">💎</a></td></tr>
+                    <tr style="background: var(--primary-light);"><td>13:30</td><td><b>新宿御苑</b></td><td>JR¥140塩釜門</td><td>🌸東京最美櫻花園¥500</td><td><a href="https://goo.gl/maps/gyoen" class="nav-btn">🌺</a></td></tr>
+                    <tr><td>16:30</td><td>新橋客船碼頭</td><td>丸之內線¥200</td><td>水陸巴士集合</td><td><a href="https://goo.gl/maps/shimbashi-pier" class="nav-btn">⚓</a></td></tr>
+                    <tr style="background: #e3f2fd;"><td>17:00</td><td><b>★水陸巴士HIMIKO★</b></td><td>新橋→台場¥2,000（40分）<br><b>Klook 17:00班</b></td><td>🌉彩虹大橋、東京灣夜櫻、鋼彈</td><td><a href="https://suijobus.co.jp" class="nav-btn">🛥️</a></td></tr>
+                    <tr><td>18:30</td><td><b>台場海濱公園</b></td><td>水陸巴士抵達</td><td>🌃夜景、拉麵街¥1,200</td><td><a href="https://goo.gl/maps/odaiba" class="nav-btn">🌉</a></td></tr>
+                    <tr><td>20:30</td><td>返回民宿</td><td>百合海鷗→押上¥650</td><td><b>總花費：¥11,100</b></td><td><a href="https://goo.gl/maps/home" class="nav-btn">🏠</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 🔥 D3全30店超完整！ -->
         <div class="shop-section">
-            <h3 style="color: var(--accent); margin: 30px 0 15px 0;">🍡 淺草必吃必買總表</h3>
-            <div class="filter-tags" style="margin-bottom: 20px;">
-                <button class="filter-btn active" data-filter="all" onclick="filterShops('asakusa-all')">全部</button>
-                <button class="filter-btn" data-filter="snack" onclick="filterShops('asakusa-snack')">小吃</button>
-                <button class="filter-btn" data-filter="souvenir" onclick="filterShops('asakusa-souvenir')">必買</button>
+            <h3>🍡 D3必吃必買 <b>全 30 店</b></h3>
+            <div class="filter-tags">
+                <button class="filter-btn active" onclick="filterD3Shops('全部')">全部</button>
+                <button class="filter-btn" onclick="filterD3Shops('明治神宮')">神宮</button>
+                <button class="filter-btn" onclick="filterD3Shops('表參道')">表參道</button>
+                <button class="filter-btn" onclick="filterD3Shops('原宿')">原宿</button>
+                <button class="filter-btn" onclick="filterD3Shops('小吃')">小吃</button>
+                <button class="filter-btn" onclick="filterD3Shops('必買')">必買</button>
+                <button class="filter-btn" onclick="filterD3Shops('台場')">台場</button>
             </div>
+            
             <div class="table-wrap">
-                <table id="asakusa-table">
-                    <thead><tr><th>店名</th><th>類型</th><th>推薦品</th><th>價位</th><th>距離雷門</th><th>地圖</th></tr></thead>
+                <table id="d3-shops-table">
+                    <thead><tr><th>店名</th><th>類型</th><th>必點</th><th>價位</th><th>位置</th><th>地圖</th></tr></thead>
                     <tbody>
-                        <tr data-tags="snack"><td>老銀座天婦羅</td><td><span class="tag snack">小吃</span></td><td>天婦羅そば</td><td>¥900</td><td>步行3分</td><td><button class="nav-btn" onclick="navTo('老銀座天婦羅 淺草')">🍲</button></td></tr>
-                        <tr data-tags="snack"><td>淺草梅園</td><td><span class="tag snack">小吃</span></td><td>人形燒/銅鑼燒</td><td>¥180-250</td><td>仲見世內</td><td><button class="nav-btn" onclick="navTo('淺草梅園')">🍡</button></td></tr>
-                        <tr data-tags="souvenir"><td>淺草九重</td><td><span class="tag souvenir">必買</span></td><td>雷門最中</td><td>¥1,080/10個</td><td>雷門前</td><td><button class="nav-btn" onclick="navTo('淺草九重')">📦</button></td></tr>
-                        <tr data-tags="souvenir"><td>浅草堂飴</td><td><span class="tag souvenir">必買</span></td><td>淺草飴玉</td><td>¥540</td><td>仲見世中段</td><td><button class="nav-btn" onclick="navTo('浅草堂飴')">🍬</button></td></tr>
+                        <!-- 🔥 明治神宮 5店 -->
+                        <tr data-tags="明治神宮 必買"><td>明治神宮御守所</td><td>必買</td><td>櫻花幸運御守</td><td>¥500</td><td>參道盡頭</td><td><button class="nav-btn" onclick="navTo('明治神宮御守')">📿</button></td></tr>
+                        <tr data-tags="明治神宮 小吃"><td>神宮通り和菓子</td><td>小吃</td><td>櫻餅</td><td>¥400</td><td>原宿口</td><td><button class="nav-btn" onclick="navTo('神宮和菓子')">🍡</button></td></tr>
+                        <tr data-tags="明治神宮 必買"><td>明治記念館茶屋</td><td>必買</td><td>神宮限定抹茶</td><td>¥800</td><td>本殿旁</td><td><button class="nav-btn" onclick="navTo('明治記念館')">🍵</button></td></tr>
+
+                        <!-- 🔥 表參道 6店 -->
+                        <tr data-tags="表參道 咖啡"><td>表參道珈琲</td><td>咖啡</td><td>極厚鬆餅</td><td>¥1,200</td><td>ヒルズ1F</td><td><button class="nav-btn" onclick="navTo('表參道珈琲')">☕</button></td></tr>
+                        <tr data-tags="表參道 必買"><td>LOFT表參道</td><td>必買</td><td>櫻花文具套組</td><td>¥1,500</td><td>B2F</td><td><button class="nav-btn" onclick="navTo('LOFT表參道')">📖</button></td></tr>
+                        <tr data-tags="表參道 小吃"><td>Decants Omotesando</td><td>小吃</td><td>櫻花馬卡龍</td><td>¥900</td><td>表參道大道</td><td><button class="nav-btn" onclick="navTo('Decants')">🍬</button></td></tr>
+
+                        <!-- 🔥 原宿竹下通 7店 -->
+                        <tr data-tags="原宿 小吃"><td>Marion Crepes</td><td>小吃</td><td>草莓奶油餅</td><td>¥600</td><td>竹下通入口</td><td><button class="nav-btn" onclick="navTo('Marion Crepes')">🎂</button></td></tr>
+                        <tr data-tags="原宿 小吃"><td>Santa Monica Crepe</td><td>小吃</td><td>巧克力香蕉</td><td>¥700</td><td>竹下中段</td><td><button class="nav-btn" onclick="navTo('Santa Monica')">🍌</button></td></tr>
+                        <tr data-tags="原宿 必買"><td>Kiddy Land原宿</td><td>必買</td><td>櫻花Hello Kitty</td><td>¥2,000</td><td>竹下通旁</td><td><button class="nav-btn" onclick="navTo('Kiddy Land')">🐱</button></td></tr>
+                        <tr data-tags="原宿 小吃"><td>竹下通たこ焼き</td><td>小吃</td><td>櫻花限定醬汁</td><td>¥500</td><td>竹下通</td><td><button class="nav-btn" onclick="navTo('竹下たこ焼き')">🐙</button></td></tr>
+
+                        <!-- 🔥 新宿御苑 3店 -->
+                        <tr data-tags="新宿御苑 小吃"><td>御苑茶屋</td><td>小吃</td><td>櫻花糰子</td><td>¥400</td><td>日本庭園</td><td><button class="nav-btn" onclick="navTo('御苑茶屋')">🍡</button></td></tr>
+                        <tr data-tags="新宿御苑 必買"><td>御苑紀念品店</td><td>必買</td><td>御苑限定扇子</td><td>¥1,200</td><td>出口</td><td><button class="nav-btn" onclick="navTo('御苑紀念品')">🪭</button></td></tr>
+
+                        <!-- 🔥 台場水陸巴士 12店 -->
+                        <tr data-tags="台場 正餐"><td>DiverCity拉麵街</td><td>正餐</td><td>東京8大拉麵</td><td>¥1,200</td><td>鋼彈旁</td><td><button class="nav-btn" onclick="navTo('DiverCity拉麵')">🍜</button></td></tr>
+                        <tr data-tags="台場 必買"><td>Gundam Base台場</td><td>必買</td><td>鋼彈櫻花限定</td><td>¥3,000</td><td>DiverCity 1F</td><td><button class="nav-btn" onclick="navTo('Gundam Base')">🤖</button></td></tr>
+                        <tr data-tags="台場 小吃"><td>Joypolis冰淇淋</td><td>小吃</td><td>彩虹大橋限定</td><td>¥500</td><td>遊樂園</td><td><button class="nav-btn" onclick="navTo('Joypolis')">🍨</button></td></tr>
+                        <tr data-tags="台場 必買"><td>台場Atre甜點</td><td>必買</td><td>海景限定蛋糕</td><td>¥800</td><td>Atre 2F</td><td><button class="nav-btn" onclick="navTo('台場Atre')">🍰</button></td></tr>
+                        <tr data-tags="台場 小吃"><td>東京自由女神前屋台</td><td>小吃</td><td>海鮮串燒</td><td>¥700</td><td>海濱公園</td><td><button class="nav-btn" onclick="navTo('女神前屋台')">🍢</button></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -618,226 +733,235 @@ th, td {
 </div>
 
 
-
-        <div id="d3" class="item-content">
-            <div class="card">
-                <h2>Day 3：新宿櫻花與台場夜色</h2>
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>時間</th>
-                                <th>景點項目</th>
-                                <th>交通動線關鍵</th>
-                                <th>備註</th>
-                                <th>導航</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>09:00</td>
-                                <td>民宿出發</td>
-                                <td><span class="status-tag go">出發</span> 大江戶線直達</td>
-                                <td>新宿方向班次</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>09:40</td>
-                                <td><b>新宿御苑</b></td>
-                                <td>新宿御苑前站下車</td>
-                                <td>櫻花野餐，需先預約</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
-                            </tr>
-                            <tr>
-                                <td>14:00</td>
-                                <td>台場海濱</td>
-                                <td>大江戶線轉百合海鷗線</td>
-                                <td>自由女神像拍照</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
-                            </tr>
-                            <tr>
-                                <td>15:30</td>
-                                <td>水陸巴士 KABA</td>
-                                <td>台場維納斯堡旁</td>
-                                <td>刺激的水面衝刺體驗</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
-                            </tr>
-                            <tr>
-                                <td>19:00</td>
-                                <td>返回民宿</td>
-                                <td><span class="status-tag back">回程</span> 轉接回藏前</td>
-                                <td>大江戶線較快</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍民宿</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
+           <!-- D4：招福貓 → 大佛 → 湘南夕陽 -->
 <div id="d4" class="item-content">
-            <div class="card">
-                <h2>Day 4：招福貓、櫻花河與湘南之旅</h2>
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>時間</th>
-                                <th>景點項目</th>
-                                <th>交通動線關鍵</th>
-                                <th>備註</th>
-                                <th>導航</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>07:30</td>
-                                <td>民宿出發</td>
-                                <td><span class="status-tag go">出發</span> 提早出發避人潮</td>
-                                <td>今日行程較遠</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>08:15</td>
-                                <td><b>豪德寺</b></td>
-                                <td>新宿轉小田急電鐵</td>
-                                <td>上千隻招福貓奇觀</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
-                            </tr>
-                            <tr>
-                                <td>10:30</td>
-                                <td><b>千鳥之淵</b></td>
-                                <td>地鐵九段下站</td>
-                                <td>護城河櫻花極致美景</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
-                            </tr>
-                            <tr>
-                                <td>13:30</td>
-                                <td><b>鎌倉大佛</b></td>
-                                <td>JR 橫須賀線直達</td>
-                                <td>江之電體驗</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
-                            </tr>
-                            <tr>
-                                <td>17:30</td>
-                                <td><b>逗子海岸</b>夕陽</td><td>JR 逗子站</td><td>看富士山與海面餘暉</td><td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
-                            </tr>
-                            <tr>
-                                <td>20:00</td>
-                                <td>返回民宿</td>
-                                <td><span class="status-tag back">回程</span> JR 橫須賀線回</td>
-                                <td>回程時間約 1 小時</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍民宿</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="info-box" style="background-color: #e3f2fd; border-left-color: #2196f3;">
-                    <b>💡 湘南省力密技：</b><br>
-                    從新宿搭乘 <b>JR 湘南新宿線</b> 時，請務必找「大船/小田原」方向，並盡量選靠右側座位，進入鎌倉區域後可遠眺海岸線。
-                </div>
-
-                <div class="table-wrap">
-                    <h3 style="border:none; margin-top:0;">📍 站點必看與休息建議</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>站名</th>
-                                <th>必看重點</th>
-                                <th>步行計畫</th>
-                                <th>長輩休息點</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><b>九段下</b></td>
-                                <td>千鳥之淵櫻花隧道</td>
-                                <td>2號出口出站即達。</td>
-                                <td>北之丸公園內長椅</td>
-                            </tr>
-                            <tr>
-                                <td><b>豪德寺</b></td>
-                                <td>招福貓發源地</td>
-                                <td>沿商店街平坦路面步行。</td>
-                                <td>寺內休憩所</td>
-                            </tr>
-                            <tr>
-                                <td><b>長谷站</b></td>
-                                <td>鎌倉大佛 (高德院)</td>
-                                <td>出站步行 7 分鐘，路徑直覺。</td>
-                                <td>寺外甘味處(紅豆湯)</td>
-                            </tr>
-                            <tr>
-                                <td><b>鎌倉高校前</b></td>
-                                <td>灌籃高手平交道</td>
-                                <td>拍完照即回月台。</td>
-                                <td>江之電月台長椅</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3>📅 D4 詳細交通銜接時間參考</h3>
-                <ul style="list-style-type: none; padding-left: 10px; font-size: 0.95rem;">
-                    <li style="margin-bottom: 10px;">🕒 <b>08:30</b> 藏前 → 新宿 (大江戶線，約 30 分)</li>
-                    <li style="margin-bottom: 10px;">🕒 <b>09:15</b> 新宿 → 豪德寺 (小田急線，各站停車)</li>
-                    <li style="margin-bottom: 10px;">🕒 <b>11:00</b> 豪德寺 → 九段下 (地鐵轉乘，約 25 分)</li>
-                    <li style="margin-bottom: 10px;">🕒 <b>13:00</b> 東京/品川 → 鎌倉 (JR 橫須賀線，最快 50 分)</li>
-                </ul>
-                </div>
+    <div class="card">
+        <h2>🐱 Day 4：豪德寺招福貓 → 鎌倉大佛 → 逗子海岸夕陽</h2>
+        
+        <!-- 修正時刻表 -->
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>時間</th><th>景點</th><th>交通</th><th>備註</th><th>導航</th></tr></thead>
+                <tbody>
+                    <tr><td>07:30</td><td>民宿出發</td><td>大江戶線→新宿→小田急線（¥410，40分）</td><td>早出發避人潮</td><td>-</td></tr>
+                    <tr style="background: var(--highlight);"><td>08:15</td><td><b>豪德寺招福貓</b></td><td>豪德寺站步行3分</td><td>🐱**招福貓聖地**！買貓許願¥300，還願奉納，上千隻白貓</td><td><a href="https://goo.gl/maps/gotokuji" class="nav-btn">🐱</a></td></tr>
+                    <tr><td>10:00</td><td>新宿轉車</td><td>小田急線→新宿→JR橫須賀線（¥950，50分）</td><td>湘南新宿線「逗子方向」</td><td>-</td></tr>
+                    <tr style="background: var(--primary-light);"><td>11:30</td><td><b>鎌倉大佛</b></td><td>長谷站步行7分</td><td>🌸櫻花大佛¥300、江之電體驗¥200、有樂天狗</td><td><a href="https://goo.gl/maps/kotoku-in" class="nav-btn">🗿</a></td></tr>
+                    <tr><td>14:00</td><td>鎌倉高校前</td><td>江之電長谷→高校前（¥200，5分）</td><td>🏀灌籃高手平交道拍照，超熱門</td><td><a href="https://goo.gl/maps/kamakura-high" class="nav-btn">🏀</a></td></tr>
+                    <tr style="background: #ffecb3;"><td>16:30</td><td><b>逗子海岸夕陽</b></td><td>JR逗子站步行10分</td><td>🌅**富士山+江之島夕陽**！海邊散步、燒烤屋台</td><td><a href="https://goo.gl/maps/zushi-beach" class="nav-btn">🌅</a></td></tr>
+                    <tr><td>19:00</td><td>逗子晚餐</td><td>站內</td><td>海鮮丼¥2,000或居酒屋</td><td>-</td></tr>
+                    <tr><td>20:30</td><td>返回民宿</td><td>JR橫須賀線→品川→押上（¥1,100，90分）</td><td><b>總花費：¥12,500/人</b></td><td><a href="https://goo.gl/maps/home" class="nav-btn">🏠</a></td></tr>
+                </tbody>
+            </table>
         </div>
-      
+<script>
+function filterD4Shops(category) {
+    const rows = document.querySelectorAll('#d4-shops-table tbody tr');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    // 更新按鈕樣式
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    rows.forEach(row => {
+        const tags = row.getAttribute('data-tags') || '';
+        if (category === '全部' || tags.includes(category)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+</script>
 
-        <div id="d5" class="item-content">
-            <div class="card">
-                <h2>Day 5：高尾山自然與川越老街</h2>
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>時間</th>
-                                <th>景點項目</th>
-                                <th>交通動線關鍵</th>
-                                <th>備註</th>
-                                <th>導航</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>07:00</td>
-                                <td>民宿出發</td>
-                                <td><span class="status-tag go">出發</span> 京王線方向</td>
-                                <td>週日登山人潮多</td>
-                                <td>-</td>
-                            </tr>
-                            <tr>
-                                <td>08:30</td>
-                                <td>高尾山</td>
-                                <td>京王線至高尾山口</td>
-                                <td>搭乘最陡登山纜車</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
-                            </tr>
-                            <tr>
-                                <td>14:00</td>
-                                <td>川越老街</td>
-                                <td>JR 埼京線直通川越</td>
-                                <td>一番街時之鐘</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍導航</a></td>
-                            </tr>
-                            <tr>
-                                <td>19:00</td>
-                                <td>返回民宿</td>
-                                <td><span class="status-tag back">回程</span> 東武鐵道回池袋轉</td>
-                                <td>最後一晚採購時間</td>
-                                <td><a href="https://www.google.com/maps" class="nav-btn">📍民宿</a></td>
-                            </tr>
-                          
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <!-- 省力交通提示 -->
+        <div class="info-box" style="background: #e8f5e8;">
+            <b>🚆 湘南一日密技：</b><br>
+            <b>湘南新宿線「逗子方向」</b>直通豪德寺→鎌倉→逗子，<br>
+            早鳥票+Suica一日券¥2,000省不停！
         </div>
+
+        <!-- 站點指南 -->
+        <div class="table-wrap">
+            <h3>🗺️ 站點＋長輩休息點</h3>
+            <table>
+                <thead><tr><th>站名</th><th>必看</th><th>步行</th><th>休息點</th></tr></thead>
+                <tbody>
+                    <tr><td><b>豪德寺</b></td><td>招福貓殿</td><td>平坦3分</td><td>寺內茶屋</td></tr>
+                    <tr><td><b>長谷</b></td><td>櫻花大佛</td><td>7分</td><td>大佛前紅豆湯</td></tr>
+                    <tr><td><b>鎌倉高校前</b></td><td>灌籃高手</td><td>拍照即回</td><td>月台長椅</td></tr>
+                    <tr><td><b>逗子海岸</b></td><td>富士夕陽</td><td>10分</td><td>海邊咖啡</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+<!-- 🔥 D4全25店 -->
+<div class="shop-section">
+    <h3>🐱 D4必吃必買（招福貓＋湘南 <b>25店</b>）</h3>
+    <div class="filter-tags">
+        <button class="filter-btn active" onclick="filterD4Shops('全部')">全部</button>
+        <button class="filter-btn" onclick="filterD4Shops('豪德寺')">豪德寺</button>
+        <button class="filter-btn" onclick="filterD4Shops('鎌倉')">鎌倉</button>
+        <button class="filter-btn" onclick="filterD4Shops('逗子')">逗子</button>
+        <button class="filter-btn" onclick="filterD4Shops('小吃')">小吃</button>
+        <button class="filter-btn" onclick="filterD4Shops('必買')">必買</button>
+    </div>
+    
+    <div class="table-wrap">
+        <table id="d4-shops-table">
+            <thead><tr><th>店名</th><th>類型</th><th>必點</th><th>價位</th><th>位置</th><th>地圖</th></tr></thead>
+            <tbody>
+                <!-- 豪德寺招福貓 (8店) -->
+                <tr data-tags="豪德寺 必買"><td>豪德寺御守所</td><td>必買</td><td>招福貓御守¥300</td><td>¥300-800</td><td>本堂</td><td><button class="nav-btn">🐱</button></td></tr>
+                <tr data-tags="豪德寺 小吃"><td>豪德寺茶屋</td><td>小吃</td><td>貓型饅頭</td><td>¥400</td><td>寺外</td><td><button class="nav-btn">🍡</button></td></tr>
+                <tr data-tags="豪德寺 小吃"><td>RARASAND</td><td>小吃</td><td>招福燒（卡士達）</td><td>¥500</td><td>商店街</td><td><button class="nav-btn">🐱</button></td></tr>
+                <tr data-tags="豪德寺 必買"><td>RARASAND</td><td>必買</td><td>主張しすぎるもなか</td><td>¥600</td><td>商店街</td><td><button class="nav-btn">🐱</button></td></tr>
+                <tr data-tags="豪德寺 小吃"><td>RARASAND</td><td>小吃</td><td>北鼻招財貓蛋糕</td><td>¥400</td><td>商店街</td><td><button class="nav-btn">🍰</button></td></tr>
+                <tr data-tags="豪德寺 必買"><td>豪德寺招財貓商店</td><td>必買</td><td>招財貓擺件</td><td>¥1,000</td><td>寺旁</td><td><button class="nav-btn">🐾</button></td></tr>
+                <tr data-tags="豪德寺 小吃"><td>世田谷線咖啡</td><td>小吃</td><td>貓咖喱麵包</td><td>¥500</td><td>站近</td><td><button class="nav-btn">☕</button></td></tr>
+                <tr data-tags="豪德寺 小吃"><td>貓咪冰淇淋店</td><td>小吃</td><td>招福貓冰棒</td><td>¥350</td><td>商店街</td><td><button class="nav-btn">🍦</button></td></tr>
+
+                <!-- 鎌倉大佛 (9店) -->
+                <tr data-tags="鎌倉 小吃"><td>長谷寺紅豆湯</td><td>小吃</td><td>紫陽花豆湯</td><td>¥500</td><td>大佛前</td><td><button class="nav-btn">🍵</button></td></tr>
+                <tr data-tags="鎌倉 必買"><td>高德院御朱印</td><td>必買</td><td>大佛限定朱印</td><td>¥500</td><td>寺務所</td><td><button class="nav-btn">📜</button></td></tr>
+                <tr data-tags="鎌倉 小吃"><td>KANNON COFFEE</td><td>小吃</td><td>大佛可麗餅</td><td>¥700</td><td>長谷3丁目</td><td><button class="nav-btn">🧇</button></td></tr>
+                <tr data-tags="鎌倉 必買"><td>KANNON COFFEE</td><td>必買</td><td>大佛餅乾</td><td>¥500</td><td>長谷3丁目</td><td><button class="nav-btn">🍪</button></td></tr>
+                <tr data-tags="鎌倉 小吃"><td>江之電站內冰棒</td><td>小吃</td><td>櫻花冰棒</td><td>¥300</td><td>高校前站</td><td><button class="nav-btn">🍦</button></td></tr>
+                <tr data-tags="鎌倉 小吃"><td>Giraffa</td><td>小吃</td><td>咖哩麵包</td><td>¥600</td><td>小町通</td><td><button class="nav-btn">🥖</button></td></tr>
+                <tr data-tags="鎌倉 必買"><td>ともや大佛燒</td><td>必買</td><td>大佛造型燒</td><td>¥400</td><td>小町通</td><td><button class="nav-btn">🗿</button></td></tr>
+                <tr data-tags="鎌倉 小吃"><td>鎌倉そらつき</td><td>小吃</td><td>草莓大福</td><td>¥500</td><td>小町通</td><td><button class="nav-btn">🍓</button></td></tr>
+                <tr data-tags="鎌倉 小吃"><td>GELATERIA SANTi</td><td>小吃</td><td>湘南水果冰</td><td>¥600</td><td>江之電近</td><td><button class="nav-btn">🍧</button></td></tr>
+
+                <!-- 逗子海岸 (8店) -->
+                <tr data-tags="逗子 海鮮"><td>逗子漁港直賣</td><td>海鮮</td><td>新鮮海鮮丼</td><td>¥2,000</td><td>逗子站</td><td><button class="nav-btn">🍣</button></td></tr>
+                <tr data-tags="逗子 小吃"><td>逗子燒肉屋台</td><td>小吃</td><td>湘南牛串</td><td>¥800</td><td>海岸</td><td><button class="nav-btn">🍖</button></td></tr>
+                <tr data-tags="逗子 海鮮"><td>さかな食堂</td><td>海鮮</td><td>生吻仔魚丼</td><td>¥1,800</td><td>站前</td><td><button class="nav-btn">🐟</button></td></tr>
+                <tr data-tags="逗子 海鮮"><td>居酒屋やまや</td><td>海鮮</td><td>新鮮刺身</td><td>¥1,500</td><td>逗子站</td><td><button class="nav-btn">🍶</button></td></tr>
+                <tr data-tags="逗子 海鮮"><td>魚勝</td><td>海鮮</td><td>海鮮丼定食</td><td>¥2,200</td><td>漁港近</td><td><button class="nav-btn">🍱</button></td></tr>
+                <tr data-tags="逗子 小吃"><td>海畑マルシェ太陽</td><td>小吃</td><td>烤魚串</td><td>¥700</td><td>海岸</td><td><button class="nav-btn">🔥</button></td></tr>
+                <tr data-tags="逗子 海鮮"><td>酒菜の隠れ家月あかり</td><td>海鮮</td><td>鮪刺身</td><td>¥1,200</td><td>逗子店</td><td><button class="nav-btn">🌙</button></td></tr>
+                <tr data-tags="逗子 小吃"><td>サケトサカナハナモグリ</td><td>小吃</td><td>鮭魚飯糰</td><td>¥500</td><td>海岸</td><td><button class="nav-btn">🍙</button></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>      
+    </div>
+</div>
+  <!-- D5：川越小江戶 → 高尾山自然 -->
+<div id="d5" class="item-content">
+    <div class="card">
+        <h2>🏮 Day 5：川越小江戶 → 高尾山日落</h2>
+        
+        <!-- 修正時刻表 -->
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>時間</th><th>景點</th><th>交通</th><th>備註</th><th>導航</th></tr></thead>
+                <tbody>
+                    <tr><td>07:30</td><td>民宿出發</td><td>大江戶→新宿→西武川越（¥500，50分）<span class="status-tag go">出發</span></td><td>FREEPASS¥1,050早鳥</td><td>-</td></tr>
+<tr style="background: var(--highlight);"><td>08:30</td><td><b>川越半天精華</b></td><td>**巡迴巴士無限**（站內10分全覆蓋）</td><td>🏮**冰川神社（1h）→時鐘拍照→菓子屋抹茶街（茶和々蕨餅+布丁1h）→藏造街速購**<br>**鰻魚便當¥800**轉車吃，**3.5小時零趕**</td><td><a href="https://goo.gl/maps/kawagoe-express" class="nav-btn">🏮</a></td></tr>
+<tr><td>12:15</td><td>轉高尾</td><td>西武池袋→JR埼京新宿→京王高尾山口（¥800，**85分**）<span class="status-tag go">轉車</span></td><td>京王一日券¥2,250，Navitime班次</td><td><a href="https://navitime.co.jp/transfer?川越-高尾山口" class="nav-btn">🔄</a></td></tr>
+<tr style="background: var(--primary-light);"><td>14:00</td><td><b>纜車猴園</b></td><td>清滝纜車6分（¥950）+猴園¥500</td><td>🦍90隻室內猴，**30分零徒步**打卡</td><td><a href="https://goo.gl/maps/takao-monkey" class="nav-btn">🦍</a></td></tr>
+<tr><td>14:45</td><td>藥王院</td><td>**11號巴士¥300**10分纜車站直達</td><td>🛕天狗御守¥500速參+茶屋，櫻花30分</td><td><a href="https://goo.gl/maps/yakuo-in" class="nav-btn">🛕</a></td></tr>
+<tr style="background: #ffecb3;"><td>15:45</td><td><b>山頂展望</b></td><td>巴士直達展望（**全程零徒步**）</td><td>🌅富士東京景，遊客中心休息，日落前拍</td><td><a href="https://goo.gl/maps/takao-summit" class="nav-btn">🌅</a></td></tr>
+<tr><td>16:45</td><td>下山晚餐</td><td>纜車6分山麓</td><td>烏龍麵¥900伴手禮，購物休息</td><td>-</td></tr>
+<tr><td>18:00</td><td>返回民宿</td><td>京王線（¥400，60分）<span class="status-tag back">回程</span></td><td><b>總¥12,000/人</b>，**徒步0小時**纜車巴士！</td><td><a href="https://goo.gl/maps/home" class="nav-btn">🏠</a></td></tr>
+
+
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 省力交通提示 -->
+        <div class="info-box" style="background: #e8f5e8;">
+            <b>🚆 川越高尾一日密技：</b><br>
+            <b>川越FREEPASS¥1,050</b>來回+巴士無限，<br>
+            高尾纜車+京王一日券¥2,250直上山頂省力！
+        </div>
+
+        <!-- 站點指南 -->
+        <div class="table-wrap">
+            <h3>🗺️ 站點＋長輩休息點</h3>
+            <table>
+                <thead><tr><th>站名</th><th>必看</th><th>步行</th><th>休息點</th></tr></thead>
+                <tbody>
+                    <tr><td><b>川越</b></td><td>藏造街+時之鐘</td><td>平坦10分</td><td>菓子屋橫丁茶屋</td></tr>
+                    <tr><td><b>高尾山口</b></td><td>藥王院纜車</td><td>纜車20分</td><td>猴園咖啡</td></tr>
+                    <tr><td><b>高尾山頂</b></td><td>日落展望</td><td>1號路輕鬆</td><td>頂部長椅</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+<!-- 🔥 D5全25店 (完整版) -->
+<div class="shop-section">
+    <h3>🏮 D5必吃必買（川越+高尾 <b>25店</b>）</h3>
+    <div class="filter-tags">
+        <button class="filter-btn active" onclick="filterD5Shops('全部')">全部</button>
+        <button class="filter-btn" onclick="filterD5Shops('川越')">川越</button>
+        <button class="filter-btn" onclick="filterD5Shops('高尾')">高尾</button>
+        <button class="filter-btn" onclick="filterD5Shops('小吃')">小吃</button>
+        <button class="filter-btn" onclick="filterD5Shops('必買')">必買</button>
+      <button class="filter-btn" onclick="filterD5Shops('抹茶')">抹茶</button>
+    </div>
+    
+    <div class="table-wrap">
+        <table id="d5-shops-table">
+            <thead><tr><th>店名</th><th>類型</th><th>必點</th><th>價位</th><th>位置</th><th>地圖</th></tr></thead>
+            <tbody>
+                <!-- 川越15店 -->
+                <tr data-tags="川越 必買"><td>川越布丁本店</td><td>必買</td><td>地瓜布丁</td><td>¥500</td><td>一番街</td><td><button class="nav-btn">🍮</button></td></tr>
+                <tr data-tags="川越 小吃"><td>菓匠右門</td><td>小吃</td><td>いも恋饅頭</td><td>¥400</td><td>藏造街</td><td><button class="nav-btn">🍡</button></td></tr>
+                <tr data-tags="川越 小吃"><td>小江戶大火</td><td>小吃</td><td>玉子燒</td><td>¥600</td><td>老街</td><td><button class="nav-btn">🥚</button></td></tr>
+                <tr data-tags="川越 必買"><td>龜屋</td><td>必買</td><td>吉伊卡哇銅鑼燒</td><td>¥300</td><td>一番街</td><td><button class="nav-btn">🐱</button></td></tr>
+                <tr data-tags="川越 小吃"><td>うなぎ 傳米</td><td>小吃</td><td>迷你鰻魚飯</td><td>¥800</td><td>老街</td><td><button class="nav-btn">🐟</button></td></tr>
+                <tr data-tags="川越 小吃"><td>まろや冰菓店</td><td>小吃</td><td>地瓜冰淇淋</td><td>¥450</td><td>菓子屋橫丁</td><td><button class="nav-btn">🍦</button></td></tr>
+                <tr data-tags="川越 必買"><td>喜多八</td><td>必買</td><td>銘菓大福</td><td>¥500</td><td>一番街</td><td><button class="nav-btn">🍡</button></td></tr>
+                <tr data-tags="川越 小吃"><td>時の鐘咖啡</td><td>小吃</td><td>時之鐘蛋糕</td><td>¥600</td><td>鐘樓下</td><td><button class="nav-btn">🕰️</button></td></tr>
+                <tr data-tags="川越 必買"><td>川越芋菓子</td><td>必買</td><td>焼き芋チップス</td><td>¥400</td><td>老街</td><td><button class="nav-btn">🥔</button></td></tr>
+                <tr data-tags="川越 小吃"><td>氷川神社參道店</td><td>小吃</td><td>神社御守饅頭</td><td>¥350</td><td>神社</td><td><button class="nav-btn">⛩️</button></td></tr>
+                <tr data-tags="川越 小吃"><td>仙波甘精堂</td><td>小吃</td><td>芋羊羹</td><td>¥450</td><td>藏造街</td><td><button class="nav-btn">🍮</button></td></tr>
+                <tr data-tags="川越 必買"><td>中澤醤油</td><td>必買</td><td>地瓜醤油</td><td>¥700</td><td>老街</td><td><button class="nav-btn">🥫</button></td></tr>
+                <tr data-tags="川越 小吃"><td>銀座姫路や</td><td>小吃</td><td>芋けんぴ</td><td>¥500</td><td>一番街</td><td><button class="nav-btn">🍪</button></td></tr>
+                <tr data-tags="川越 必買"><td>大山烏冬</td><td>必買</td><td>川越烏冬乾麵</td><td>¥600</td><td>老街</td><td><button class="nav-btn">🍜</button></td></tr>
+                <tr data-tags="川越 小吃"><td>ぱんや小川</td><td>小吃</td><td>地瓜麵包</td><td>¥350</td><td>菓子屋橫丁</td><td><button class="nav-btn">🍞</button></td></tr>
+
+                <!-- 高尾山10店 -->
+                <tr data-tags="高尾 小吃"><td>藥王院甘酒處</td><td>小吃</td><td>高尾甜酒</td><td>¥500</td><td>藥王院</td><td><button class="nav-btn">🍶</button></td></tr>
+                <tr data-tags="高尾 必買"><td>高尾麵包園</td><td>必買</td><td>紅葉麵包條</td><td>¥400</td><td>1號路</td><td><button class="nav-btn">🍞</button></td></tr>
+                <tr data-tags="高尾 小吃"><td>高尾茶屋</td><td>小吃</td><td>山菜蕎麥麵</td><td>¥900</td><td>纜車站</td><td><button class="nav-btn">🍜</button></td></tr>
+                <tr data-tags="高尾 小吃"><td>もみじ茶屋</td><td>小吃</td><td>もみじ天婦羅</td><td>¥600</td><td>猴園</td><td><button class="nav-btn">🍁</button></td></tr>
+                <tr data-tags="高尾 必買"><td>高尾山御守所</td><td>必買</td><td>登山御守¥500</td><td>¥500</td><td>藥王院</td><td><button class="nav-btn">📜</button></td></tr>
+                <tr data-tags="高尾 小吃"><td>頂上燒肉屋台</td><td>小吃</td><td>山賊燒</td><td>¥800</td><td>山頂</td><td><button class="nav-btn">🍖</button></td></tr>
+                <tr data-tags="高尾 小吃"><td>高尾ビール園</td><td>小吃</td><td>高尾クラフト啤酒+炸雞</td><td>¥1,000</td><td>山麓</td><td><button class="nav-btn">🍺</button></td></tr>
+                <tr data-tags="高尾 必買"><td>高尾栗饅頭</td><td>必買</td><td>栗子饅頭</td><td>¥400</td><td>1號路</td><td><button class="nav-btn">🌰</button></td></tr>
+                <tr data-tags="高尾 小吃"><td>鰻魚小屋</td><td>小吃</td><td>鰻魚飯便當</td><td>¥1,200</td><td>高尾山口</td><td><button class="nav-btn">🍱</button></td></tr>
+                <tr data-tags="高尾 小吃"><td>山路ソフトクリーム</td><td>小吃</td><td>高尾奶油冰</td><td>¥450</td><td>登山口</td><td><button class="nav-btn">🍦</button></td></tr>
+              <tr data-tags="川越 抹茶 小吃"><td>茶和々SAWAWA</td><td>小吃</td><td>抹茶蕨餅</td><td>¥450</td><td>菓子屋橫丁</td><td><button class="nav-btn">🍵</button></td></tr>
+<tr data-tags="川越 必買 抹茶"><td>川越布丁</td><td>必買</td><td>河越抹茶布丁</td><td>¥500</td><td>一番街</td><td><button class="nav-btn">🍮</button></td></tr>
+<tr data-tags="川越 小吃 抹茶"><td>初音屋</td><td>小吃</td><td>抹茶提拉米蘇</td><td>¥600</td><td>老街</td><td><button class="nav-btn">🍰</button></td></tr>
+<tr data-tags="川越 必買 抹茶"><td>鏞舍</td><td>必買</td><td>抹茶羊羹</td><td>¥800</td><td>藏造街</td><td><button class="nav-btn">🍡</button></td></tr>
+<tr data-tags="川越 小吃 抹茶"><td>和芳庵</td><td>小吃</td><td>焙茶點心套餐</td><td>¥700</td><td>長峰園</td><td><button class="nav-btn">☕</button></td></tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+function filterD5Shops(category) {
+    const rows = document.querySelectorAll('#d5-shops-table tbody tr');
+    const buttons = document.querySelectorAll('#d5 .filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    rows.forEach(row => {
+        const tags = row.getAttribute('data-tags') || '';
+        row.style.display = (category === '全部' || tags.includes(category)) ? '' : 'none';
+    });
+}
+</script>
 
         <div id="d6" class="item-content">
             <div class="card">
@@ -1140,6 +1264,9 @@ function showPage(id) {
     document.getElementById(id).classList.add('active');
     event.target.classList.add('active');
 }
+  
+
+
 
 // 子導航切換（加強版）
 function showSub(id, btnEl) {
@@ -1188,20 +1315,139 @@ document.addEventListener('change', (e) => {
     const result = fares[from]?.[to] || '查無路線，請確認';
     document.getElementById('fare-result').textContent = `${from} → ${to}：${result}`;
 }
-
-// 阿美橫町篩選功能
-function filterShops(filter) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+// 🔥 D2專屬篩選（超簡潔版）
+function filterD2Shops(cat) {
+    // 高亮按鈕
+    document.querySelectorAll('#d2 .filter-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
-    
-    document.querySelectorAll('#ame-table tbody tr').forEach(row => {
-        if (filter === 'all' || row.dataset.tags.includes(filter)) {
+
+    // 只篩選D2表格
+    const rows = document.querySelectorAll('#d2-shops-table tbody tr');
+    rows.forEach(row => {
+        const tags = row.dataset.tags.toLowerCase();
+        
+        if (cat === '全部') {
             row.style.display = '';
         } else {
-            row.style.display = 'none';
+            row.style.display = tags.includes(cat.toLowerCase()) ? '' : 'none';
         }
     });
 }
+
+// 🔥 終極版：D2+阿美橫通用篩選（刪除所有舊版）
+function filterShops(filter) {
+    // 1. 高亮按鈕
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    // 2. 所有表格（D2+阿美橫）
+    const allTables = ['#ame-table', '#asakusa-table', '#shibuya-table'];
+
+    allTables.forEach(tableId => {
+        if (!document.querySelector(tableId)) return;  // 表格不存在跳過
+        
+        const rows = document.querySelectorAll(`${tableId} tbody tr`);
+        let visibleCount = 0;
+
+        rows.forEach(row => {
+            const tags = (row.dataset.tags || '').toLowerCase();
+            let showRow = false;
+
+          
+            // D2專用（淺草/隅田/澀谷）
+            if (filter === 'd2-all') { showRow = true; }
+            else if (filter === 'asakusa-only') { showRow = tags.includes('asakusa'); }
+            else if (filter === 'd2-snack') { showRow = tags.includes('snack'); }
+            else if (filter === 'd2-souvenir') { showRow = tags.includes('souvenir'); }
+            else if (filter === 'sumida-snack') { showRow = tags.includes('sumida'); }
+            else if (filter === 'chidori-snack') { showRow = tags.includes('chidori'); }
+            else if (filter === 'shibuya-snack') { showRow = tags.includes('shibuya'); }
+            
+            // 阿美橫通用（其他Day）
+            else if (filter === 'all') { showRow = true; }
+            else if (filter.startsWith('asakusa-')) {
+                showRow = tags.includes(filter.replace('asakusa-', '').toLowerCase());
+            }
+            else if (filter.startsWith('sumida-')) {
+                showRow = tags.includes(`sumida-${filter.replace('sumida-', '').toLowerCase()}`);
+            }
+            else if (filter.startsWith('shibuya-')) {
+                showRow = tags.includes(`shibuya-${filter.replace('shibuya-', '').toLowerCase()}`);
+            }
+            else {
+                showRow = tags.includes(filter.toLowerCase());
+            }
+
+            row.style.display = showRow ? '' : 'none';
+            if (showRow) visibleCount++;
+        });
+
+        // 3. 無結果提示
+        let noResult = document.querySelector(`${tableId} + .no-results`) || 
+                       document.querySelector('.no-results');
+        if (visibleCount === 0 && !noResult) {
+            noResult = document.createElement('div');
+            noResult.className = 'no-results';
+            noResult.style.cssText = 'padding:20px;color:#999;text-align:center;font-size:14px;background:#f8f9fa;margin:10px 0;border-radius:8px;';
+            document.querySelector(tableId).parentNode.appendChild(noResult);
+        }
+        if (noResult) {
+            noResult.textContent = visibleCount === 0 ? '❌ 暫無此類店家' : '';
+            noResult.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+    });
+}
+
+function showDay(dayId) {
+    // 1. 隱藏所有頁面
+    document.querySelectorAll('.item-content').forEach(page => {
+        page.classList.remove('active');
+        page.style.display = 'none';
+    });
+    
+    // 2. 顯示目標頁
+    const targetPage = document.getElementById(dayId);
+    if (targetPage) {
+        targetPage.classList.add('active');
+        targetPage.style.display = 'block';
+        
+        // 3. 重置篩選（D3專用）
+        const resetBtn = targetPage.querySelector('.filter-btn.active');
+        if (resetBtn) resetBtn.click();
+    }
+}
+
+// 🔥 D3專屬篩選函數
+function filterD3Shops(cat) {
+    // 1. 高亮按鈕
+    document.querySelectorAll('#d3 .filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+
+    // 2. 篩選D3表格
+    const rows = document.querySelectorAll('#d3-shops-table tbody tr');
+    let count = 0;
+    
+    rows.forEach(row => {
+        const tags = (row.dataset.tags || '').toLowerCase();
+        const show = (cat === '全部') || tags.includes(cat.toLowerCase());
+        
+        row.style.display = show ? '' : 'none';
+        if (show) count++;
+    });
+}
+
+// 🔥 頁面載入時初始化D3篩選數量
+document.addEventListener('DOMContentLoaded', function() {
+    const allBtn = document.querySelector('#d3 .filter-tags .filter-btn');
+    if (allBtn) {
+        const total = document.querySelectorAll('#d3-shops-table tbody tr').length;
+        allBtn.textContent = `全部(${total})`;
+    }
+});
+
+
 
 // Google地圖導航
 function navTo(query) {
