@@ -425,6 +425,21 @@
     background-color: #e0e0e0 !important; /* 點擊時變深色 */
     transform: scale(0.98); /* 點擊時縮小一點點 */
 }
+  
+  footer {
+    text-align: center;
+    padding: 40px 20px 60px; /* 增加底部空間，避免被手機導覽列遮住 */
+    color: var(--muji-gray);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--muji-line);
+    margin-top: 50px;
+    background-color: var(--muji-white);
+    letter-spacing: 0.1em;
+}
+
+footer p {
+    margin: 5px 0;
+}
 </style>
 </head>
 <body>
@@ -479,6 +494,15 @@
                 <a href="https://vjw-lp.digital.go.jp/zh-hant/" target="_blank" class="vjw-btn">OPEN VJW ↗</a>
             </div>
 
+          <div class="card" style="border-left: 5px solid #ffb7c5; background: #fff5f7;">
+    <h2 style="color: #d87093;"><i class="fas fa-cherry-blossom"></i> 2026 櫻花季即時報</h2>
+    <div class="info-box" style="font-size: 0.9rem;">
+        <p>🌸 <b>預計開花：</b> 3/20 | <b>預計滿開：</b> 3/28</p>
+        <p>📍 <b>最近熱點：</b> 隅田公園 (搭淺草線 2 站即達)</p>
+        <p>⚠️ <b>注意：</b> 晚間氣溫降幅大，請務必幫長輩準備暖暖包與輕羽絨。</p>
+    </div>
+</div>
+          
             <div class="card">
                 <h2>PRE-CHECKLIST</h2>
                 <table class="checklist-table">
@@ -542,7 +566,7 @@
                         <button class="flat-btn" onclick="checkAll()">全選 / 取消</button>
                         <button class="flat-btn" onclick="resetChecklist()">重置</button>
                     </div>
-                    <span id="progress">0 / 4 完成</span>
+                    <span id="progress">0 / 9 完成</span>
                 </div>
             </div>
         </section>
@@ -1919,6 +1943,14 @@
         </div>
     </div>
 </section>
+  
+  <footer>
+    <div style="margin-bottom: 10px;">
+        <i class="fas fa-seedling" style="color: var(--muji-accent); opacity: 0.5;"></i>
+    </div>
+    <p>© 2026 Tokyo Sakura Journey - 行程</p>
+    <p style="font-size: 0.7rem; opacity: 0.7;">Have a wonderful trip to Japan!</p>
+</footer>
   
     <script>
         function showSection(sectionId) {
