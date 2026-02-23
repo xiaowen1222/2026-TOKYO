@@ -2233,6 +2233,103 @@ footer p {
         </div>
     </div>
 </section>
+  <section id="costs" style="display:none; max-width: 800px; margin: 0 auto; width: 100%;">
+    <div class="card" style="margin-top: 20px;">
+        <h2 style="border-bottom: 2px solid var(--muji-accent); padding-bottom: 8px;">💴 旅費預算管理</h2>
+        
+        <div style="background: #fdf5e6; border-radius: var(--muji-radius); padding: 20px; margin-bottom: 20px; border: 1px solid #eee;">
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; font-size: 0.9rem; color: #ac1f24; font-weight: bold; margin-bottom: 5px;">⚙️ 設定當前匯率 (TWD/JPY)</label>
+                <input type="number" id="exchangeRate" value="0.21" step="0.001" oninput="calculateEstimates()"
+                       style="width: 100px; padding: 8px; border: 2px solid #ac1f24; border-radius: 8px; font-size: 1rem; text-align: center;">
+                <span style="font-size: 0.8rem; color: var(--muji-gray); margin-left: 10px;">(手動修改匯率，下方換算同步更新)</span>
+            </div>
+
+            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; border-top: 1px dashed #ccc; padding-top: 15px;">
+                <div style="flex: 1; min-width: 120px;">
+                    <label style="display: block; font-size: 0.8rem; color: var(--muji-gray); margin-bottom: 5px;">日幣 JPY</label>
+                    <input type="number" id="jpyInput" placeholder="輸入日幣" oninput="convertCurrency('jpy')" 
+                           style="width: 100%; padding: 12px; border: 1px solid var(--muji-line); border-radius: 8px; font-size: 1.1rem; box-sizing: border-box; font-weight: bold;">
+                </div>
+                <div style="padding-top: 25px; font-weight: bold; color: var(--muji-gray);">⇄</div>
+                <div style="flex: 1; min-width: 120px;">
+                    <label style="display: block; font-size: 0.8rem; color: var(--muji-gray); margin-bottom: 5px;">台幣 TWD</label>
+                    <input type="number" id="twdInput" placeholder="輸入台幣" oninput="convertCurrency('twd')"
+                           style="width: 100%; padding: 12px; border: 1px solid var(--muji-line); border-radius: 8px; font-size: 1.1rem; box-sizing: border-box; font-weight: bold; color: var(--muji-accent);">
+                </div>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <h3 style="font-size: 1rem; margin-bottom: 10px; color: var(--muji-text); font-style: normal;">📌 已支付固定支出 (單人)</h3>
+            <table class="checklist-table">
+                <thead>
+                    <tr style="background: var(--muji-bg);">
+                        <th style="font-style: normal;">項目</th>
+                        <th style="text-align: right; font-style: normal;">台幣金額</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-style: normal; font-weight: bold;">✈️ 來回機票</td>
+                        <td style="text-align: right; font-style: normal;">$13,500</td>
+                    </tr>
+                    <tr>
+                        <td style="font-style: normal; font-weight: bold;">🏠 民宿住宿 (5晚)</td>
+                        <td style="text-align: right; font-style: normal;">$8,945</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-wrap" style="margin-top: 30px;">
+            <h3 style="font-size: 1rem; margin-bottom: 10px; color: var(--muji-text); font-style: normal;">📝 當地預估支出 (單人)</h3>
+            <table class="checklist-table">
+                <thead>
+                    <tr style="background: var(--muji-bg);">
+                        <th style="font-style: normal;">項目</th>
+                        <th style="text-align: right; font-style: normal;">日幣預估</th>
+                        <th style="text-align: right; font-style: normal;">折合台幣</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🍜 6日餐飲 (約 ¥7000/日)</td>
+                        <td style="text-align: right;">¥42,000</td>
+                        <td style="text-align: right; color: var(--muji-accent);" class="est-twd" data-jpy="42000">$8,820</td>
+                    </tr>
+                    <tr>
+                        <td>🚃 交通費用 (含鎌倉/京成)</td>
+                        <td style="text-align: right;">¥12,000</td>
+                        <td style="text-align: right; color: var(--muji-accent);" class="est-twd" data-jpy="12000">$2,520</td>
+                    </tr>
+                    <tr>
+                        <td>🗿 景點門票 (大佛/展望台)</td>
+                        <td style="text-align: right;">¥5,000</td>
+                        <td style="text-align: right; color: var(--muji-accent);" class="est-twd" data-jpy="5000">$1,050</td>
+                    </tr>
+                    <tr style="background: #fdfaf7;">
+                        <td style="font-weight: bold;">💰 預計當地花費 (單人)</td>
+                        <td style="text-align: right; font-weight: bold;">¥59,000</td>
+                        <td style="text-align: right; font-size: 1.1rem; color: var(--muji-accent); font-weight: 900;" id="totalEstTwd">$12,390</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top: 25px; padding: 15px; background: var(--muji-text); color: white; border-radius: 8px; text-align: center;">
+            <div style="font-size: 0.9rem; opacity: 0.8;">預估每人旅程總支出 (不含購物)</div>
+            <div style="font-size: 1.8rem; font-weight: 900;" id="grandTotalTwd">TWD $34,835</div>
+        </div>
+
+        <div style="margin-top: 15px; font-size: 0.85rem; color: var(--muji-gray); padding: 10px; border-left: 3px solid var(--muji-line); line-height: 1.6; font-style: normal;">
+    💡 預算執行建議：<br>
+    • 現金預算 (NT$40,000)：建議用於交通卡儲值、門票、小吃及寺廟買貓。<br>
+    • 大額支出：<b>人形町今半、高島屋購物</b> 建議優先使用信用卡，以確保現金充足。<br>
+    • 匯率變動：若日幣貶值至 0.205，您的 4 萬台幣可多換約 4,600 日幣。
+</div>
+    </div>
+</section>
   
   <footer>
     <div style="margin-bottom: 10px;">
@@ -2243,6 +2340,47 @@ footer p {
 </footer>
   
     <script>
+      // 匯率轉換
+      function convertCurrency(type) {
+    const rate = parseFloat(document.getElementById('exchangeRate').value) || 0;
+    const jpyField = document.getElementById('jpyInput');
+    const twdField = document.getElementById('twdInput');
+
+    if (type === 'jpy') {
+        twdField.value = jpyField.value === "" ? "" : (jpyField.value * rate).toFixed(0);
+    } else {
+        jpyField.value = twdField.value === "" ? "" : (twdField.value / rate).toFixed(0);
+    }
+}
+
+function calculateEstimates() {
+    const rate = parseFloat(document.getElementById('exchangeRate').value) || 0;
+    const estElements = document.querySelectorAll('.est-twd');
+    let totalLocalTwd = 0;
+
+    // 更新表格中每一項的台幣換算
+    estElements.forEach(el => {
+        const jpy = parseInt(el.getAttribute('data-jpy'));
+        const twd = Math.round(jpy * rate);
+        el.innerText = '$' + twd.toLocaleString();
+        totalLocalTwd += twd;
+    });
+
+    // 更新總計
+    document.getElementById('totalEstTwd').innerText = '$' + totalLocalTwd.toLocaleString();
+    
+    const fixedCost = 22445; // 機票 13500 + 住宿 8945
+    const grandTotal = fixedCost + totalLocalTwd;
+    document.getElementById('grandTotalTwd').innerText = 'TWD $' + grandTotal.toLocaleString();
+    
+    // 同步更新換算工具
+    convertCurrency('jpy');
+}
+
+// 頁面載入時先算一次
+window.onload = function() {
+    calculateEstimates();
+};
         function showSection(sectionId) {
             const sections = document.querySelectorAll('section');
             sections.forEach(s => s.classList.remove('active'));
@@ -2413,4 +2551,3 @@ function copyText(text) {
     </script>
 </body>
 </html>
-
