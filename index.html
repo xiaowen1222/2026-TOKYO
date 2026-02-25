@@ -908,9 +908,207 @@ footer p {
     </div>
 </div>
     
+  
   <div id="d3" class="day-content" style="display:none;">
     <div class="card">
-        <h2>🌸 Day 03 | 淺草下町・水上巴士・台場浪漫夜</h2>
+        <h2>🐱 Day 03｜東京近郊雙巡禮</h2>
+        
+        <table class="checklist-table" style="margin-bottom: 30px;">
+            <thead>
+                <tr>
+                    <th style="width: 15%;">時間</th>
+                    <th style="width: 25%;">景點項目</th>
+                    <th style="width: 45%;">交通與攻略 (全程刷 Suica)</th>
+                    <th style="width: 15%; text-align: center;">導航</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>08:30</td>
+                    <td><b>豪德寺<br><small>招福貓之森</small></b></td>
+                    <td>新宿站搭 <b>小田急線</b> 至「豪德寺站」<br><small style="color:var(--muji-gray)">🐱 拍滿山滿谷的招福貓，早上空氣最清新</small></td>
+                    <td class="center">
+                        <button class="flat-btn" onclick="navTo('豪徳寺')">🐱</button>
+                    </td>
+                </tr>
+                <tr style="background: #f0f4f8;">
+                    <td>10:45</td>
+                    <td><b>湘南單軌電車<br><small>空中掛軌體驗</small></b></td>
+                    <td>「豪德寺」搭小田急至<b>「大船站」</b><br>轉乘 <b>湘南單軌電車</b> 到「湘南江之島」<br><small style="color:var(--muji-gray)">📸 懸吊式電車！出站後可仰拍電車過馬路</small></td>
+                    <td class="center">
+                        <button class="flat-btn" onclick="navTo('大船駅')">🚟</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12:00</td>
+                    <td><b>鎌倉大佛<br><small>高德院參拜</small></b></td>
+                    <td>江之島站搭 <b>江之電</b> 至「長谷站」<br><small style="color:var(--muji-gray)">🗿 步行 7 分抵達大佛。門票 ¥300</small></td>
+                    <td class="center">
+                        <button class="flat-btn" onclick="navTo('鎌倉大仏殿高徳院')">🗿</button>
+                    </td>
+                </tr>
+                <tr style="background: #fff9c4;">
+                    <td>13:00</td>
+                    <td><b>午餐：Kaedena<br><small>土鍋ごはん</small></b></td>
+                    <td>大佛步行 5 分鐘抵達。<br><small style="font-weight: bold; color:#d35400;">🍚 必點：吻仔魚土鍋飯。讓長輩坐下休息</small></td>
+                    <td class="center">
+                        <button class="flat-btn" onclick="navTo('土鍋ごはん かえ製な')">🥢</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>14:30</td>
+                    <td><b>小町通 & 八幡宮<br><small>鎌倉經典散策</small></b></td>
+                    <td>搭 <b>江之電</b> 至終點「鎌倉站」<br><small style="color:var(--muji-gray)">⛩️ 逛小町通、參拜鶴岡八幡宮，買伴手禮</small></td>
+                    <td class="center">
+                        <button class="flat-btn" onclick="navTo('鶴岡八幡宮')">🏮</button>
+                    </td>
+                </tr>
+                <tr style="background: #e3f2fd;">
+                    <td>16:30</td>
+                    <td><b>海景咖啡廳<br><small>遠眺富士山</small></b></td>
+                    <td>搭 <b>江之電</b> 至「七里濱站」<br><small style="color:var(--muji-gray)">🌊 <b>Pacific DRIVE-IN</b> 喝咖啡，平地看海最省力</small></td>
+                    <td class="center">
+                        <button class="flat-btn" onclick="navTo('七里ヶ浜駅')">☕</button>
+                    </td>
+                </tr>
+                <tr style="background: rgba(var(--muji-accent-rgb), 0.1);">
+                    <td>18:30</td>
+                    <td><b>晚餐：今半<br><small>新宿高島屋店</small></b></td>
+                    <td>從「鎌倉站」搭 <b>JR 湘南新宿線</b> 直達新宿站<br><small style="color:var(--muji-gray)">🥩 <b>14 樓壽喜燒</b>。專人服務長輩不勞累</small></td>
+                    <td class="center">
+                        <button class="flat-btn" onclick="navTo('人形町今半 新宿髙島屋店')">🥩</button>
+                    </td>
+                </tr>
+                <tr style="background: #f8f9fa;">
+                    <td>20:00</td>
+                    <td><b>高島屋逛街<br><small>消化兼購物</small></b></td>
+                    <td><b>新宿高島屋百貨 (1F-13F)</b><br><small style="color:var(--muji-gray)">🛍️ 逛東急手創館、百貨伴手禮與免稅購物</small></td>
+                    <td class="center">🛍️</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="background: #fdf5e6; border-radius: 8px; padding: 15px; border: 1px solid #eee; margin-bottom: 25px;">
+            <h3 style="margin-top:0; color: #ac1f24; font-size: 1rem;">🚆 D3 鐵道 & 購物小撇步</h3>
+            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; color: #444; line-height: 1.6;">
+                <li><b>湘南單軌電車拍攝：</b> 想要拍到電車「吊在半空」的經典畫面，在<b>湘南江之島站</b>一樓出門口的馬路口等待即可。</li>
+                <li><b>Kaedena 預約：</b> 土鍋飯製作較慢，長輩正好能多休息。若擔心排隊，可嘗試請飯店預約。</li>
+                <li><b>高島屋逛街重點：</b> 
+                    記得帶護照，退稅櫃檯在 2 樓或 11 樓（視當天安排）。
+                </li>
+                <li><b>回程：</b> 逛完後直接從高島屋 B1 走連通道，搭 <b>都營大江戶線</b> 直達「新御徒町」，免去新宿站大迷宮的困擾。</li>
+            </ul>
+        </div>
+
+      <div class="shop-section">
+    <h3 style="font-size: 1.1rem; color: var(--muji-accent); margin-top: 30px;">📍 D3 精選清單（豪德寺・鎌倉・湘南 75 選）</h3>
+    
+    <div class="filter-group">
+        <button class="flat-btn active" onclick="filterShops('all', this)">全部</button>
+        <button class="flat-btn" onclick="filterShops('food', this)">正餐</button>
+        <button class="flat-btn" onclick="filterShops('shop', this)">購物</button>
+        <button class="flat-btn" onclick="filterShops('cafe', this)">甜點咖啡</button>
+    </div>
+
+    <div class="shop-scroll-container">
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-num">#</th>
+                    <th class="col-name">店名 (中/日)</th>
+                    <th class="col-feat">位置 / 特色</th>
+                    <th class="col-map">地圖</th>
+                </tr>
+            </thead>
+            <tbody id="d3-table-body">
+                <tr data-tags="cafe"><td class="col-num">1</td><td class="col-name"><b>Denny's 豪德寺<br><small>早餐首選</small></b></td><td class="col-feat">沙發座寬敞，適合長輩出發前早餐</td><td class="col-map"><button class="flat-btn" onclick="navTo('デニーズ 豪徳寺店')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">2</td><td class="col-name"><b>豪德寺受付<br><small>招福貓販售</small></b></td><td class="col-feat">必買大小不一的白瓷招福貓</td><td class="col-map"><button class="flat-btn" onclick="navTo('豪徳寺')">🛒</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">3</td><td class="col-name"><b>FIKA Coffee<br><small>豪德寺</small></b></td><td class="col-feat">極簡木質調咖啡廳</td><td class="col-map"><button class="flat-btn" onclick="navTo('FIKA Coffee Gotokuji')">📍</button></td></tr>
+                <tr data-tags="food"><td class="col-num">4</td><td class="col-name"><b>福室庵<br><small>蕎麥麵</small></b></td><td class="col-feat">豪德寺旁老字號，很有在地感</td><td class="col-map"><button class="flat-btn" onclick="navTo('福室庵')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">5</td><td class="col-name"><b>墨繪<br><small>面包店</small></b></td><td class="col-feat">豪德寺站前名店，咖哩麵包必買</td><td class="col-map"><button class="flat-btn" onclick="navTo('墨繪 豪徳寺店')">🛒</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">6</td><td class="col-name"><b>Iron Coffee<br><small>精品咖啡</small></b></td><td class="col-feat">文青風街角外帶咖啡</td><td class="col-map"><button class="flat-btn" onclick="navTo('IRON COFFEE')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">7</td><td class="col-name"><b>招福堂<br><small>和菓子</small></b></td><td class="col-feat">招財貓造型的可愛人形燒</td><td class="col-map"><button class="flat-btn" onclick="navTo('招福堂')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">8</td><td class="col-name"><b>辣婆婆<br><small>麻婆豆腐</small></b></td><td class="col-feat">豪德寺人氣中華料理</td><td class="col-map"><button class="flat-btn" onclick="navTo('辣婆婆 豪徳寺')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">9</td><td class="col-name"><b>Sunroom<br><small>雜貨</small></b></td><td class="col-feat">世田谷風精緻生活選物</td><td class="col-map"><button class="flat-btn" onclick="navTo('Sunroom Gotokuji')">🛒</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">10</td><td class="col-name"><b>Unmago<br><small>燒菓子</small></b></td><td class="col-feat">豪德寺巷弄中的溫馨甜點店</td><td class="col-map"><button class="flat-btn" onclick="navTo('unmago')">📍</button></td></tr>
+
+                <tr data-tags="food"><td class="col-num">11</td><td class="col-name"><b>Kaedena<br><small>土鍋飯</small></b></td><td class="col-feat">推薦吻仔魚土鍋飯，長輩最愛</td><td class="col-map"><button class="flat-btn" onclick="navTo('土鍋ごはん かえでな')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">12</td><td class="col-name"><b>KANNON COFFEE<br><small>長谷</small></b></td><td class="col-feat">有大佛造型雞蛋糕的手沖咖啡</td><td class="col-map"><button class="flat-btn" onclick="navTo('KANNON COFFEE kamakura')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">13</td><td class="col-name"><b>豐島屋 扉店<br><small>鳩餅</small></b></td><td class="col-feat">長谷站前必買鐮倉代表伴手禮</td><td class="col-map"><button class="flat-btn" onclick="navTo('豊島屋 扉店')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">14</td><td class="col-name"><b>淺翎拉麵<br><small>Asahi</small></b></td><td class="col-feat">長谷老牌醬油拉麵</td><td class="col-map"><button class="flat-btn" onclick="navTo('らーめん 浅翎')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">15</td><td class="col-name"><b>長谷寺 海光庵<br><small>寺內茶屋</small></b></td><td class="col-feat">俯瞰海景，必吃「御守丸子」</td><td class="col-map"><button class="flat-btn" onclick="navTo('海光庵')">📍</button></td></tr>
+                <tr data-tags="food"><td class="col-num">16</td><td class="col-name"><b>惠比壽屋<br><small>章魚仙貝</small></b></td><td class="col-feat">整隻章魚壓扁的特色仙貝</td><td class="col-map"><button class="flat-btn" onclick="navTo('あさひ本店 鎌倉大仏店')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">17</td><td class="col-name"><b>鎌倉四葩<br><small>吸油面紙</small></b></td><td class="col-feat">精緻的和紙與美妝小物</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉四葩 長谷店')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">18</td><td class="col-name"><b>三和樓<br><small>中華料理</small></b></td><td class="col-feat">懷舊氣氛，適合帶長輩吃熱食</td><td class="col-map"><button class="flat-btn" onclick="navTo('三和楼')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">19</td><td class="col-name"><b>力餅家<br><small>権五郎力餅</small></b></td><td class="col-feat">300年歷史老舖，豆沙麻糬必買</td><td class="col-map"><button class="flat-btn" onclick="navTo('力餅家')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">20</td><td class="col-name"><b>鎌倉大佛 賣店<br><small>高德院內</small></b></td><td class="col-feat">專賣大佛相關周邊，護身符種類多</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉大仏殿高徳院')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">21</td><td class="col-name"><b>定食屋 鯱<br><small>Shachi</small></b></td><td class="col-feat">在地魚料理定食</td><td class="col-map"><button class="flat-btn" onclick="navTo('定食屋 鯱')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">22</td><td class="col-name"><b>Cafe Caprice<br><small>長谷</small></b></td><td class="col-feat">歐風可愛小店，蛋糕水準極高</td><td class="col-map"><button class="flat-btn" onclick="navTo('Cafe Caprice')">📍</button></td></tr>
+                <tr data-tags="food"><td class="col-num">23</td><td class="col-name"><b>Woof Curry<br><small>歐風咖哩</small></b></td><td class="col-feat">長谷人氣NO.1的香濃咖哩飯</td><td class="col-map"><button class="flat-btn" onclick="navTo('Woof Curry')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">24</td><td class="col-name"><b>鎌倉土產 花之藏<br><small>Hananokura</small></b></td><td class="col-feat">集合許多鐮倉文創小物</td><td class="col-map"><button class="flat-btn" onclick="navTo('花の蔵')">🛒</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">25</td><td class="col-name"><b>Vuori<br><small>老宅咖啡</small></b></td><td class="col-feat">倉庫改建，刨冰與布丁非常有名</td><td class="col-map"><button class="flat-btn" onclick="navTo('Vuori')">📍</button></td></tr>
+                <tr data-tags="food"><td class="col-num">26</td><td class="col-name"><b>長谷 魚よし<br><small>海鮮料理</small></b></td><td class="col-feat">鮮魚專賣店經營的道地食堂</td><td class="col-map"><button class="flat-btn" onclick="navTo('魚よし')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">27</td><td class="col-name"><b>駄菓子店 鎌倉屋<br><small>古早味</small></b></td><td class="col-feat">懷舊零食，長輩會很有共鳴</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉屋')">🛒</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">28</td><td class="col-name"><b>café recette<br><small>法式吐司</small></b></td><td class="col-feat">高級吐司專賣店的咖啡館</td><td class="col-map"><button class="flat-btn" onclick="navTo('café recette 鎌倉')">📍</button></td></tr>
+                <tr data-tags="food"><td class="col-num">29</td><td class="col-name"><b>鎌倉 山海堂<br><small>大佛旁</small></b></td><td class="col-feat">專賣迷你模型與精緻工藝品</td><td class="col-map"><button class="flat-btn" onclick="navTo('山海堂')">🛒</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">30</td><td class="col-name"><b>Terra Coffee Roasters<br><small>長谷站</small></b></td><td class="col-feat">自家烘焙豆，咖啡香氣十足</td><td class="col-map"><button class="flat-btn" onclick="navTo('Terra Coffee Roasters')">📍</button></td></tr>
+
+                <tr data-tags="food"><td class="col-num">31</td><td class="col-name"><b>鎌倉釜飯 Kaoru<br><small>釜飯</small></b></td><td class="col-feat">現點現炊，料多味美</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉釜飯かおる')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">32</td><td class="col-name"><b>茶房 雲母<br><small>白玉名店</small></b></td><td class="col-feat">巨大Q彈白玉（需排隊，但值得）</td><td class="col-map"><button class="flat-btn" onclick="navTo('茶房 雲母')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">33</td><td class="col-name"><b>鎌倉八座<br><small>雜貨</small></b></td><td class="col-feat">以「日本工藝」為主題的選物店</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉八座')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">34</td><td class="col-name"><b>Ondari 咖哩<br><small>Ondari</small></b></td><td class="col-feat">濃郁系野菜咖哩</td><td class="col-map"><button class="flat-btn" onclick="navTo('おなり路地裏カレー')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">35</td><td class="col-name"><b>星巴克 御成町店<br><small>泳池景觀</small></b></td><td class="col-feat">著名建築師舊居改建，必訪休息點</td><td class="col-map"><button class="flat-btn" onclick="navTo('スターバックス コーヒー 鎌倉御成町店')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">36</td><td class="col-name"><b>蒟蒻洗顏<br><small>鎌倉蒟蒻しゃぼん</small></b></td><td class="col-feat">QQ的觸感洗面皂，伴手禮推薦</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉蒟蒻しゃぼん')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">37</td><td class="col-name"><b>小町通 腸詰屋<br><small>德式熱狗</small></b></td><td class="col-feat">適合逛街時的小點心</td><td class="col-map"><button class="flat-btn" onclick="navTo('腸詰屋 鎌倉小町店')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">38</td><td class="col-name"><b>鳩小路<br><small>Hatokoji</small></b></td><td class="col-feat">隱藏巷弄的安靜喫茶店</td><td class="col-map"><button class="flat-btn" onclick="navTo('鳩小路')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">39</td><td class="col-name"><b>鎌倉 帆布巾<br><small>Kamakura Canvas</small></b></td><td class="col-feat">在地職人手工縫製帆布包</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉帆布巾')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">40</td><td class="col-name"><b>Oxymoron<br><small>咖哩/甜點</small></b></td><td class="col-feat">充滿香草特色的乾咖哩與布丁</td><td class="col-map"><button class="flat-btn" onclick="navTo('OXYMORON komachi')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">41</td><td class="col-name"><b>鎌倉 箸座<br><small>筷子專賣</small></b></td><td class="col-feat">可免費刻字，非常有紀念價值</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉箸座')">🛒</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">42</td><td class="col-name"><b>鎌倉茶茶<br><small>抹茶霜淇淋</small></b></td><td class="col-feat">等級最高（Level 5）的濃郁抹茶</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉茶々')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">43</td><td class="col-name"><b>どんぐり共和國<br><small>吉卜力</small></b></td><td class="col-feat">龍貓周邊專賣店</td><td class="col-map"><button class="flat-btn" onclick="navTo('どんぐり共和国 鎌倉小町通り店')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">44</td><td class="col-name"><b>鎌倉 壱番屋<br><small>現烤仙貝</small></b></td><td class="col-feat">100日圓起跳，熱騰騰香酥推薦</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉壱番屋')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">45</td><td class="col-name"><b>Café Vivement Dimanche<br><small>巴西咖啡</small></b></td><td class="col-feat">鎌倉元老級名店，鬆餅極佳</td><td class="col-map"><button class="flat-btn" onclick="navTo('café vivement dimanche')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">46</td><td class="col-name"><b>鎌倉 井上蒲鉾店<br><small>魚板</small></b></td><td class="col-feat">百年名店，梅花造型魚板超美</td><td class="col-map"><button class="flat-btn" onclick="navTo('井上蒲鉾店 鎌倉駅前店')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">47</td><td class="col-name"><b>玉子燒 おざわ<br><small>Ozawa</small></b></td><td class="col-feat">高湯爆發的柔軟玉子燒定食</td><td class="col-map"><button class="flat-btn" onclick="navTo('玉子焼 おざわ')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">48</td><td class="col-name"><b>VERVE Coffee<br><small>鎌倉雪之下</small></b></td><td class="col-feat">美式質感空間，明亮舒適</td><td class="col-map"><button class="flat-btn" onclick="navTo('Verve Coffee Roasters Kamakura')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">49</td><td class="col-name"><b>鎌倉 鬼頭天薰堂<br><small>線香</small></b></td><td class="col-feat">高雅的日本香，適合送禮長輩</td><td class="col-map"><button class="flat-btn" onclick="navTo('鬼頭天薫堂')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">50</td><td class="col-name"><b>鎌倉 峰本<br><small>蕎麥麵</small></b></td><td class="col-feat">位置寬敞，傳統手作口味</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉 峰本 朝比奈店')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">51</td><td class="col-name"><b>鎌倉 豐島屋 本店<br><small>鳩餅總部</small></b></td><td class="col-feat">除了餅乾，還有很多「鳩」造型文具</td><td class="col-map"><button class="flat-btn" onclick="navTo('豊島屋 本店')">🛒</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">52</td><td class="col-name"><b>Imetsuru<br><small>芋羊羹</small></b></td><td class="col-feat">入口即化的紫薯與黃薯甜點</td><td class="col-map"><button class="flat-btn" onclick="navTo('いも吉館')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">53</td><td class="col-name"><b>CACAO鎌倉<br><small>巧克力</small></b></td><td class="col-feat">生巧克力塔與限定閃電泡芙</td><td class="col-map"><button class="flat-btn" onclick="navTo('MAISON CACAO 鎌倉小町本店')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">54</td><td class="col-name"><b>鎌倉 山路<br><small>Yamaji</small></b></td><td class="col-feat">傳統懷石感的定食，推薦晚餐</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉 山路')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">55</td><td class="col-name"><b>納言志留古<br><small>紅豆湯</small></b></td><td class="col-feat">在地人都愛的紅豆湯老店</td><td class="col-map"><button class="flat-btn" onclick="navTo('納言志るこ店')">📍</button></td></tr>
+
+                <tr data-tags="food"><td class="col-num">56</td><td class="col-name"><b>江之島 Tobiya<br><small>海鮮丼</small></b></td><td class="col-feat">吻仔魚名店，景觀極佳</td><td class="col-map"><button class="flat-btn" onclick="navTo('とびっちょ 江の島本店')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">57</td><td class="col-name"><b>Amalfi Della Sera<br><small>七里濱</small></b></td><td class="col-feat">絕美海景露台，看富士山與江之島</td><td class="col-map"><button class="flat-btn" onclick="navTo('Amalfi DELLA SERA')">📍</button></td></tr>
+                <tr data-tags="food"><td class="col-num">58</td><td class="col-name"><b>魚見亭<br><small>海鮮料理</small></b></td><td class="col-feat">江之島岩屋旁，懸崖邊的海鮮景點</td><td class="col-map"><button class="flat-btn" onclick="navTo('魚見亭')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">59</td><td class="col-name"><b>Pacific DRIVE-IN<br><small>七里濱</small></b></td><td class="col-feat">夏威夷風下午茶，停車場看海首選</td><td class="col-map"><button class="flat-btn" onclick="navTo('Pacific DRIVE-IN')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">60</td><td class="col-name"><b>江之島 貝殼屋<br><small>工藝品</small></b></td><td class="col-feat">各式精緻貝殼裝飾</td><td class="col-map"><button class="flat-btn" onclick="navTo('江の島')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">61</td><td class="col-name"><b>珊瑚礁 咖哩<br><small>七里濱</small></b></td><td class="col-feat">湘南最具代表性的豪華餐車感咖哩</td><td class="col-map"><button class="flat-btn" onclick="navTo('珊瑚礁 モアナマカイ店')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">62</td><td class="col-name"><b>Double Doors<br><small>七里濱</small></b></td><td class="col-feat">海景第一排，餐飲水準很高</td><td class="col-map"><button class="flat-btn" onclick="navTo('Double Doors')">📍</button></td></tr>
+                <tr data-tags="food"><td class="col-num">63</td><td class="col-name"><b>稻村崎 溫泉<br><small>夕陽溫泉</small></b></td><td class="col-feat">黃金之湯，邊泡湯邊看富士山夕陽</td><td class="col-map"><button class="flat-btn" onclick="navTo('稲村ヶ崎温泉')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">64</td><td class="col-name"><b>江之島 燈塔咖啡<br><small>Sea Candle</small></b></td><td class="col-feat">在瞭望台上喝咖啡，視野360度</td><td class="col-map"><button class="flat-btn" onclick="navTo('江の島シーキャンドル')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">65</td><td class="col-name"><b>湘南 T-SITE<br><small>蔦屋書店</small></b></td><td class="col-feat">最美生活提案書店（需搭車前往）</td><td class="col-map"><button class="flat-btn" onclick="navTo('湘南T-SITE')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">66</td><td class="col-name"><b>池田丸<br><small>腰越站</small></b></td><td class="col-feat">漁師經營，炸魚定食非常澎湃</td><td class="col-map"><button class="flat-btn" onclick="navTo('池田丸')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">67</td><td class="col-name"><b>Blue Seal<br><small>江之島</small></b></td><td class="col-feat">沖繩品牌，坐在海邊吃冰淇淋超爽</td><td class="col-map"><button class="flat-btn" onclick="navTo('Blue Seal Enoshima')">📍</button></td></tr>
+                <tr data-tags="food"><td class="col-num">68</td><td class="col-name"><b>しらす問屋 とびっちょ<br><small>吻仔魚麵</small></b></td><td class="col-feat">江之島名物的大份量代表</td><td class="col-map"><button class="flat-btn" onclick="navTo('とびっちょ')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">69</td><td class="col-name"><b>江之島 紀之國屋<br><small>女夫饅頭</small></b></td><td class="col-feat">現蒸饅頭，長輩最愛的傳統口味</td><td class="col-map"><button class="flat-btn" onclick="navTo('紀の国屋本店')">📍</button></td></tr>
+                <tr data-tags="food"><td class="col-num">70</td><td class="col-name"><b>Main 餐廳<br><small>稻村崎</small></b></td><td class="col-feat">就在夕陽名所旁，適合看完夕陽用餐</td><td class="col-map"><button class="flat-btn" onclick="navTo('レストラン Main')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">71</td><td class="col-name"><b>Lawn<br><small>老牌喫茶店</small></b></td><td class="col-feat">江之島站前，懷舊的咖啡與土司</td><td class="col-map"><button class="flat-btn" onclick="navTo('喫茶ラムン')">📍</button></td></tr>
+                <tr data-tags="shop"><td class="col-num">72</td><td class="col-name"><b>新江之島水族館<br><small>賣店</small></b></td><td class="col-feat">水母主題周邊非常精緻</td><td class="col-map"><button class="flat-btn" onclick="navTo('新江ノ島水族館')">🛒</button></td></tr>
+                <tr data-tags="food"><td class="col-num">73</td><td class="col-name"><b>江之島 富士見亭<br><small>Fujimitei</small></b></td><td class="col-feat">名副其實，窗外就是富士山</td><td class="col-map"><button class="flat-btn" onclick="navTo('富士見亭')">📍</button></td></tr>
+                <tr data-tags="cafe"><td class="col-num">74</td><td class="col-name"><b>Loncafe<br><small>法式吐司</small></b></td><td class="col-feat">日本第一家法式吐司專賣，位在山頂</td><td class="col-map"><button class="flat-btn" onclick="navTo('LONCAFE 江の島本店')">📍</button></td></tr>
+                <tr data-tags="food"><td class="col-num">75</td><td class="col-name"><b>新宿今半<br><small>高島屋店</small></b></td><td class="col-feat">（回程晚餐）專人服務的高級壽喜燒</td><td class="col-map"><button class="flat-btn" onclick="navTo('人形町今半 新宿髙島屋店')">🥩</button></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+    </div>
+</div>
+  
+  <div id="d4" class="day-content" style="display:none;">
+    <div class="card">
+        <h2>🌸 Day 04 | 淺草下町・水上巴士・台場浪漫夜</h2>
         
         <table class="checklist-table" style="margin-bottom: 30px;">
             <thead>
@@ -968,7 +1166,7 @@ footer p {
         </table>
 
       <div class="shop-section">
-    <h3 style="font-size: 1.1rem; color: var(--muji-accent); margin-top: 30px;">📍 D3 深度精選（東區下町 + 台場灣區 80 選）</h3>
+    <h3 style="font-size: 1.1rem; color: var(--muji-accent); margin-top: 30px;">📍 D4 深度精選（東區下町 + 台場灣區 80 選）</h3>
     
     <div class="filter-group">
         <button class="flat-btn active" onclick="filterShops('all', this)">全部</button>
@@ -987,7 +1185,7 @@ footer p {
                     <th class="col-map">導航</th>
                 </tr>
             </thead>
-            <tbody id="d3-table-body">
+            <tbody id="d4-table-body">
                 <tr data-tags="food"><td class="col-num">1</td><td class="col-name"><b>淺草 今半<br><small>今半 国際通り本店</small></b></td><td class="col-feat">百年壽喜燒午餐首選</td><td class="col-map"><button class="flat-btn" onclick="navTo('浅草今半 国際通り本店')">🥩</button></td></tr>
                 <tr data-tags="snack"><td class="col-num">2</td><td class="col-name"><b>龜屋 人形燒<br><small>亀屋</small></b></td><td class="col-feat">仲見世通現烤經典點心</td><td class="col-map"><button class="flat-btn" onclick="navTo('浅草 亀屋')">📍</button></td></tr>
                 <tr data-tags="food"><td class="col-num">3</td><td class="col-name"><b>淺草 鰻魚 小柳<br><small>うなぎ 小柳</small></b></td><td class="col-feat">淺草在地口碑最強鰻魚飯</td><td class="col-map"><button class="flat-btn" onclick="navTo('うなぎ 小柳')">📍</button></td></tr>
@@ -1071,204 +1269,6 @@ footer p {
                 <tr data-tags="shop"><td class="col-num">78</td><td class="col-name"><b>Koncent 雜貨<br><small>設計精品</small></b></td><td class="col-feat">藏前設計選物店，文青尋寶點</td><td class="col-map"><button class="flat-btn" onclick="navTo('KONCENT 蔵前本店')">🛒</button></td></tr>
                 <tr data-tags="food"><td class="col-num">79</td><td class="col-name"><b>McLean 漢堡<br><small>藏前</small></b></td><td class="col-feat">隅田川旁美式漢堡，在地人氣店</td><td class="col-map"><button class="flat-btn" onclick="navTo('McLean OLD BURGER SHOP')">🍔</button></td></tr>
                 <tr data-tags="snack"><td class="col-num">80</td><td class="col-name"><b>藏前 麥田拉麵<br><small>らーめん 改</small></b></td><td class="col-feat">貝類湯頭拉麵，藏前排隊王</td><td class="col-map"><button class="flat-btn" onclick="navTo('らーめん 改')">🍜</button></td></tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-    </div>
-</div>
-  
-  
-  <div id="d4" class="day-content" style="display:none;">
-    <div class="card">
-        <h2>🐱 Day 04| 東京近郊雙巡禮</h2>
-        
-        <table class="checklist-table" style="margin-bottom: 30px;">
-            <thead>
-                <tr>
-                    <th style="width: 15%;">時間</th>
-                    <th style="width: 25%;">景點項目</th>
-                    <th style="width: 45%;">交通與攻略 (全程刷 Suica)</th>
-                    <th style="width: 15%; text-align: center;">導航</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>08:30</td>
-                    <td><b>豪德寺<br><small>招福貓之森</small></b></td>
-                    <td>新宿站搭 <b>小田急線</b> 至「豪德寺站」<br><small style="color:var(--muji-gray)">🐱 拍滿山滿谷的招福貓，早上空氣最清新</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('豪徳寺')">🐱</button>
-                    </td>
-                </tr>
-                <tr style="background: #f0f4f8;">
-                    <td>10:45</td>
-                    <td><b>湘南單軌電車<br><small>空中掛軌體驗</small></b></td>
-                    <td>「豪德寺」搭小田急至<b>「大船站」</b><br>轉乘 <b>湘南單軌電車</b> 到「湘南江之島」<br><small style="color:var(--muji-gray)">📸 懸吊式電車！出站後可仰拍電車過馬路</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('大船駅')">🚟</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>12:00</td>
-                    <td><b>鎌倉大佛<br><small>高德院參拜</small></b></td>
-                    <td>江之島站搭 <b>江之電</b> 至「長谷站」<br><small style="color:var(--muji-gray)">🗿 步行 7 分抵達大佛。門票 ¥300</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('鎌倉大仏殿高徳院')">🗿</button>
-                    </td>
-                </tr>
-                <tr style="background: #fff9c4;">
-                    <td>13:00</td>
-                    <td><b>午餐：Kaedena<br><small>土鍋ごはん</small></b></td>
-                    <td>大佛步行 5 分鐘抵達。<br><small style="font-weight: bold; color:#d35400;">🍚 必點：吻仔魚土鍋飯。讓長輩坐下休息</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('土鍋ごはん かえ製な')">🥢</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>14:30</td>
-                    <td><b>小町通 & 八幡宮<br><small>鎌倉經典散策</small></b></td>
-                    <td>搭 <b>江之電</b> 至終點「鎌倉站」<br><small style="color:var(--muji-gray)">⛩️ 逛小町通、參拜鶴岡八幡宮，買伴手禮</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('鶴岡八幡宮')">🏮</button>
-                    </td>
-                </tr>
-                <tr style="background: #e3f2fd;">
-                    <td>16:30</td>
-                    <td><b>海景咖啡廳<br><small>遠眺富士山</small></b></td>
-                    <td>搭 <b>江之電</b> 至「七里濱站」<br><small style="color:var(--muji-gray)">🌊 <b>Pacific DRIVE-IN</b> 喝咖啡，平地看海最省力</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('七里ヶ浜駅')">☕</button>
-                    </td>
-                </tr>
-                <tr style="background: rgba(var(--muji-accent-rgb), 0.1);">
-                    <td>18:30</td>
-                    <td><b>晚餐：今半<br><small>新宿高島屋店</small></b></td>
-                    <td>從「鎌倉站」搭 <b>JR 湘南新宿線</b> 直達新宿站<br><small style="color:var(--muji-gray)">🥩 <b>14 樓壽喜燒</b>。專人服務長輩不勞累</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('人形町今半 新宿髙島屋店')">🥩</button>
-                    </td>
-                </tr>
-                <tr style="background: #f8f9fa;">
-                    <td>20:00</td>
-                    <td><b>高島屋逛街<br><small>消化兼購物</small></b></td>
-                    <td><b>新宿高島屋百貨 (1F-13F)</b><br><small style="color:var(--muji-gray)">🛍️ 逛東急手創館、百貨伴手禮與免稅購物</small></td>
-                    <td class="center">🛍️</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div style="background: #fdf5e6; border-radius: 8px; padding: 15px; border: 1px solid #eee; margin-bottom: 25px;">
-            <h3 style="margin-top:0; color: #ac1f24; font-size: 1rem;">🚆 D4 鐵道 & 購物小撇步</h3>
-            <ul style="margin: 0; padding-left: 20px; font-size: 0.9rem; color: #444; line-height: 1.6;">
-                <li><b>湘南單軌電車拍攝：</b> 想要拍到電車「吊在半空」的經典畫面，在<b>湘南江之島站</b>一樓出門口的馬路口等待即可。</li>
-                <li><b>Kaedena 預約：</b> 土鍋飯製作較慢，長輩正好能多休息。若擔心排隊，可嘗試請飯店預約。</li>
-                <li><b>高島屋逛街重點：</b> 
-                    記得帶護照，退稅櫃檯在 2 樓或 11 樓（視當天安排）。
-                </li>
-                <li><b>回程：</b> 逛完後直接從高島屋 B1 走連通道，搭 <b>都營大江戶線</b> 直達「新御徒町」，免去新宿站大迷宮的困擾。</li>
-            </ul>
-        </div>
-
-      <div class="shop-section">
-    <h3 style="font-size: 1.1rem; color: var(--muji-accent); margin-top: 30px;">📍 D4 精選清單（豪德寺・鎌倉・湘南 75 選）</h3>
-    
-    <div class="filter-group">
-        <button class="flat-btn active" onclick="filterShops('all', this)">全部</button>
-        <button class="flat-btn" onclick="filterShops('food', this)">正餐</button>
-        <button class="flat-btn" onclick="filterShops('shop', this)">購物</button>
-        <button class="flat-btn" onclick="filterShops('cafe', this)">甜點咖啡</button>
-    </div>
-
-    <div class="shop-scroll-container">
-        <table>
-            <thead>
-                <tr>
-                    <th class="col-num">#</th>
-                    <th class="col-name">店名 (中/日)</th>
-                    <th class="col-feat">位置 / 特色</th>
-                    <th class="col-map">地圖</th>
-                </tr>
-            </thead>
-            <tbody id="d4-table-body">
-                <tr data-tags="cafe"><td class="col-num">1</td><td class="col-name"><b>Denny's 豪德寺<br><small>早餐首選</small></b></td><td class="col-feat">沙發座寬敞，適合長輩出發前早餐</td><td class="col-map"><button class="flat-btn" onclick="navTo('デニーズ 豪徳寺店')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">2</td><td class="col-name"><b>豪德寺受付<br><small>招福貓販售</small></b></td><td class="col-feat">必買大小不一的白瓷招福貓</td><td class="col-map"><button class="flat-btn" onclick="navTo('豪徳寺')">🛒</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">3</td><td class="col-name"><b>FIKA Coffee<br><small>豪德寺</small></b></td><td class="col-feat">極簡木質調咖啡廳</td><td class="col-map"><button class="flat-btn" onclick="navTo('FIKA Coffee Gotokuji')">📍</button></td></tr>
-                <tr data-tags="food"><td class="col-num">4</td><td class="col-name"><b>福室庵<br><small>蕎麥麵</small></b></td><td class="col-feat">豪德寺旁老字號，很有在地感</td><td class="col-map"><button class="flat-btn" onclick="navTo('福室庵')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">5</td><td class="col-name"><b>墨繪<br><small>面包店</small></b></td><td class="col-feat">豪德寺站前名店，咖哩麵包必買</td><td class="col-map"><button class="flat-btn" onclick="navTo('墨繪 豪徳寺店')">🛒</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">6</td><td class="col-name"><b>Iron Coffee<br><small>精品咖啡</small></b></td><td class="col-feat">文青風街角外帶咖啡</td><td class="col-map"><button class="flat-btn" onclick="navTo('IRON COFFEE')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">7</td><td class="col-name"><b>招福堂<br><small>和菓子</small></b></td><td class="col-feat">招財貓造型的可愛人形燒</td><td class="col-map"><button class="flat-btn" onclick="navTo('招福堂')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">8</td><td class="col-name"><b>辣婆婆<br><small>麻婆豆腐</small></b></td><td class="col-feat">豪德寺人氣中華料理</td><td class="col-map"><button class="flat-btn" onclick="navTo('辣婆婆 豪徳寺')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">9</td><td class="col-name"><b>Sunroom<br><small>雜貨</small></b></td><td class="col-feat">世田谷風精緻生活選物</td><td class="col-map"><button class="flat-btn" onclick="navTo('Sunroom Gotokuji')">🛒</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">10</td><td class="col-name"><b>Unmago<br><small>燒菓子</small></b></td><td class="col-feat">豪德寺巷弄中的溫馨甜點店</td><td class="col-map"><button class="flat-btn" onclick="navTo('unmago')">📍</button></td></tr>
-
-                <tr data-tags="food"><td class="col-num">11</td><td class="col-name"><b>Kaedena<br><small>土鍋飯</small></b></td><td class="col-feat">推薦吻仔魚土鍋飯，長輩最愛</td><td class="col-map"><button class="flat-btn" onclick="navTo('土鍋ごはん かえでな')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">12</td><td class="col-name"><b>KANNON COFFEE<br><small>長谷</small></b></td><td class="col-feat">有大佛造型雞蛋糕的手沖咖啡</td><td class="col-map"><button class="flat-btn" onclick="navTo('KANNON COFFEE kamakura')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">13</td><td class="col-name"><b>豐島屋 扉店<br><small>鳩餅</small></b></td><td class="col-feat">長谷站前必買鐮倉代表伴手禮</td><td class="col-map"><button class="flat-btn" onclick="navTo('豊島屋 扉店')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">14</td><td class="col-name"><b>淺翎拉麵<br><small>Asahi</small></b></td><td class="col-feat">長谷老牌醬油拉麵</td><td class="col-map"><button class="flat-btn" onclick="navTo('らーめん 浅翎')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">15</td><td class="col-name"><b>長谷寺 海光庵<br><small>寺內茶屋</small></b></td><td class="col-feat">俯瞰海景，必吃「御守丸子」</td><td class="col-map"><button class="flat-btn" onclick="navTo('海光庵')">📍</button></td></tr>
-                <tr data-tags="food"><td class="col-num">16</td><td class="col-name"><b>惠比壽屋<br><small>章魚仙貝</small></b></td><td class="col-feat">整隻章魚壓扁的特色仙貝</td><td class="col-map"><button class="flat-btn" onclick="navTo('あさひ本店 鎌倉大仏店')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">17</td><td class="col-name"><b>鎌倉四葩<br><small>吸油面紙</small></b></td><td class="col-feat">精緻的和紙與美妝小物</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉四葩 長谷店')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">18</td><td class="col-name"><b>三和樓<br><small>中華料理</small></b></td><td class="col-feat">懷舊氣氛，適合帶長輩吃熱食</td><td class="col-map"><button class="flat-btn" onclick="navTo('三和楼')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">19</td><td class="col-name"><b>力餅家<br><small>権五郎力餅</small></b></td><td class="col-feat">300年歷史老舖，豆沙麻糬必買</td><td class="col-map"><button class="flat-btn" onclick="navTo('力餅家')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">20</td><td class="col-name"><b>鎌倉大佛 賣店<br><small>高德院內</small></b></td><td class="col-feat">專賣大佛相關周邊，護身符種類多</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉大仏殿高徳院')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">21</td><td class="col-name"><b>定食屋 鯱<br><small>Shachi</small></b></td><td class="col-feat">在地魚料理定食</td><td class="col-map"><button class="flat-btn" onclick="navTo('定食屋 鯱')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">22</td><td class="col-name"><b>Cafe Caprice<br><small>長谷</small></b></td><td class="col-feat">歐風可愛小店，蛋糕水準極高</td><td class="col-map"><button class="flat-btn" onclick="navTo('Cafe Caprice')">📍</button></td></tr>
-                <tr data-tags="food"><td class="col-num">23</td><td class="col-name"><b>Woof Curry<br><small>歐風咖哩</small></b></td><td class="col-feat">長谷人氣NO.1的香濃咖哩飯</td><td class="col-map"><button class="flat-btn" onclick="navTo('Woof Curry')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">24</td><td class="col-name"><b>鎌倉土產 花之藏<br><small>Hananokura</small></b></td><td class="col-feat">集合許多鐮倉文創小物</td><td class="col-map"><button class="flat-btn" onclick="navTo('花の蔵')">🛒</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">25</td><td class="col-name"><b>Vuori<br><small>老宅咖啡</small></b></td><td class="col-feat">倉庫改建，刨冰與布丁非常有名</td><td class="col-map"><button class="flat-btn" onclick="navTo('Vuori')">📍</button></td></tr>
-                <tr data-tags="food"><td class="col-num">26</td><td class="col-name"><b>長谷 魚よし<br><small>海鮮料理</small></b></td><td class="col-feat">鮮魚專賣店經營的道地食堂</td><td class="col-map"><button class="flat-btn" onclick="navTo('魚よし')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">27</td><td class="col-name"><b>駄菓子店 鎌倉屋<br><small>古早味</small></b></td><td class="col-feat">懷舊零食，長輩會很有共鳴</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉屋')">🛒</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">28</td><td class="col-name"><b>café recette<br><small>法式吐司</small></b></td><td class="col-feat">高級吐司專賣店的咖啡館</td><td class="col-map"><button class="flat-btn" onclick="navTo('café recette 鎌倉')">📍</button></td></tr>
-                <tr data-tags="food"><td class="col-num">29</td><td class="col-name"><b>鎌倉 山海堂<br><small>大佛旁</small></b></td><td class="col-feat">專賣迷你模型與精緻工藝品</td><td class="col-map"><button class="flat-btn" onclick="navTo('山海堂')">🛒</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">30</td><td class="col-name"><b>Terra Coffee Roasters<br><small>長谷站</small></b></td><td class="col-feat">自家烘焙豆，咖啡香氣十足</td><td class="col-map"><button class="flat-btn" onclick="navTo('Terra Coffee Roasters')">📍</button></td></tr>
-
-                <tr data-tags="food"><td class="col-num">31</td><td class="col-name"><b>鎌倉釜飯 Kaoru<br><small>釜飯</small></b></td><td class="col-feat">現點現炊，料多味美</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉釜飯かおる')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">32</td><td class="col-name"><b>茶房 雲母<br><small>白玉名店</small></b></td><td class="col-feat">巨大Q彈白玉（需排隊，但值得）</td><td class="col-map"><button class="flat-btn" onclick="navTo('茶房 雲母')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">33</td><td class="col-name"><b>鎌倉八座<br><small>雜貨</small></b></td><td class="col-feat">以「日本工藝」為主題的選物店</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉八座')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">34</td><td class="col-name"><b>Ondari 咖哩<br><small>Ondari</small></b></td><td class="col-feat">濃郁系野菜咖哩</td><td class="col-map"><button class="flat-btn" onclick="navTo('おなり路地裏カレー')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">35</td><td class="col-name"><b>星巴克 御成町店<br><small>泳池景觀</small></b></td><td class="col-feat">著名建築師舊居改建，必訪休息點</td><td class="col-map"><button class="flat-btn" onclick="navTo('スターバックス コーヒー 鎌倉御成町店')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">36</td><td class="col-name"><b>蒟蒻洗顏<br><small>鎌倉蒟蒻しゃぼん</small></b></td><td class="col-feat">QQ的觸感洗面皂，伴手禮推薦</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉蒟蒻しゃぼん')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">37</td><td class="col-name"><b>小町通 腸詰屋<br><small>德式熱狗</small></b></td><td class="col-feat">適合逛街時的小點心</td><td class="col-map"><button class="flat-btn" onclick="navTo('腸詰屋 鎌倉小町店')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">38</td><td class="col-name"><b>鳩小路<br><small>Hatokoji</small></b></td><td class="col-feat">隱藏巷弄的安靜喫茶店</td><td class="col-map"><button class="flat-btn" onclick="navTo('鳩小路')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">39</td><td class="col-name"><b>鎌倉 帆布巾<br><small>Kamakura Canvas</small></b></td><td class="col-feat">在地職人手工縫製帆布包</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉帆布巾')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">40</td><td class="col-name"><b>Oxymoron<br><small>咖哩/甜點</small></b></td><td class="col-feat">充滿香草特色的乾咖哩與布丁</td><td class="col-map"><button class="flat-btn" onclick="navTo('OXYMORON komachi')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">41</td><td class="col-name"><b>鎌倉 箸座<br><small>筷子專賣</small></b></td><td class="col-feat">可免費刻字，非常有紀念價值</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉箸座')">🛒</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">42</td><td class="col-name"><b>鎌倉茶茶<br><small>抹茶霜淇淋</small></b></td><td class="col-feat">等級最高（Level 5）的濃郁抹茶</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉茶々')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">43</td><td class="col-name"><b>どんぐり共和國<br><small>吉卜力</small></b></td><td class="col-feat">龍貓周邊專賣店</td><td class="col-map"><button class="flat-btn" onclick="navTo('どんぐり共和国 鎌倉小町通り店')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">44</td><td class="col-name"><b>鎌倉 壱番屋<br><small>現烤仙貝</small></b></td><td class="col-feat">100日圓起跳，熱騰騰香酥推薦</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉壱番屋')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">45</td><td class="col-name"><b>Café Vivement Dimanche<br><small>巴西咖啡</small></b></td><td class="col-feat">鎌倉元老級名店，鬆餅極佳</td><td class="col-map"><button class="flat-btn" onclick="navTo('café vivement dimanche')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">46</td><td class="col-name"><b>鎌倉 井上蒲鉾店<br><small>魚板</small></b></td><td class="col-feat">百年名店，梅花造型魚板超美</td><td class="col-map"><button class="flat-btn" onclick="navTo('井上蒲鉾店 鎌倉駅前店')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">47</td><td class="col-name"><b>玉子燒 おざわ<br><small>Ozawa</small></b></td><td class="col-feat">高湯爆發的柔軟玉子燒定食</td><td class="col-map"><button class="flat-btn" onclick="navTo('玉子焼 おざわ')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">48</td><td class="col-name"><b>VERVE Coffee<br><small>鎌倉雪之下</small></b></td><td class="col-feat">美式質感空間，明亮舒適</td><td class="col-map"><button class="flat-btn" onclick="navTo('Verve Coffee Roasters Kamakura')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">49</td><td class="col-name"><b>鎌倉 鬼頭天薰堂<br><small>線香</small></b></td><td class="col-feat">高雅的日本香，適合送禮長輩</td><td class="col-map"><button class="flat-btn" onclick="navTo('鬼頭天薫堂')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">50</td><td class="col-name"><b>鎌倉 峰本<br><small>蕎麥麵</small></b></td><td class="col-feat">位置寬敞，傳統手作口味</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉 峰本 朝比奈店')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">51</td><td class="col-name"><b>鎌倉 豐島屋 本店<br><small>鳩餅總部</small></b></td><td class="col-feat">除了餅乾，還有很多「鳩」造型文具</td><td class="col-map"><button class="flat-btn" onclick="navTo('豊島屋 本店')">🛒</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">52</td><td class="col-name"><b>Imetsuru<br><small>芋羊羹</small></b></td><td class="col-feat">入口即化的紫薯與黃薯甜點</td><td class="col-map"><button class="flat-btn" onclick="navTo('いも吉館')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">53</td><td class="col-name"><b>CACAO鎌倉<br><small>巧克力</small></b></td><td class="col-feat">生巧克力塔與限定閃電泡芙</td><td class="col-map"><button class="flat-btn" onclick="navTo('MAISON CACAO 鎌倉小町本店')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">54</td><td class="col-name"><b>鎌倉 山路<br><small>Yamaji</small></b></td><td class="col-feat">傳統懷石感的定食，推薦晚餐</td><td class="col-map"><button class="flat-btn" onclick="navTo('鎌倉 山路')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">55</td><td class="col-name"><b>納言志留古<br><small>紅豆湯</small></b></td><td class="col-feat">在地人都愛的紅豆湯老店</td><td class="col-map"><button class="flat-btn" onclick="navTo('納言志るこ店')">📍</button></td></tr>
-
-                <tr data-tags="food"><td class="col-num">56</td><td class="col-name"><b>江之島 Tobiya<br><small>海鮮丼</small></b></td><td class="col-feat">吻仔魚名店，景觀極佳</td><td class="col-map"><button class="flat-btn" onclick="navTo('とびっちょ 江の島本店')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">57</td><td class="col-name"><b>Amalfi Della Sera<br><small>七里濱</small></b></td><td class="col-feat">絕美海景露台，看富士山與江之島</td><td class="col-map"><button class="flat-btn" onclick="navTo('Amalfi DELLA SERA')">📍</button></td></tr>
-                <tr data-tags="food"><td class="col-num">58</td><td class="col-name"><b>魚見亭<br><small>海鮮料理</small></b></td><td class="col-feat">江之島岩屋旁，懸崖邊的海鮮景點</td><td class="col-map"><button class="flat-btn" onclick="navTo('魚見亭')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">59</td><td class="col-name"><b>Pacific DRIVE-IN<br><small>七里濱</small></b></td><td class="col-feat">夏威夷風下午茶，停車場看海首選</td><td class="col-map"><button class="flat-btn" onclick="navTo('Pacific DRIVE-IN')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">60</td><td class="col-name"><b>江之島 貝殼屋<br><small>工藝品</small></b></td><td class="col-feat">各式精緻貝殼裝飾</td><td class="col-map"><button class="flat-btn" onclick="navTo('江の島')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">61</td><td class="col-name"><b>珊瑚礁 咖哩<br><small>七里濱</small></b></td><td class="col-feat">湘南最具代表性的豪華餐車感咖哩</td><td class="col-map"><button class="flat-btn" onclick="navTo('珊瑚礁 モアナマカイ店')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">62</td><td class="col-name"><b>Double Doors<br><small>七里濱</small></b></td><td class="col-feat">海景第一排，餐飲水準很高</td><td class="col-map"><button class="flat-btn" onclick="navTo('Double Doors')">📍</button></td></tr>
-                <tr data-tags="food"><td class="col-num">63</td><td class="col-name"><b>稻村崎 溫泉<br><small>夕陽溫泉</small></b></td><td class="col-feat">黃金之湯，邊泡湯邊看富士山夕陽</td><td class="col-map"><button class="flat-btn" onclick="navTo('稲村ヶ崎温泉')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">64</td><td class="col-name"><b>江之島 燈塔咖啡<br><small>Sea Candle</small></b></td><td class="col-feat">在瞭望台上喝咖啡，視野360度</td><td class="col-map"><button class="flat-btn" onclick="navTo('江の島シーキャンドル')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">65</td><td class="col-name"><b>湘南 T-SITE<br><small>蔦屋書店</small></b></td><td class="col-feat">最美生活提案書店（需搭車前往）</td><td class="col-map"><button class="flat-btn" onclick="navTo('湘南T-SITE')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">66</td><td class="col-name"><b>池田丸<br><small>腰越站</small></b></td><td class="col-feat">漁師經營，炸魚定食非常澎湃</td><td class="col-map"><button class="flat-btn" onclick="navTo('池田丸')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">67</td><td class="col-name"><b>Blue Seal<br><small>江之島</small></b></td><td class="col-feat">沖繩品牌，坐在海邊吃冰淇淋超爽</td><td class="col-map"><button class="flat-btn" onclick="navTo('Blue Seal Enoshima')">📍</button></td></tr>
-                <tr data-tags="food"><td class="col-num">68</td><td class="col-name"><b>しらす問屋 とびっちょ<br><small>吻仔魚麵</small></b></td><td class="col-feat">江之島名物的大份量代表</td><td class="col-map"><button class="flat-btn" onclick="navTo('とびっちょ')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">69</td><td class="col-name"><b>江之島 紀之國屋<br><small>女夫饅頭</small></b></td><td class="col-feat">現蒸饅頭，長輩最愛的傳統口味</td><td class="col-map"><button class="flat-btn" onclick="navTo('紀の国屋本店')">📍</button></td></tr>
-                <tr data-tags="food"><td class="col-num">70</td><td class="col-name"><b>Main 餐廳<br><small>稻村崎</small></b></td><td class="col-feat">就在夕陽名所旁，適合看完夕陽用餐</td><td class="col-map"><button class="flat-btn" onclick="navTo('レストラン Main')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">71</td><td class="col-name"><b>Lawn<br><small>老牌喫茶店</small></b></td><td class="col-feat">江之島站前，懷舊的咖啡與土司</td><td class="col-map"><button class="flat-btn" onclick="navTo('喫茶ラムン')">📍</button></td></tr>
-                <tr data-tags="shop"><td class="col-num">72</td><td class="col-name"><b>新江之島水族館<br><small>賣店</small></b></td><td class="col-feat">水母主題周邊非常精緻</td><td class="col-map"><button class="flat-btn" onclick="navTo('新江ノ島水族館')">🛒</button></td></tr>
-                <tr data-tags="food"><td class="col-num">73</td><td class="col-name"><b>江之島 富士見亭<br><small>Fujimitei</small></b></td><td class="col-feat">名副其實，窗外就是富士山</td><td class="col-map"><button class="flat-btn" onclick="navTo('富士見亭')">📍</button></td></tr>
-                <tr data-tags="cafe"><td class="col-num">74</td><td class="col-name"><b>Loncafe<br><small>法式吐司</small></b></td><td class="col-feat">日本第一家法式吐司專賣，位在山頂</td><td class="col-map"><button class="flat-btn" onclick="navTo('LONCAFE 江の島本店')">📍</button></td></tr>
-                <tr data-tags="food"><td class="col-num">75</td><td class="col-name"><b>新宿今半<br><small>高島屋店</small></b></td><td class="col-feat">（回程晚餐）專人服務的高級壽喜燒</td><td class="col-map"><button class="flat-btn" onclick="navTo('人形町今半 新宿髙島屋店')">🥩</button></td></tr>
             </tbody>
         </table>
     </div>
