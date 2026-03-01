@@ -909,81 +909,106 @@ footer p {
 </div>
     
   
-  <div id="d3" class="day-content" style="display:none;">
+<div id="d3" class="day-content" style="display:none;">
     <div class="card">
-        <h2>🐱 Day 03｜東京近郊雙巡禮</h2>
+        <h2>🐱 Day 03 | 住宿出發 ➔ 豪德寺 ➔ 湘南單軌 ➔ 鎌倉 ➔ 新宿</h2>
         
+        <div style="background: #f8f9fa; border-radius: 8px; padding: 15px; margin-bottom: 20px; border: 1px solid #e9ecef;">
+            <h3 style="margin-top:0; color: #333; font-size: 1rem; font-style: normal;">🏠 住宿起點：新御徒町</h3>
+            <div style="font-size: 0.9rem; line-height: 1.6; font-style: normal;">
+                <b>建議出發：06:35 AM</b><br>
+                <b>交通動線：</b> 新御徒町站 (大江戶線)➔青山一丁目站(轉乘 半藏門線/東急田園都市線直通)➔<b>三軒茶屋站</b>
+            </div>
+        </div>
+        
+        <div style="background: #fff5f5; border-radius: 8px; padding: 15px; margin-bottom: 20px; border: 1px solid #ffebeb;">
+            <h3 style="margin-top:0; color: #7F0019; font-size: 1rem; font-style: normal;">豪德寺·招福貓攻略</h3>
+            <div style="font-size: 0.9rem; line-height: 1.6; font-style: normal;">
+                <b>當日時刻表：</b> <a href="https://www.tokyu.co.jp/railway/nekodensya/timetable/" target="_blank" style="color: #ac1f24; font-weight: bold; text-decoration: underline;">點此確認官網時刻表</a><br>
+              <span>💡 開放後點選日期，確認「三軒茶屋」發車時間即可。</span><br>
+              <b>寺務所時間：</b> 08:00 - 15:00 (欲買公仔請務必於 10:00 前抵達)<br>
+                <span>💡 建議流程：三軒茶屋拍車 ➔ 豪德寺先買貓公仔 ➔ 拍萬貓奇景</span>
+            </div>
+            <div style="font-size: 0.9rem; line-height: 1.6; font-style: normal;">
+                <b>Blog參考：</b> <a href="https://pipichocho.com/gotokuji/" target="_blank" style="color: #ac1f24; font-weight: bold; text-decoration: underline;">寺內圖、價格等</a><br>
+            </div>
+        </div>
+
         <table class="checklist-table" style="margin-bottom: 30px;">
             <thead>
                 <tr>
-                    <th style="width: 15%;">時間</th>
-                    <th style="width: 25%;">景點項目</th>
-                    <th style="width: 45%;">交通與攻略 (全程刷 Suica)</th>
-                    <th style="width: 15%; text-align: center;">導航</th>
+                    <th style="width: 15%; font-style: normal;">時間</th>
+                    <th style="width: 25%; font-style: normal;">景點項目</th>
+                    <th style="width: 45%; font-style: normal;">交通與攻略 (全程刷 Suica)</th>
+                    <th style="width: 15%; text-align: center; font-style: normal;">導航</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>08:30</td>
-                    <td><b>豪德寺<br><small>招福貓之森</small></b></td>
-                    <td>新宿站搭 <b>小田急線</b> 至「豪德寺站」<br><small style="color:var(--muji-gray)">🐱 拍滿山滿谷的招福貓，早上空氣最清新</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('豪徳寺')">🐱</button>
-                    </td>
+                <tr style="background: #fdfaf7;">
+                    <td>06:35</td>
+                    <td><b>住宿出發<br><span>新御徒町站</span></b></td>
+                    <td><b>大江戶線直通轉乘</b><br><span>搭乘大江戶線至「青山一丁目」，同站轉乘半藏門線(往中央林間方向)直通東急田園都市線。</span></td>
+                    <td class="center"><button class="flat-btn" onclick="navTo('新御徒町駅')">🏠</button></td>
                 </tr>
-                <tr style="background: #f0f4f8;">
-                    <td>10:45</td>
-                    <td><b>湘南單軌電車<br><small>空中掛軌體驗</small></b></td>
-                    <td>「豪德寺」搭小田急至<b>「大船站」</b><br>轉乘 <b>湘南單軌電車</b> 到「湘南江之島」<br><small style="color:var(--muji-gray)">📸 懸吊式電車！出站後可仰拍電車過馬路</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('大船駅')">🚟</button>
-                    </td>
+                <tr style="background: rgba(var(--muji-accent-rgb), 0.05);">
+                    <td>07:30</td>
+                    <td><b>三軒茶屋站<br><span>拍貓電車</span></b></td>
+                    <td><b>世田谷線起點</b><br><span>🐈 抵達後對照<a href="https://www.tokyu.co.jp/railway/nekodensya/timetable/" target="_blank" style="color:#ac1f24;">時刻表</a>拍貓車頭。搭往「下高井戶」方向。</span></td>
+                    <td class="center"><button class="flat-btn" onclick="navTo('三軒茶屋駅')">🚃</button></td>
                 </tr>
                 <tr>
-                    <td>12:00</td>
-                    <td><b>鎌倉大佛<br><small>高德院參拜</small></b></td>
-                    <td>江之島站搭 <b>江之電</b> 至「長谷站」<br><small style="color:var(--muji-gray)">🗿 步行 7 分抵達大佛。門票 ¥300</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('鎌倉大仏殿高徳院')">🗿</button>
-                    </td>
-                </tr>
-                <tr style="background: #fff9c4;">
-                    <td>13:00</td>
-                    <td><b>午餐：Kaedena<br><small>土鍋ごはん</small></b></td>
-                    <td>大佛步行 5 分鐘抵達。<br><small style="font-weight: bold; color:#d35400;">🍚 必點：吻仔魚土鍋飯。讓長輩坐下休息</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('土鍋ごはん かえ製な')">🥢</button>
-                    </td>
+                    <td>08:00</td>
+                    <td><b>豪德寺<br><span>準時買貓</span></b></td>
+                    <td><b>寺務所門口排隊</b><br><span>🏮 <b>宮之坂站下車步行 5 分。</b> 08:00 準時受理。買完公仔後，讓長輩在境內悠閒拍照、在舊車廂休息。</span></td>
+                    <td class="center"><button class="flat-btn" onclick="navTo('大谿山 豪徳寺')">🐱</button></td>
                 </tr>
                 <tr>
-                    <td>14:30</td>
-                    <td><b>小町通 & 八幡宮<br><small>鎌倉經典散策</small></b></td>
-                    <td>搭 <b>江之電</b> 至終點「鎌倉站」<br><small style="color:var(--muji-gray)">⛩️ 逛小町通、參拜鶴岡八幡宮，買伴手禮</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('鶴岡八幡宮')">🏮</button>
-                    </td>
+                    <td>10:00</td>
+                    <td><b>前往大船站<br><span>中長程轉乘</span></b></td>
+                    <td><b>步行至「小田急豪德寺站」：</b><br><span>1. 搭小田急線往藤澤方向 ➔ <b>「藤澤站」</b>。<br>2. 轉乘 JR 線搭 1 站 ➔ <b>「大船站」</b>。</span></td>
+                    <td class="center"><button class="flat-btn" onclick="navTo('大船駅')">🚉</button></td>
                 </tr>
-                <tr style="background: #e3f2fd;">
-                    <td>16:30</td>
-                    <td><b>海景咖啡廳<br><small>遠眺富士山</small></b></td>
-                    <td>搭 <b>江之電</b> 至「七里濱站」<br><small style="color:var(--muji-gray)">🌊 <b>Pacific DRIVE-IN</b> 喝咖啡，平地看海最省力</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('七里ヶ浜駅')">☕</button>
-                    </td>
+                <tr>
+                     <td>11:00</td>
+                     <td><b>湘南單軌電車<br><span>空中體驗</span></b></td>
+                     <td><b>大船 ➔ 湘南江之島</b><br><span>🚟 坐在第一節。抵達後至 1 樓路口拍電車飛過頭頂（約 7.5 分一班）。</span></td>
+                     <td class="center"><button class="flat-btn" onclick="navTo('湘南江の島駅')">🚟</button></td>
+                </tr>
+                <tr>
+                     <td>11:50</td>
+                     <td><b>轉乘：江之電<br><span>浪漫海岸電車</span></b></td>
+                     <td><b>步行 3 分鐘轉車：</b><br><span>🚶 走至「江之電-江之島站」。搭乘<b>往鎌倉方向</b>，於<b>「長谷站」</b>下車（車程約 5 分）。</span></td>
+                     <td class="center"><button class="flat-btn" onclick="navTo('江ノ島駅')">🚋</button></td>
+                </tr>
+                <tr>
+                     <td>12:10</td>
+                     <td><b>午餐：Kaedena<br><span>先吃飯補體力</span></b></td>
+                     <td><b>長谷站下車步行 3 分</b><br><span>🍚 <b>重點：</b>先填飽肚子。推薦吻仔魚土鍋飯。下車後順著人流往大佛方向走即可看到。</span></td>
+                     <td class="center"><button class="flat-btn" onclick="navTo('土鍋ごはん かえ製な')">🥢</button></td>
+                </tr>
+                <tr>
+                     <td>13:20</td>
+                     <td><b>鎌倉大佛<br><span>高德院參拜</span></b></td>
+                     <td><b>餐廳步行 5 分鐘</b><br><span>🗿 吃飽喝足後，悠閒步行至大佛參拜。此時體力最充足，拍照更好看。</span></td>
+                     <td class="center"><button class="flat-btn" onclick="navTo('鎌倉大仏殿高徳院')">🗿</button></td>
+                </tr>
+                <tr>
+                     <td>14:00</td>
+                     <td><b>七里濱海景<br><span>富士山與咖啡</span></b></td>
+                     <td><b>從長谷站往回搭至「七里濱站」</b><br><span>🌊 <b>Pacific DRIVE-IN</b>。這段路江之電會開在海岸線上。在咖啡廳坐著看海，天氣好時可遠眺富士山，是整天最悠閒的時刻。</span></td>
+                     <td class="center"><button class="flat-btn" onclick="navTo('Pacific DRIVE-IN')">☕</button></td>
+                </tr>
+                <tr>
+                     <td>15:30</td>
+                     <td><b>小町通 & 八幡宮<br><span>傍晚散策</span></b></td>
+                     <td><b>搭江之電至終點「鎌倉站」</b><br><span>鎌倉最熱鬧區域。逛商店街、買豐島屋鴿子餅乾。此時八幡宮人潮稍減，斜射光拍大紅鳥居非常漂亮。</span></td>
+                     <td class="center"><button class="flat-btn" onclick="navTo('鶴岡八幡宮')">🏮</button></td>
                 </tr>
                 <tr style="background: rgba(var(--muji-accent-rgb), 0.1);">
-                    <td>18:30</td>
-                    <td><b>晚餐：今半<br><small>新宿高島屋店</small></b></td>
-                    <td>從「鎌倉站」搭 <b>JR 湘南新宿線</b> 直達新宿站<br><small style="color:var(--muji-gray)">🥩 <b>14 樓壽喜燒</b>。專人服務長輩不勞累</small></td>
-                    <td class="center">
-                        <button class="flat-btn" onclick="navTo('人形町今半 新宿髙島屋店')">🥩</button>
-                    </td>
-                </tr>
-                <tr style="background: #f8f9fa;">
-                    <td>20:00</td>
-                    <td><b>高島屋逛街<br><small>消化兼購物</small></b></td>
-                    <td><b>新宿高島屋百貨 (1F-13F)</b><br><small style="color:var(--muji-gray)">🛍️ 逛東急手創館、百貨伴手禮與免稅購物</small></td>
-                    <td class="center">🛍️</td>
+                     <td>18:30</td>
+                     <td><b>晚餐：今半<br><span>新宿高島屋店</span></b></td>
+                     <td><b>從「鎌倉站」JR 直達新宿</b><br><span><b>交通無縫接軌：</b> 從鎌倉站搭乘 <b>JR 湘南新宿線</b> 一車直達新宿。預約 18:30 頂級壽喜燒。</span></td>
+                     <td class="center"><button class="flat-btn" onclick="navTo('人形町今半 新宿髙島屋店')">🥩</button></td>
                 </tr>
             </tbody>
         </table>
