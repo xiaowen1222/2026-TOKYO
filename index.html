@@ -440,11 +440,116 @@
 footer p {
     margin: 5px 0;
 }
+  
+  .qr-fab {
+        position: fixed;
+        bottom: 85px; 
+    right: 30px; /* 從 25px 改為 30px，與 Top 鍵垂直對齊 */
+    width: 45px;  /* 從 60px 改為 45px，與 Top 鍵大小一致 */
+    height: 45px; /* 從 60px 改為 45px，與 Top 鍵大小一致 */
+        background-color: #ac1f24;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        display: flex; justify-content: center; align-items: center;
+        z-index: 9999;
+    }
+
+    /* 2. 彈窗遮罩 (點擊後背景變黑) */
+    .qr-modal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.85);
+        z-index: 10000;
+        overflow-y: auto;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    /* 3. 憑證內容卡片 */
+    .qr-card-container {
+        background: white;
+        border-radius: 20px;
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        position: relative;
+    }
+    .close-modal {
+        position: absolute;
+        top: 15px; right: 20px;
+        font-size: 24px; color: #666; font-weight: bold;
+    }
+    .qr-section {
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+        text-align: center;
+    }
+    .qr-section:last-child { border-bottom: none; }
+    .qr-title { font-weight: bold; margin-bottom: 10px; color: #333; }
+    .qr-slider { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 5px; }
+    .qr-item { min-width: 150px; border: 1px solid #f0f0f0; border-radius: 8px; padding: 10px; }
+    .qr-item img { width: 100%; height: auto; }
+  
+ /*票夾內編號按鈕*/
+  .num-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px; /* MUJI 風稍微帶一點圓角 */
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.num-btn.active {
+    background: #ac1f24; /* 點選後變紅色 */
+    color: #fff;
+    border-color: #ac1f24;
+}
 </style>
 </head>
 <body>
 
     <button id="backToTop" onclick="scrollToTop()">TOP</button>
+    <div class="qr-fab" onclick="toggleQRModal(true)">
+    <span class="qr-fab-icon">🎫</span>
+</div>
+
+<div id="qrModal" class="qr-modal" onclick="event.target.id === 'qrModal' && toggleQRModal(false)">
+    <div class="qr-card-container">
+        <span class="close-modal" onclick="toggleQRModal(false)">×</span>
+        <h2 style="text-align: center; color: #ac1f24; margin-bottom: 20px;">我的憑證夾</h2>
+
+        <div class="qr-section">
+    <div class="qr-title">SHIBUYA SKY (4人券)</div>
+    
+    <div style="background: white; padding: 10px; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+        <img id="sky-img" src="你的QR1網址" style="width: 180px; height: auto; border: 1px solid #eee;">
+    </div>
+
+    <div style="display: flex; justify-content: center; gap: 8px; margin-top: 15px;">
+        <button class="num-btn active" onclick="switchQR('sky', 1, '你的QR1網址', this)">1</button>
+        <button class="num-btn" onclick="switchQR('sky', 2, '你的QR2網址', this)">2</button>
+        <button class="num-btn" onclick="switchQR('sky', 3, '你的QR3網址', this)">3</button>
+        <button class="num-btn" onclick="switchQR('sky', 4, '你的QR4網址', this)">4</button>
+    </div>
+    <small id="sky-label" style="display: block; margin-top: 8px; color: #666;">第 1 位</small>
+</div>
+
+<div class="qr-section">
+    <div class="qr-title">今半壽喜燒 18:30</div>
+    <img src="你的今半QR網址" style="width: 180px;">
+</div>
+
+        <p style="text-align:center; font-size: 12px; color: #999; margin-top: 20px;">
+            提示：掃描時請手動調高手機亮度
+        </p>
+    </div>
+</div>
 
     <div class="nav-container">
         <nav id="mainNav">
@@ -2664,6 +2769,30 @@ function copyText(text) {
     document.body.removeChild(textArea);
 }
 
+      // 票夾
+      function toggleQRModal(show) {
+        const modal = document.getElementById('qrModal');
+        modal.style.display = show ? 'block' : 'none';
+        // 打開彈窗時禁止背景滾動
+        document.body.style.overflow = show ? 'hidden' : 'auto';
+    }
+      function switchQR(type, num, url, btnElement) {
+    // 1. 更換圖片
+    const imgElement = document.getElementById(type + '-img');
+    imgElement.src = url;
+
+    // 2. 更換文字標籤
+    const labelElement = document.getElementById(type + '-label');
+    labelElement.innerText = '第 ' + num + ' 位';
+
+    // 3. 更新按鈕的 active 樣式
+    // 找出該按鈕父容器內所有的按鈕，並移除 active class
+    const buttons = btnElement.parentElement.querySelectorAll('.num-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // 為當前點擊的按鈕加上 active class
+    btnElement.classList.add('active');
+}
     </script>
 </body>
 </html>
