@@ -426,6 +426,7 @@
     transform: scale(0.98); /* 點擊時縮小一點點 */
 }
   
+  /*憑證*/
   footer {
     text-align: center;
     padding: 40px 20px 60px; /* 增加底部空間，避免被手機導覽列遮住 */
@@ -437,78 +438,106 @@
     letter-spacing: 0.1em;
 }
 
-footer p {
-    margin: 5px 0;
+/* 1. 憑證球按鈕樣式 - 修正對齊與手型 */
+.qr-fab {
+    position: fixed;
+    bottom: 85px; 
+    right: 30px; 
+    width: 45px; 
+    height: 45px;
+    background-color: #ac1f24;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    z-index: 9999;
+    cursor: pointer; /* 新增：讓點擊感更直覺 */
 }
-  
-  .qr-fab {
-        position: fixed;
-        bottom: 85px; 
-    right: 30px; /* 從 25px 改為 30px，與 Top 鍵垂直對齊 */
-    width: 45px;  /* 從 60px 改為 45px，與 Top 鍵大小一致 */
-    height: 45px; /* 從 60px 改為 45px，與 Top 鍵大小一致 */
-        background-color: #ac1f24;
-        border-radius: 50%;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        display: flex; justify-content: center; align-items: center;
-        z-index: 9999;
-    }
 
-    /* 2. 彈窗遮罩 (點擊後背景變黑) */
-    .qr-modal {
-        display: none;
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background-color: rgba(0,0,0,0.85);
-        z-index: 10000;
-        overflow-y: auto;
-        padding: 20px;
-        box-sizing: border-box;
-    }
+/* 2. 新增：控制圖示大小 */
+.qr-fab-icon {
+    font-size: 20px; /* 針對 45px 小球優化的大小 */
+}
 
-    /* 3. 憑證內容卡片 */
-    .qr-card-container {
-        background: white;
-        border-radius: 20px;
-        max-width: 400px;
-        margin: 50px auto;
-        padding: 20px;
-        position: relative;
-    }
-    .close-modal {
-        position: absolute;
-        top: 15px; right: 20px;
-        font-size: 24px; color: #666; font-weight: bold;
-    }
-    .qr-section {
-        border-bottom: 1px solid #eee;
-        padding: 15px 0;
-        text-align: center;
-    }
-    .qr-section:last-child { border-bottom: none; }
-    .qr-title { font-weight: bold; margin-bottom: 10px; color: #333; }
-    .qr-slider { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 5px; }
-    .qr-item { min-width: 150px; border: 1px solid #f0f0f0; border-radius: 8px; padding: 10px; }
-    .qr-item img { width: 100%; height: auto; }
-  
- /*票夾內編號按鈕*/
-  .num-btn {
+/* 3. 彈窗遮罩 (維持不變) */
+.qr-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    z-index: 10000;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 4. 憑證內容卡片 (維持不變) */
+.qr-card-container {
+    background: white;
+    border-radius: 20px;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 24px; color: #666; font-weight: bold;
+    cursor: pointer;
+}
+
+/* 5. 憑證區段 - 增加圖片淡入動畫 */
+.qr-section {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    text-align: center;
+}
+.qr-section:last-child { border-bottom: none; }
+.qr-title { font-weight: bold; margin-bottom: 10px; color: #333; }
+
+/* 新增：讓圖片切換時有平滑感 */
+#sky-img {
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* 6. 票夾內編號按鈕 (維持不變) */
+.num-btn {
     width: 36px;
     height: 36px;
-    border-radius: 4px; /* MUJI 風稍微帶一點圓角 */
+    border-radius: 4px; 
     border: 1px solid #ddd;
     background: #fff;
     color: #333;
     cursor: pointer;
     font-size: 0.9rem;
     transition: all 0.2s;
+    margin: 0 2px;
 }
-
 .num-btn.active {
-    background: #ac1f24; /* 點選後變紅色 */
+    background: #ac1f24;
     color: #fff;
     border-color: #ac1f24;
+}
+
+/* 7. 新增：水上巴士外部連結按鈕樣式 */
+.external-link-btn {
+    display: inline-block;
+    background: #007AFF;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0,122,255,0.3);
+    transition: background 0.2s;
+}
+.external-link-btn:active {
+    background: #0056b3;
 }
 </style>
 </head>
@@ -524,25 +553,46 @@ footer p {
         <span class="close-modal" onclick="toggleQRModal(false)">×</span>
         <h2 style="text-align: center; color: #ac1f24; margin-bottom: 20px;">我的憑證夾</h2>
 
-        <div class="qr-section">
-    <div class="qr-title">SHIBUYA SKY (4人券)</div>
+<div class="qr-section">
+    <div class="qr-title">🌌 SHIBUYA SKY 入場券</div>
     
-    <div style="background: white; padding: 10px; min-height: 200px; display: flex; align-items: center; justify-content: center;">
-        <img id="sky-img" src="你的QR1網址" style="width: 180px; height: auto; border: 1px solid #eee;">
+    <div style="background: white; padding: 10px; min-height: 200px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <img id="sky-img" src="SHIBUYASKY1.png" style="width: 180px; height: auto; border: 1px solid #eee; border-radius: 8px; transition: opacity 0.2s ease-in-out;">
+        <p id="sky-label" style="display: block; margin-top: 10px; color: #ac1f24; font-weight: bold; font-size: 0.9rem;">第 1 位</p>
     </div>
 
-    <div style="display: flex; justify-content: center; gap: 8px; margin-top: 15px;">
-        <button class="num-btn active" onclick="switchQR('sky', 1, '你的QR1網址', this)">1</button>
-        <button class="num-btn" onclick="switchQR('sky', 2, '你的QR2網址', this)">2</button>
-        <button class="num-btn" onclick="switchQR('sky', 3, '你的QR3網址', this)">3</button>
-        <button class="num-btn" onclick="switchQR('sky', 4, '你的QR4網址', this)">4</button>
+    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+        <button class="num-btn active" onclick="switchQR('sky', 1, 'SHIBUYASKY1.png', this)">1</button>
+        <button class="num-btn" onclick="switchQR('sky', 2, 'SHIBUYASKY2.png', this)">2</button>
+        <button class="num-btn" onclick="switchQR('sky', 3, 'SHIBUYASKY3.png', this)">3</button>
+        <button class="num-btn" onclick="switchQR('sky', 4, 'SHIBUYASKY4.png', this)">4</button>
     </div>
-    <small id="sky-label" style="display: block; margin-top: 8px; color: #666;">第 1 位</small>
+    
+    <p style="font-size: 0.75rem; color: #999; margin-top: 10px;">提示：點選編號依序掃描</p>
 </div>
 
 <div class="qr-section">
-    <div class="qr-title">今半壽喜燒 18:30</div>
-    <img src="你的今半QR網址" style="width: 180px;">
+    <div class="qr-title">⛴️ 台場水上巴士</div>
+    
+    <div style="background: white; padding: 10px; min-height: 150px; display: flex; align-items: center; justify-content: center;">
+        <a href="你的水上巴士確認截圖網址" target="_blank" title="點擊放大確認截圖">
+            <img src="tokyocruise.jpg" style="width: 150px; height: auto; border: 1px solid #eee; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+        </a>
+    </div>
+    <small style="display: block; color: #888; margin-top: -5px; margin-bottom: 15px; font-size: 0.75rem;">(上圖為預約確認截圖，點擊可放大)</small>
+
+    <div style="padding: 10px 0;">
+        <p style="font-size: 0.85rem; color: #444; margin-bottom: 15px; line-height: 1.4;">
+            現場請開啟下方連結出示<span style="color: #ac1f24; font-weight: bold;">動態門票</span><br>
+            <span style="font-size: 0.75rem; color: #999;">(建議提前點開確認頁面)</span>
+        </p>
+        
+        <a href="https://quickticket.moala.fun/books?id=99dcc973-6a0e-40bf-b304-5ecb74ffbe1e" 
+           target="_blank" 
+           class="external-link-btn">
+           開啟動態門票 ↗
+        </a>
+    </div>
 </div>
 
         <p style="text-align:center; font-size: 12px; color: #999; margin-top: 20px;">
@@ -2769,28 +2819,40 @@ function copyText(text) {
     document.body.removeChild(textArea);
 }
 
-      // 票夾
-      function toggleQRModal(show) {
-        const modal = document.getElementById('qrModal');
-        modal.style.display = show ? 'block' : 'none';
-        // 打開彈窗時禁止背景滾動
-        document.body.style.overflow = show ? 'hidden' : 'auto';
-    }
-      function switchQR(type, num, url, btnElement) {
-    // 1. 更換圖片
+      // 1. 控制票夾彈窗開關
+function toggleQRModal(show) {
+    const modal = document.getElementById('qrModal');
+    modal.style.display = show ? 'block' : 'none';
+    // 打開彈窗時禁止背景滾動，避免滑動票券時後方行程跟著跑
+    document.body.style.overflow = show ? 'hidden' : 'auto';
+}
+
+// 2. 切換多張票券 (如 SHIBUYA SKY)
+function switchQR(type, num, url, btnElement) {
     const imgElement = document.getElementById(type + '-img');
-    imgElement.src = url;
-
-    // 2. 更換文字標籤
     const labelElement = document.getElementById(type + '-label');
-    labelElement.innerText = '第 ' + num + ' 位';
 
-    // 3. 更新按鈕的 active 樣式
-    // 找出該按鈕父容器內所有的按鈕，並移除 active class
+    // --- 新增：淡入淡出動畫效果 ---
+    // 先讓圖片透明度變 0
+    imgElement.style.opacity = 0;
+
+    // 等待 150 毫秒透明度消失後，再換圖並顯現
+    setTimeout(() => {
+        // A. 更換圖片路徑
+        imgElement.src = url;
+        
+        // B. 更換下方文字 (第 X 位)
+        if (labelElement) {
+            labelElement.innerText = '第 ' + num + ' 位';
+        }
+        
+        // C. 恢復透明度，達成淡入效果
+        imgElement.style.opacity = 1;
+    }, 150);
+
+    // --- 3. 按鈕樣式 ---
     const buttons = btnElement.parentElement.querySelectorAll('.num-btn');
     buttons.forEach(btn => btn.classList.remove('active'));
-    
-    // 為當前點擊的按鈕加上 active class
     btnElement.classList.add('active');
 }
     </script>
