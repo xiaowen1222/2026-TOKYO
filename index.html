@@ -589,14 +589,32 @@
 </div>
 
 <div class="qr-section">
-    <div class="qr-title">⛴️ 台場水上巴士</div>
-    <div style="background: white; padding: 10px; min-height: 150px; display: flex; align-items: center; justify-content: center;">
+    <div class="qr-title">⛴️ 台場水上巴士 (TOKYO CRUISE)</div>
+    
+    <div style="background: white; padding: 10px; min-height: 150px; display: flex; align-items: center; justify-content: center; flex-direction: column;">
         <img src="tokyocruise.jpg" 
              onclick="zoomImg(this.src)" 
-             style="width: 150px; height: auto; border: 1px solid #eee; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); cursor: zoom-in;">
+             style="width: 150px; height: auto; border: 1px solid #eee; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); cursor: zoom-in;">
+        <p style="color: #888; margin-top: 8px; font-size: 0.75rem;">🔍 點擊圖片放大查看詳情</p>
     </div>
-    <small style="display: block; color: #888; margin-top: 5px; margin-bottom: 15px; font-size: 0.75rem;">(點擊圖片可放大查看詳情)</small>
+
+    <div style="padding: 15px 0 10px 0;">
+        <div style="background: #f9f9f9; border-radius: 8px; padding: 12px; margin-bottom: 15px; border: 1px dashed #ccc;">
+            <p style="font-size: 0.85rem; color: #333; margin: 0; line-height: 1.5;">
+                ⚠️ <b>現場乘船請點下方按鈕</b><br>
+                需開啟網頁由工作人員驗票
+            </p>
+        </div>
+        
+        <a href="https://quickticket.moala.fun/books?id=99dcc973-6a0e-40bf-b304-5ecb74ffbe1e" 
+           target="_blank" 
+           class="external-link-btn"
+           style="width: 85%; text-align: center; display: inline-block;">
+           開啟動態門票 ↗
+        </a>
     </div>
+</div>
+      
 
 <div id="imgZoomModal" onclick="this.style.display='none'" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 20000; justify-content: center; align-items: center; cursor: zoom-out;">
     <img id="zoomedImg" style="max-width: 90%; max-height: 90%; border-radius: 5px; box-shadow: 0 0 20px rgba(255,255,255,0.2);">
